@@ -26,9 +26,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: pr-mpt/actions-commit-hash@v1
-        with:
-          commit: "${{ github.event.workflow_run.head_sha }}"
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v1
           
       - run: npm install
           
