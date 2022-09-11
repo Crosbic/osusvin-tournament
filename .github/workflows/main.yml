@@ -44,3 +44,12 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/svin_tournament_ui:latest
+          
+          
+      - name: Redeploy UI
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: bash redeploy.sh
+          host: ${{ secrets.HOST }}
+          username: root
+          privateKey: ${{ secrets.PRIVATE_KEY}}
