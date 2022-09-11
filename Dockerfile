@@ -6,4 +6,6 @@ COPY docker-nginx.conf /etc/nginx/conf.d/docker-nginx.conf
 
 WORKDIR /var/www/svin-ui
 
+COPY .next/ .
+
 EXPOSE 3000
