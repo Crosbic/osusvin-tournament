@@ -30,7 +30,7 @@ const Home: NextPage = () => {
               </a>
             </div>
             <div className={styles.icons}>
-              <a href="https://discord.gg/GBcrMYBx">
+              <a href="https://discord.gg/KfdDd2zqas">
                 <Image
                   src="/discord.png"
                   alt="Discord logo"
