@@ -6,7 +6,7 @@
 
 .main {
   z-index: 1;
-  min-height: 100vh;
+  min-height: 84.5vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -23,9 +23,12 @@
   z-index: 2;
   display: flex;
   flex: 1;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   justify-content: center;
   align-items: flex-end;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 16px;
 }
 
 .footer a {

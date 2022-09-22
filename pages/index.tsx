@@ -12,26 +12,20 @@ const Home: NextPage = () => {
       <div className={styles.background}>
         <div className={styles.main}>
           <div className={styles.reggrid}>
-            <a href="https://nextjs.org/docs" className={styles.regcard}>
+            <a href="" className={styles.regcard}>
               <h2>Регистрация</h2>
             </a>
 
             <div className={styles.grid}>
-              <a href="https://nextjs.org/learn" className={styles.card}>
+              <a href="" className={styles.card}>
                 <h2>Список игроков</h2>
               </a>
 
-              <a
-                href="https://github.com/vercel/next.js/tree/canary/examples"
-                className={styles.card}
-              >
+              <a href="" className={styles.card}>
                 <h2>Расписание</h2>
               </a>
 
-              <a
-                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                className={styles.card}
-              >
+              <a href="" className={styles.card}>
                 <h2>Маппулы</h2>
               </a>
             </div>
@@ -57,11 +51,11 @@ const Home: NextPage = () => {
 
         <div className={styles.footer}>
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://vk.com/cheeky_breeky_i_v_damke"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by Crosbic ass
+            По всем вопросам обращаться сюда
           </a>
         </div>
       </div>
