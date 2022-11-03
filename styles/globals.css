@@ -1,20 +1,27 @@
-html,
 body {
   z-index: 1;
-  background: no-repeat url("../public/mainbg.svg");
+  background: url("../public/mainbg.svg") no-repeat top;
   background-size: cover;
-  height: 100%;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Trebuchet MS", serif;
+}
+
+main {
+  min-height: 100vh;
+  padding: 10rem 0 3rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
-  stroke: #ff7eb9;
-  position: relative;
+  position: center;
   height: 100px;
-  background: #212121;
+  width: auto;
+  background: #282828;
   z-index: 2;
   display: flex;
   flex: 0 0 auto;
