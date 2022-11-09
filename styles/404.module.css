@@ -1,0 +1,15 @@
+.error {
+    display: contents;
+    align-items: start;
+    justify-content: start;
+}
+
+.errorText {
+    color: #eaeaea;
+    font-size: 30px;
+}
+
+.errorDescritpion {
+    color: #eaeaea;
+    font-size: 16px;
+}

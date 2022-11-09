@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <main>
+        <main className={styles.content}>
           <div className={styles.reggrid}>
             <Link href="">
               <a className={styles.regcard}>
