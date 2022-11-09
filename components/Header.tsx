@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <a href="">
+          <a href="home">
             <Image src="header.svg" alt="Header" height="125" width="600" />
           </a>
         </div>
