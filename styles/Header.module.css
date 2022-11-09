@@ -1,10 +1,11 @@
 .wrapper {
-    height: 190px;
-    background: url("../public/geometry.svg") no-repeat top;
-    background-size: 100% 100%;
+    height: 200px;
+    background: url("../public/pg.png") no-repeat top;
+    background-size: contain;
 }
 
 .header {
+    padding: 2rem 0;
     position: absolute;
     display: flex;
     overflow: hidden;
