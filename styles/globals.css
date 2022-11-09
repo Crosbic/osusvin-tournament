@@ -1,15 +1,12 @@
 body {
-  z-index: 1;
-  background: url("../public/mainbg.svg") no-repeat top;
-  background-size: cover;
+  background: #1C1C1C;
   padding: 0;
   margin: 0;
   font-family: "Trebuchet MS", serif;
 }
 
 main {
-  min-height: 100vh;
-  padding: 10rem 0 3rem 0;
+  min-height: calc(100vh - 290px);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -22,7 +19,6 @@ footer {
   height: 100px;
   width: auto;
   background: #282828;
-  z-index: 2;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;

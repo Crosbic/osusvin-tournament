@@ -1,0 +1,13 @@
+.wrapper {
+    height: 190px;
+    background: url("../public/geometry.svg") no-repeat top;
+    background-size: 100% 100%;
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    width: 100%;
+}
