@@ -1,7 +1,5 @@
 .error {
-    display: contents;
-    align-items: start;
-    justify-content: start;
+    justify-content: center;
 }
 
 .errorText {
