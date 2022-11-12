@@ -2,7 +2,7 @@ body {
   background: #1C1C1C;
   padding: 0;
   margin: 0;
-  font-family: "Trebuchet MS", serif;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 main {
@@ -37,8 +37,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.wrapper {
-
 }
