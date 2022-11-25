@@ -105,6 +105,7 @@ interface HeadCell {
   id: keyof Data
   label: string
   numeric: boolean
+  sort: boolean
 }
 
 const headCells: readonly HeadCell[] = [
@@ -113,30 +114,35 @@ const headCells: readonly HeadCell[] = [
     numeric: false,
     disablePadding: true,
     label: 'Avatar',
+    sort: false,
   },
   {
     id: 'flag',
     numeric: true,
     disablePadding: false,
     label: 'Flag',
+    sort: false,
   },
   {
     id: 'nickname',
     numeric: true,
     disablePadding: false,
     label: 'Nickname',
+    sort: true,
   },
   {
     id: 'pp',
     numeric: true,
     disablePadding: false,
     label: 'Perfomance Points',
+    sort: true,
   },
   {
     id: 'rank',
     numeric: true,
     disablePadding: false,
     label: 'Global Rank',
+    sort: true,
   },
 ]
 
@@ -238,18 +244,24 @@ const ParticipantsTableHead = (props: PartcipantsTableProps) => {
             align="center"
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
+            {headCell.sort ? (
+              <TableSortLabel
+                active={headCell.sort ? orderBy === headCell.id : false}
+                direction={orderBy === headCell.id ? order : 'asc'}
+                onClick={createSortHandler(headCell.id)}
+              >
+                {headCell.label}
+                {orderBy === headCell.id ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === 'desc'
+                      ? 'sorted descending'
+                      : 'sorted ascending'}
+                  </Box>
+                ) : null}
+              </TableSortLabel>
+            ) : (
+              headCell.label
+            )}
           </TableCell>
         ))}
       </TableRow>
