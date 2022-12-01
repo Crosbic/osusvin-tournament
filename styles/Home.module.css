@@ -12,6 +12,7 @@ min-height: 100%
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
   max-width: 800px;
 }
 
@@ -21,29 +22,33 @@ min-height: 100%
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+  flex-direction: column;
 }
 
 .card {
-  width: 225px;
-  margin: 1rem;
+  width: 250px;
+  margin: 18px;
   text-align: center;
   color: #eaeaea;
   text-decoration: none;
   border: 1.5px solid #ff7eb9;
-  border-radius: 20px;
+  border-radius: 55px;
   transition: color 0.35s ease, border-color 0.35s ease;
   max-width: 300px;
 }
 
 .regcard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
   width: 400px;
-  margin: 1rem;
+  margin-bottom: 40px;
   text-align: center;
   color: #eaeaea;
   text-decoration: none;
   border: 1.5px solid #ff7eb9;
-  border-radius: 100px;
-  transition: color 0.35s ease, border-color 0.35s ease;
+  border-radius: 55px;
 }
 .regcard:hover,
 .regcard:focus,
@@ -51,18 +56,20 @@ min-height: 100%
 .card:hover,
 .card:focus,
 .card:active {
+  transition: color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
   color: #ff7eb9;
   border-color: #eaeaea;
   background-color: #212121;
+  filter: drop-shadow(0px 4px 4px #f8f8f8);
 }
 
 .regcard h2 {
-  font-size: 2.2rem;
+  font-size: 27px;
 
 }
 
 .card h2 {
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
 .card p {
@@ -71,9 +78,13 @@ min-height: 100%
 }
 
 .icons {
-  margin: 0.5rem;
+  justify-content: center;
+  padding-bottom: 15px;
+  width: 200px;
+  margin: 10px;
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  box-shadow: #eaeaea 0 1px;
 }
 
 .footer {
@@ -81,5 +92,5 @@ min-height: 100%
 }
 
 .description {
-  font-size: 14px;
+  font-size: 10px;
 }

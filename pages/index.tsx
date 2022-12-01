@@ -37,19 +37,19 @@ const Home = () => {
               <Link href="https://discord.gg/KfdDd2zqas">
                 <a>
                   <Image
-                    src="/discord.png"
+                    src="/discord.svg"
                     alt="Discord logo"
-                    width={52}
-                    height={52}
+                    width={42}
+                    height={30}
                   />
                 </a>
               </Link>
-              <Image src="/osu.png" alt="Osu logo" width={56} height={52} />
+              <Image src="/osu.svg" alt="Osu logo" width={30} height={30} />
               <Image
-                src="/twitch.png"
+                src="/twitch.svg"
                 alt="Twitch logo"
-                width={52}
-                height={52}
+                width={32.25}
+                height={30}
               />
             </div>
           </div>

@@ -2,11 +2,11 @@ body {
   background: #1C1C1C;
   padding: 0;
   margin: 0;
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Comfortaa", serif;
 }
 
 main {
-  min-height: calc(100vh - 300px);
+  min-height: calc(100vh - 270px);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,18 +15,17 @@ main {
 
 footer {
   position: center;
-  height: 100px;
+  height: 70px;
   width: auto;
-  background: #282828;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
   padding: 1.5rem 0;
   justify-content: center;
   align-items: center;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  font-size: 16px;
-  color: #eaeaea;
+  font-family: "Comfortaa", serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
 
 }
 
