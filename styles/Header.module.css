@@ -1,6 +1,6 @@
 .wrapper {
-    height: 200px;
-    background: url("../public/geometry.png") no-repeat top;
+    height: 210px;
+    background: url("../public/headerBackground.svg") no-repeat top;
     background-size: contain;
 }
 
@@ -9,6 +9,8 @@
     position: absolute;
     display: flex;
     overflow: hidden;
+    align-items: center;
     justify-content: center;
     width: 100%;
+    height: 210px;
 }

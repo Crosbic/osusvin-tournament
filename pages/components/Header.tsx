@@ -7,13 +7,19 @@ const Header = () => {
   return (
     <>
       <Head>
-        <title>osu!svin tournament</title>
+        <title>osu! svin tournament</title>
       </Head>
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <Link href="/">
             <a>
-              <Image src="header.svg" alt="Header" height="125" width="700" />
+              <Image
+                src="header.svg"
+                alt="Header"
+                height="125"
+                width="700"
+                priority={true}
+              />
             </a>
           </Link>
         </div>

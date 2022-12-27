@@ -1,13 +1,16 @@
 .error {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    color: #eaeaea;
 }
 
 .errorText {
-    color: #eaeaea;
     font-size: 30px;
 }
 
 .errorDescritpion {
-    color: #eaeaea;
     font-size: 16px;
 }

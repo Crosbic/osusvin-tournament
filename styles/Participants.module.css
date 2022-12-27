@@ -1,5 +1,4 @@
 .table {
-    justify-content: center;
     width: calc(100% - 100px);
     padding: 1rem 3rem 3rem 3rem;
 }

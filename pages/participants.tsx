@@ -300,7 +300,7 @@ const ParticipantsTable = () => {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
 
   return (
-    <main className={styles.table}>
+    <div className={styles.table}>
       <Paper sx={{ width: '100%' }}>
         <ThemeProvider theme={theme}>
           <TableContainer>
@@ -362,7 +362,7 @@ const ParticipantsTable = () => {
           </TableContainer>
         </ThemeProvider>
       </Paper>
-    </main>
+    </div>
   )
 }
 
