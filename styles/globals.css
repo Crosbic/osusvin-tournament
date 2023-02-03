@@ -20,7 +20,7 @@ main {
   display: flex;
   justify-content: center;
   background: url("../public/mainBg.svg") no-repeat top;
-  background-size: 100%;
+  background-size: contain;
 }
 
 footer {
