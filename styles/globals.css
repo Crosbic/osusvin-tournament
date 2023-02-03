@@ -6,6 +6,8 @@
 }
 
 body {
+  width: 100%;
+  height: 100%;
   background: #1C1C1C;
   padding: 0;
   margin: 0;
@@ -17,6 +19,8 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
+  background: url("../public/mainBg.svg") no-repeat top;
+  background-size: 100%;
 }
 
 footer {

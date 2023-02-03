@@ -6,7 +6,8 @@ const nextConfig = {
     outputStandalone: true,
   },
   images: {
-    loader: 'akamai',
+    disableStaticImages: false,
+    loader: 'default',
     path: '',
   },
 }

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from '/styles/Header.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
+import headerImg from '/public/header.svg'
 
 const Header = () => {
   return (
@@ -13,13 +14,7 @@ const Header = () => {
         <div className={styles.header}>
           <Link href="/">
             <a>
-              <Image
-                src="header.svg"
-                alt="Header"
-                height="125"
-                width="700"
-                priority={true}
-              />
+              <Image src={headerImg} alt="Header" height="210" width="700" />
             </a>
           </Link>
         </div>

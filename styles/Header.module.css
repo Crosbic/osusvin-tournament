@@ -1,6 +1,6 @@
 .wrapper {
     height: 210px;
-    background: url("../public/headerBackground.svg") no-repeat top;
+    background: url("../public/headerBg.svg") no-repeat top;
     background-size: contain;
 }
 
