@@ -40,7 +40,11 @@ const Home = () => {
                 />
               </a>
             </Link>
-            <Image src="/osu.svg" alt="Osu logo" width={30} height={30} />
+            <Link href="https://osu.ppy.sh/community/forums/topics/1718381?n=1">
+              <a>
+                <Image src="/osu.svg" alt="Osu logo" width={30} height={30} />
+              </a>
+            </Link>
             <Image
               src="/twitch.svg"
               alt="Twitch logo"

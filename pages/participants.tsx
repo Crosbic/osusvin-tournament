@@ -166,7 +166,16 @@ interface TablePaginationActionsProps {
   ) => void
 }
 
-const theme = createTheme(ruRU)
+const theme = createTheme(
+  {
+    palette: { mode: 'dark' },
+    typography: {
+      fontFamily: ['Comfortaa', 'TrebuchetMS'].join(','),
+      fontSize: 16,
+    },
+  },
+  ruRU
+)
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
   const { count, page, rowsPerPage, onPageChange } = props
@@ -300,67 +309,80 @@ const ParticipantsTable = () => {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
 
   return (
-    <div className={styles.table}>
-      <Paper sx={{ width: '100%' }}>
-        <ThemeProvider theme={theme}>
-          <TableContainer>
-            <Table sx={{ minWidth: 500 }}>
-              <ParticipantsTableHead
-                order={order}
-                orderBy={orderBy}
-                onRequestSort={handleRequestSort}
-                rowCount={rows.length}
-              />
-              <TableBody>
-                {(rowsPerPage > 0
-                  ? stableSort(rows, getComparator(order, orderBy)).slice(
-                      page * rowsPerPage,
-                      page * rowsPerPage + rowsPerPage
+    <div className={styles.tableContainer}>
+      <Paper
+        sx={{
+          width: '100%',
+          backgroundColor: '#00000000',
+        }}
+      >
+        <div className={styles.table}>
+          <ThemeProvider theme={theme}>
+            <TableContainer>
+              <Table
+                sx={{
+                  minWidth: 500,
+                }}
+              >
+                <ParticipantsTableHead
+                  order={order}
+                  orderBy={orderBy}
+                  onRequestSort={handleRequestSort}
+                  rowCount={rows.length}
+                />
+                <TableBody>
+                  {(rowsPerPage > 0
+                    ? stableSort(rows, getComparator(order, orderBy)).slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                    : stableSort(rows, getComparator(order, orderBy))
+                  ).map((row) => {
+                    return (
+                      <TableRow
+                        key={row.avatar}
+                        sx={{
+                          '&:last-child td, &:last-child th': { border: 0 },
+                        }}
+                      >
+                        <TableCell align="center">{row.avatar}</TableCell>
+                        <TableCell align="center">{row.flag}</TableCell>
+                        <TableCell align="center">{row.nickname}</TableCell>
+                        <TableCell align="center">{row.pp}</TableCell>
+                        <TableCell align="center">{row.rank}</TableCell>
+                      </TableRow>
                     )
-                  : stableSort(rows, getComparator(order, orderBy))
-                ).map((row) => {
-                  return (
-                    <TableRow
-                      key={row.avatar}
-                      sx={{
-                        '&:last-child td, &:last-child th': { border: 0 },
-                      }}
-                    >
-                      <TableCell align="center">{row.avatar}</TableCell>
-                      <TableCell align="center">{row.flag}</TableCell>
-                      <TableCell align="center">{row.nickname}</TableCell>
-                      <TableCell align="center">{row.pp}</TableCell>
-                      <TableCell align="center">{row.rank}</TableCell>
+                  })}
+                  {emptyRows > 0 && (
+                    <TableRow style={{ height: 53 * emptyRows }}>
+                      <TableCell colSpan={6} />
                     </TableRow>
-                  )
-                })}
-                {emptyRows > 0 && (
-                  <TableRow style={{ height: 53 * emptyRows }}>
-                    <TableCell colSpan={6} />
+                  )}
+                </TableBody>
+                <TableFooter>
+                  <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TablePagination
+                      rowsPerPageOptions={[
+                        5,
+                        10,
+                        25,
+                        { label: 'Все', value: -1 },
+                      ]}
+                      count={rows.length}
+                      rowsPerPage={rowsPerPage}
+                      page={page}
+                      onPageChange={handleChangePage}
+                      onRowsPerPageChange={handleChangeRowsPerPage}
+                      ActionsComponent={TablePaginationActions}
+                    />
                   </TableRow>
-                )}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TablePagination
-                    rowsPerPageOptions={[
-                      5,
-                      10,
-                      25,
-                      { label: 'Все', value: -1 },
-                    ]}
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  />
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </TableContainer>
-        </ThemeProvider>
+                </TableFooter>
+              </Table>
+            </TableContainer>
+          </ThemeProvider>
+        </div>
       </Paper>
     </div>
   )
