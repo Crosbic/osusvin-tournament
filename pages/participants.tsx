@@ -340,7 +340,7 @@ const ParticipantsTable = () => {
                   ).map((row) => {
                     return (
                       <TableRow
-                        key={row.avatar}
+                        key={row.nickname}
                         sx={{
                           '&:last-child td, &:last-child th': { border: 0 },
                         }}
