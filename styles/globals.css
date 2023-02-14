@@ -19,8 +19,9 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
-  background: url("../public/mainBg.svg") no-repeat top;
-  background-size: 100%;
+  align-items: center;
+  background: url("../public/mainBg.svg") no-repeat center;
+  background-size: contain;
 }
 
 footer {
