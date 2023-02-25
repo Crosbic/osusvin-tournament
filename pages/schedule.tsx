@@ -26,7 +26,7 @@ import { TabContext, TabList, TabPanel } from '@mui/lab'
 
 interface Data {
   matchID: string
-  date: string
+  datetime: string
   avatar1: string
   player1: string
   score1: number
@@ -40,7 +40,7 @@ interface Data {
 
 function createData(
   matchID: string,
-  date: string,
+  datetime: string,
   avatar1: string,
   player1: string,
   score1: number,
@@ -53,7 +53,7 @@ function createData(
 ): Data {
   return {
     matchID,
-    date,
+    datetime,
     avatar1,
     player1,
     score1,
@@ -284,7 +284,7 @@ const headCells: readonly HeadCell[] = [
     sort: true,
   },
   {
-    id: 'date',
+    id: 'datetime',
     numeric: false,
     disablePadding: false,
     label: 'Дата и время',
@@ -489,7 +489,7 @@ const ParticipantsTableHead = (props: PartcipantsTableProps) => {
 
 const ParticipantsTable = () => {
   const [order, setOrder] = useState<Order>('desc')
-  const [orderBy, setOrderBy] = useState<keyof Data>('date')
+  const [orderBy, setOrderBy] = useState<keyof Data>('datetime')
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
   const [value, setValue] = useState('1')
@@ -524,7 +524,7 @@ const ParticipantsTable = () => {
 
   return (
     <>
-      <div className="styles.tabs">
+      <div className={styles.tabs}>
         <TabContext value={value}>
           <TabList onChange={handleTabChange}>
             <Tab label="RO32" value="1" />
@@ -576,7 +576,9 @@ const ParticipantsTable = () => {
                                 <TableCell align="center">
                                   {row.matchID}
                                 </TableCell>
-                                <TableCell align="center">{row.date}</TableCell>
+                                <TableCell align="center">
+                                  {row.datetime}
+                                </TableCell>
                                 <TableCell align="center">
                                   {row.avatar1}
                                 </TableCell>

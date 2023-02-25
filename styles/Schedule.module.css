@@ -1,7 +1,12 @@
-.tableContainer {
-    max-width: 1400px;
+.tabs {
+    display: block;
+    max-width: 1150px;
     width: calc(100% - 100px);
-    padding: 1rem 3rem 3rem 3rem;
+    color: #eaeaea;
+}
+
+.tableContainer {
+    padding-top: 1rem;
 }
 
 .table {
