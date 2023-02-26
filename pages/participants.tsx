@@ -28,6 +28,7 @@ interface Data {
   nickname: string
   pp: number
   rank: number
+  accuracy: number
 }
 
 function createData(
@@ -35,7 +36,8 @@ function createData(
   flag: string,
   nickname: string,
   pp: number,
-  rank: number
+  rank: number,
+  accuracy: number
 ): Data {
   return {
     avatar,
@@ -43,19 +45,15 @@ function createData(
     nickname,
     pp,
     rank,
+    accuracy,
   }
 }
 
 const rows = [
-  createData('а', 'a', '1', 0, 1233),
-  createData('б', 'b', '2', -1, 233),
-  createData('в', 'c', '3', -2, 455),
-  createData('г', 'd', '4', -3, 657),
-  createData('д', 'e', '5', -4, 2635),
-  createData('е', 'f', '6', -5, 987),
-  createData('ё', 'g', '7', -6, 12),
-  createData('ж', 'h', '8', -7, 6500),
-  createData('з', 'k', '9', -8, 1278),
+  createData('а', 'a', '1', 0, 1233, 88.11),
+  createData('б', 'b', '2', -1, 233, 90.5),
+  createData('в', 'c', '3', -2, 455, 100),
+  createData('г', 'd', '4', -3, 657, 90.7),
 ]
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -142,6 +140,13 @@ const headCells: readonly HeadCell[] = [
     numeric: true,
     disablePadding: false,
     label: 'Global Rank',
+    sort: true,
+  },
+  {
+    id: 'accuracy',
+    numeric: false,
+    disablePadding: false,
+    label: 'Accuracy',
     sort: true,
   },
 ]
@@ -350,6 +355,7 @@ const ParticipantsTable = () => {
                         <TableCell align="center">{row.nickname}</TableCell>
                         <TableCell align="center">{row.pp}</TableCell>
                         <TableCell align="center">{row.rank}</TableCell>
+                        <TableCell align="center">{row.accuracy}</TableCell>
                       </TableRow>
                     )
                   })}
