@@ -1,3 +1,12 @@
+.participantsList {
+    color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
 .tableContainer {
     max-width: 1200px;
     width: calc(100% - 100px);
@@ -10,4 +19,8 @@
     border: 1px inset #eaeaea;
     border-radius: 15px;
     backdrop-filter: blur(10px);
+}
+
+.avatar {
+    border-radius: 7px;
 }

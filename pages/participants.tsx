@@ -21,6 +21,7 @@ import LastPageIcon from '@mui/icons-material/LastPage'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
 import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
+import Image from 'next/image'
 
 interface Data {
   avatar: string
@@ -50,10 +51,38 @@ function createData(
 }
 
 const rows = [
-  createData('а', 'a', '1', 0, 1233, 88.11),
-  createData('б', 'b', '2', -1, 233, 90.5),
-  createData('в', 'c', '3', -2, 455, 100),
-  createData('г', 'd', '4', -3, 657, 90.7),
+  createData(
+    'https://a.ppy.sh/12048705?1597129514.jpeg',
+    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
+    'Crosbic',
+    4721,
+    75173,
+    99.04
+  ),
+  createData(
+    'https://a.ppy.sh/27805590?1659702297.gif',
+    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
+    'Danton',
+    2838,
+    210834,
+    97.64
+  ),
+  createData(
+    'https://a.ppy.sh/6984567?1643483765.jpeg',
+    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
+    'TheEZIC',
+    868,
+    649968,
+    95.68
+  ),
+  createData(
+    'https://a.ppy.sh/12346190?1648672683.jpeg',
+    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
+    'SLAVA MARL0W',
+    5284,
+    53232,
+    98.74
+  ),
 ]
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -117,35 +146,35 @@ const headCells: readonly HeadCell[] = [
   {
     id: 'flag',
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Flag',
     sort: false,
   },
   {
     id: 'nickname',
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Nickname',
     sort: true,
   },
   {
     id: 'pp',
     numeric: true,
-    disablePadding: false,
-    label: 'Perfomance Points',
+    disablePadding: true,
+    label: 'PP',
     sort: true,
   },
   {
     id: 'rank',
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Global Rank',
     sort: true,
   },
   {
     id: 'accuracy',
     numeric: false,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Accuracy',
     sort: true,
   },
@@ -261,7 +290,7 @@ const ParticipantsTableHead = (props: PartcipantsTableProps) => {
             {headCell.sort ? (
               <TableSortLabel
                 active={headCell.sort ? orderBy === headCell.id : false}
-                direction={orderBy === headCell.id ? order : 'asc'}
+                direction={orderBy === headCell.id ? order : 'desc'}
                 onClick={createSortHandler(headCell.id)}
               >
                 {headCell.label}
@@ -293,8 +322,8 @@ const ParticipantsTable = () => {
     event: React.MouseEvent<unknown>,
     property: keyof Data
   ) => {
-    const isAsc = orderBy === property && order === 'asc'
-    setOrder(isAsc ? 'desc' : 'asc')
+    const isDesc = orderBy === property && order === 'desc'
+    setOrder(isDesc ? 'asc' : 'desc')
     setOrderBy(property)
   }
 
@@ -321,6 +350,7 @@ const ParticipantsTable = () => {
           backgroundColor: '#00000000',
         }}
       >
+        <div className={styles.participantsList}>Список игроков</div>
         <div className={styles.table}>
           <ThemeProvider theme={theme}>
             <TableContainer>
@@ -350,12 +380,37 @@ const ParticipantsTable = () => {
                           '&:last-child td, &:last-child th': { border: 0 },
                         }}
                       >
-                        <TableCell align="center">{row.avatar}</TableCell>
-                        <TableCell align="center">{row.flag}</TableCell>
-                        <TableCell align="center">{row.nickname}</TableCell>
-                        <TableCell align="center">{row.pp}</TableCell>
-                        <TableCell align="center">{row.rank}</TableCell>
-                        <TableCell align="center">{row.accuracy}</TableCell>
+                        <TableCell align="center" size="small">
+                          <Image
+                            src={row.avatar}
+                            alt="Avatar"
+                            className={styles.avatar}
+                            height="40"
+                            width="40"
+                            unoptimized
+                          />
+                        </TableCell>
+                        <TableCell align="center" size="small">
+                          <Image
+                            src={row.flag}
+                            alt="Flag"
+                            height="40"
+                            width="40"
+                            unoptimized
+                          />
+                        </TableCell>
+                        <TableCell align="center" size="small">
+                          {row.nickname}
+                        </TableCell>
+                        <TableCell align="center" size="small">
+                          {row.pp}
+                        </TableCell>
+                        <TableCell align="center" size="small">
+                          {row.rank}
+                        </TableCell>
+                        <TableCell align="center" size="small">
+                          {row.accuracy}%
+                        </TableCell>
                       </TableRow>
                     )
                   })}
