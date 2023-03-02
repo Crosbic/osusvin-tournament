@@ -46,7 +46,11 @@ const AuthButton = () => {
     return (
       <>
         <h2>Привет, {user.username}</h2>
-        <div className={styles.regcard} onClick={signOut}>
+        <div
+          className={styles.regcard}
+          style={{ maxWidth: '330px' }}
+          onClick={signOut}
+        >
           <h2>Выйти</h2>
         </div>
       </>
