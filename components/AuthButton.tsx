@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
-import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const AuthButton = () => {
   const router = useRouter();
@@ -11,27 +11,19 @@ const AuthButton = () => {
   useEffect(() => {
     setToken(localStorage.getItem("jwt") ?? "");
     setUser(JSON.parse(localStorage.getItem("user") ?? "{}"));
+    checkLogin();
   }, []);
 
-  const signIn = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://auth.osusvin.ru/auth/osu/login"
-      );
+  const checkLogin = () => {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
 
-      console.log(data);
-
-      if (data.accessToken) {
-        localStorage.setItem("jwt", data.accessToken);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setToken(data.accessToken);
-        setUser(data.user);
-        router.push("/successRegistration");
-      } else {
-        router.push("/successRegistration");
-      }
-    } catch (e) {
-      router.push("/errorRegistration");
+    if (params.accessToken) {
+      localStorage.setItem("jwt", params.accessToken);
+      localStorage.setItem("user", params.user);
+      setToken(params.accessToken);
+      setUser(params.user);
+      router.push("/successRegistration");
     }
   };
 
@@ -44,9 +36,11 @@ const AuthButton = () => {
 
   if (!token) {
     return (
-      <div className={styles.regcard} onClick={signIn}>
-        <h2>Регистрация</h2>
-      </div>
+      <Link href={"http://localhost:8080/auth/osu/login"}>
+        <a className={styles.regcard}>
+          <h2>Регистрация</h2>
+        </a>
+      </Link>
     );
   } else {
     return (
