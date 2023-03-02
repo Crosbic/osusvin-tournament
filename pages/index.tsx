@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <div className={styles.content}>
         <div className={styles.reggrid}>
-          <Link href="">
+          <Link href="https://auth.osusvin.ru/auth/osu/login">
             <a className={styles.regcard}>
               <h2>Регистрация</h2>
             </a>

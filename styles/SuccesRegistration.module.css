@@ -6,9 +6,9 @@
     color: #eaeaea;
 }
 
-.errorText {
+.succesText {
     font-size: 30px;
-    margin-bottom: 0.2em;
+    margin: 0.2em;
 }
 
 .errorDescritpiton {
