@@ -22,6 +22,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage'
 import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
 import Image from 'next/image'
+import { NumericFormat } from 'react-number-format'
 
 interface Data {
   avatar: string
@@ -403,10 +404,18 @@ const ParticipantsTable = () => {
                           {row.nickname}
                         </TableCell>
                         <TableCell align="center" size="small">
-                          {row.pp}
+                          <NumericFormat
+                            value={row.pp}
+                            thousandSeparator=" "
+                            displayType="text"
+                          />
                         </TableCell>
                         <TableCell align="center" size="small">
-                          {row.rank}
+                          <NumericFormat
+                            value={row.rank}
+                            thousandSeparator=" "
+                            displayType="text"
+                          />
                         </TableCell>
                         <TableCell align="center" size="small">
                           {row.accuracy}%
