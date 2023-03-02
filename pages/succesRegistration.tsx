@@ -1,9 +1,22 @@
-import React from 'react'
-import styles from '../styles/SuccesRegistration.module.css'
-import Image from 'next/image'
-import succesRegistrationImg from '../public/succesRegistration.png'
+import React, { useEffect } from "react";
+import styles from "../styles/SuccesRegistration.module.css";
+import Image from "next/image";
+import succesRegistrationImg from "../public/succesRegistration.png";
+import { useRouter } from "next/router";
 
-const errorRegistration = () => {
+const successRegistration = () => {
+  const router = useRouter();
+
+  const timeout = setTimeout(() => {
+    router.push("/");
+  }, 3000);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -17,7 +30,7 @@ const errorRegistration = () => {
         <div className={styles.succesText}>Успешная регистрация</div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default errorRegistration
+export default successRegistration;

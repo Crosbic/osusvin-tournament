@@ -1,17 +1,13 @@
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import AuthButton from "../components/AuthButton";
 const Home = () => {
   return (
     <>
       <div className={styles.content}>
         <div className={styles.reggrid}>
-          <Link href="https://auth.osusvin.ru/auth/osu/login">
-            <a className={styles.regcard}>
-              <h2>Регистрация</h2>
-            </a>
-          </Link>
+          <AuthButton />
           <div className={styles.grid}>
             <Link href="participants">
               <a className={styles.card}>
@@ -55,7 +51,7 @@ const Home = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
