@@ -39,6 +39,10 @@ footer {
 
 }
 
+h2 {
+  color: #eaeaea;
+}
+
 a {
   color: inherit;
   text-decoration: none;

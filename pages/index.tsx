@@ -1,7 +1,7 @@
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Link from "next/link";
-import AuthButton from "../components/AuthButton";
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import AuthButton from '../components/AuthButton'
 const Home = () => {
   return (
     <>
@@ -51,7 +51,7 @@ const Home = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
