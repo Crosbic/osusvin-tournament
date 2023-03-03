@@ -15,7 +15,7 @@ import {
   ThemeProvider,
 } from '@mui/material'
 import styles from '../styles/Participants.module.css'
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import LastPageIcon from '@mui/icons-material/LastPage'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
@@ -23,6 +23,8 @@ import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
 import Image from 'next/image'
 import { NumericFormat } from 'react-number-format'
+import Axios from "axios";
+
 
 interface Data {
   avatar: string
@@ -50,8 +52,7 @@ function createData(
     accuracy,
   }
 }
-
-const rows = [
+/*let rows = [
   createData(
     'https://a.ppy.sh/12048705?1597129514.jpeg',
     'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
@@ -84,7 +85,7 @@ const rows = [
     53232,
     98.74
   ),
-]
+]*/
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -317,7 +318,9 @@ const ParticipantsTable = () => {
   const [order, setOrder] = useState<Order>('desc')
   const [orderBy, setOrderBy] = useState<keyof Data>('pp')
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(5)  
+  const [isLoading, setLoading] = useState(false)
+  const [rows, setRows] = useState([createData('0',"0","0",0,0,0)])//WTF??
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -342,6 +345,36 @@ const ParticipantsTable = () => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
+  
+  useEffect(() => {
+    setLoading(true)
+    Axios({
+        method: 'post',
+        url: `http://localhost:8080/users/participants`,
+        data: {
+          prePage: 0,
+          page: 0
+        }
+      })
+      .then((res) => res.data)
+      .then((data) => {
+        let rows : Data[] = new Array();
+        for (let participant of data.items) {
+          rows.push(createData(
+            participant.avatarUrl,
+            participant.flagUrl,
+            participant.username,
+            participant.pp,
+            participant.rank,
+            participant.accuracy))
+        }
+        setRows(rows)    
+        setLoading(false)
+      })
+  }, []) 
+
+  if (isLoading) return <p>Loading...</p>
+  if (!rows[0].rank) return <p>No profile data</p>
 
   return (
     <div className={styles.tableContainer}>
