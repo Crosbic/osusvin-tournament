@@ -23,69 +23,16 @@ import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
 import Image from 'next/image'
 import { NumericFormat } from 'react-number-format'
-import Axios from "axios";
-
+import axios from 'axios'
 
 interface Data {
-  avatar: string
-  flag: string
-  nickname: string
+  avatarUrl: string
+  flagUrl: string
+  username: string
   pp: number
   rank: number
   accuracy: number
 }
-
-function createData(
-  avatar: string,
-  flag: string,
-  nickname: string,
-  pp: number,
-  rank: number,
-  accuracy: number
-): Data {
-  return {
-    avatar,
-    flag,
-    nickname,
-    pp,
-    rank,
-    accuracy,
-  }
-}
-/*let rows = [
-  createData(
-    'https://a.ppy.sh/12048705?1597129514.jpeg',
-    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
-    'Crosbic',
-    4721,
-    75173,
-    99.04
-  ),
-  createData(
-    'https://a.ppy.sh/27805590?1659702297.gif',
-    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
-    'Danton',
-    2838,
-    210834,
-    97.64
-  ),
-  createData(
-    'https://a.ppy.sh/6984567?1643483765.jpeg',
-    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
-    'TheEZIC',
-    868,
-    649968,
-    95.68
-  ),
-  createData(
-    'https://a.ppy.sh/12346190?1648672683.jpeg',
-    'https://osu.ppy.sh/assets/images/flags/1f1f7-1f1fa.svg',
-    'SLAVA MARL0W',
-    5284,
-    53232,
-    98.74
-  ),
-]*/
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -139,21 +86,21 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: 'avatar',
+    id: 'avatarUrl',
     numeric: false,
     disablePadding: true,
     label: 'Avatar',
     sort: false,
   },
   {
-    id: 'flag',
+    id: 'flagUrl',
     numeric: true,
     disablePadding: true,
     label: 'Flag',
     sort: false,
   },
   {
-    id: 'nickname',
+    id: 'username',
     numeric: true,
     disablePadding: true,
     label: 'Nickname',
@@ -318,9 +265,9 @@ const ParticipantsTable = () => {
   const [order, setOrder] = useState<Order>('desc')
   const [orderBy, setOrderBy] = useState<keyof Data>('pp')
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)  
+  const [rowsPerPage, setRowsPerPage] = useState(5)
   const [isLoading, setLoading] = useState(false)
-  const [rows, setRows] = useState([createData('0',"0","0",0,0,0)])//WTF??
+  const [rows, setRows] = useState<Data[]>([])
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -345,36 +292,24 @@ const ParticipantsTable = () => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
-  
+
   useEffect(() => {
     setLoading(true)
-    Axios({
-        method: 'post',
-        url: `http://localhost:8080/users/participants`,
-        data: {
-          prePage: 0,
-          page: 0
-        }
+    axios
+      .post(`https://osusvin.ru/users/participants`, {
+        perPage: 0,
+        page: 0,
       })
       .then((res) => res.data)
       .then((data) => {
-        let rows : Data[] = new Array();
-        for (let participant of data.items) {
-          rows.push(createData(
-            participant.avatarUrl,
-            participant.flagUrl,
-            participant.username,
-            participant.pp,
-            participant.rank,
-            participant.accuracy))
-        }
-        setRows(rows)    
-        setLoading(false)
+        setRows(data.items as Data[])
       })
-  }, []) 
+      .finally(() => setLoading(false))
+  }, [])
 
-  if (isLoading) return <p>Loading...</p>
-  if (!rows[0].rank) return <p>No profile data</p>
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
   return (
     <div className={styles.tableContainer}>
@@ -409,32 +344,31 @@ const ParticipantsTable = () => {
                   ).map((row) => {
                     return (
                       <TableRow
-                        key={row.nickname}
+                        key={row.username}
                         sx={{
                           '&:last-child td, &:last-child th': { border: 0 },
                         }}
                       >
                         <TableCell align="center" size="small">
                           <Image
-                            src={row.avatar}
+                            src={row.avatarUrl}
                             alt="Avatar"
                             className={styles.avatar}
-                            height="40"
                             width="40"
+                            height="40"
                             unoptimized
                           />
                         </TableCell>
                         <TableCell align="center" size="small">
                           <Image
-                            src={row.flag}
+                            src={row.flagUrl}
                             alt="Flag"
-                            height="40"
                             width="40"
-                            unoptimized
+                            height="40"
                           />
                         </TableCell>
                         <TableCell align="center" size="small">
-                          {row.nickname}
+                          {row.username}
                         </TableCell>
                         <TableCell align="center" size="small">
                           <NumericFormat

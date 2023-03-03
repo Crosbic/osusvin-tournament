@@ -84,3 +84,15 @@
   gap: 20px;
   box-shadow: #eaeaea 0 1px 0 0;
 }
+
+.discord:hover {
+  color: #7289da;
+}
+
+.osu:hover {
+  color: #ff87c6;
+}
+
+.twitch:hover {
+  color: #6441A4;
+}

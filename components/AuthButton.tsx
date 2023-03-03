@@ -48,7 +48,7 @@ const AuthButton = () => {
         <h2>Привет, {user.username}</h2>
         <div
           className={styles.regcard}
-          style={{ maxWidth: '330px' }}
+          style={{ maxWidth: '330px', maxHeight: 'auto', cursor: 'pointer' }}
           onClick={signOut}
         >
           <h2>Выйти</h2>

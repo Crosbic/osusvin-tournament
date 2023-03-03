@@ -6,6 +6,13 @@ const nextConfig = {
     outputStandalone: true,
   },
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.ppy.sh',
+      },
+    ],
+    domains: ['osu.ppy.sh', 'a.ppy.sh'],
     disableStaticImages: false,
     loader: 'default',
     path: '',
