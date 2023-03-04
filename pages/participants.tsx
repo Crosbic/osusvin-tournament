@@ -34,47 +34,7 @@ interface Data {
   accuracy: number
 }
 
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1
-  }
-
-  return 0
-}
-
 type Order = 'asc' | 'desc'
-
-function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy)
-}
-
-function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0])
-    if (order !== 0) {
-      return order
-    }
-
-    return a[1] - b[1]
-  })
-
-  return stabilizedThis.map((el) => el[0])
-}
 
 interface HeadCell {
   disablePadding: boolean
@@ -162,6 +122,10 @@ const theme = createTheme(
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
   const { count, page, rowsPerPage, onPageChange } = props
+
+  if (!rowsPerPage) {
+    return <></>
+  }
 
   const handleFirstPageButtonClick = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -264,9 +228,10 @@ const ParticipantsTableHead = (props: PartcipantsTableProps) => {
 const ParticipantsTable = () => {
   const [order, setOrder] = useState<Order>('desc')
   const [orderBy, setOrderBy] = useState<keyof Data>('pp')
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
-  const [isLoading, setLoading] = useState(false)
+  const [page, setPage] = useState<number>(0)
+  const [rowsPerPage, setRowsPerPage] = useState<number>(5)
+  const [total, setTotal] = useState<number>(0)
+  const [isLoading, setLoading] = useState<boolean>(false)
   const [rows, setRows] = useState<Data[]>([])
 
   const handleRequestSort = (
@@ -290,22 +255,26 @@ const ParticipantsTable = () => {
     setPage(0)
   }
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
+  const emptyRows = rowsPerPage ? rowsPerPage - rows.length : 0
 
   useEffect(() => {
     setLoading(true)
     axios
       .post(`https://osusvin.ru/users/participants`, {
-        perPage: 0,
-        page: 0,
+        page,
+        perPage: rowsPerPage !== -1 ? rowsPerPage : undefined,
+        reverse: order === 'asc',
+        sortBy: orderBy,
       })
       .then((res) => res.data)
       .then((data) => {
         setRows(data.items as Data[])
+        setTotal(data.total)
       })
       .finally(() => setLoading(false))
-  }, [])
+  }, [order, orderBy, page, rowsPerPage])
+
+  console.log(rows)
 
   if (isLoading) {
     return <p>Loading...</p>
@@ -335,13 +304,7 @@ const ParticipantsTable = () => {
                   rowCount={rows.length}
                 />
                 <TableBody>
-                  {(rowsPerPage > 0
-                    ? stableSort(rows, getComparator(order, orderBy)).slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                    : stableSort(rows, getComparator(order, orderBy))
-                  ).map((row) => {
+                  {rows.map((row) => {
                     return (
                       <TableRow
                         key={row.username}
@@ -372,7 +335,7 @@ const ParticipantsTable = () => {
                         </TableCell>
                         <TableCell align="center" size="small">
                           <NumericFormat
-                            value={row.pp}
+                            value={Number(row.pp.toFixed(0))}
                             thousandSeparator=" "
                             displayType="text"
                           />
@@ -385,7 +348,7 @@ const ParticipantsTable = () => {
                           />
                         </TableCell>
                         <TableCell align="center" size="small">
-                          {row.accuracy}%
+                          {row.accuracy.toFixed(2)}%
                         </TableCell>
                       </TableRow>
                     )
@@ -402,12 +365,13 @@ const ParticipantsTable = () => {
                   >
                     <TablePagination
                       rowsPerPageOptions={[
+                        1,
                         5,
                         10,
                         25,
                         { label: 'Все', value: -1 },
                       ]}
-                      count={rows.length}
+                      count={total}
                       rowsPerPage={rowsPerPage}
                       page={page}
                       onPageChange={handleChangePage}
