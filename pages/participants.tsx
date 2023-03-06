@@ -255,9 +255,6 @@ const ParticipantsTable = () => {
     setPage(0)
   }
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
-
   useEffect(() => {
     setLoading(true)
     axios
@@ -274,8 +271,6 @@ const ParticipantsTable = () => {
       })
       .finally(() => setLoading(false))
   }, [order, orderBy, page, rowsPerPage])
-
-  console.log(rows)
 
   if (isLoading) {
     return <div className={styles.loading}>Loading...</div>
@@ -354,11 +349,6 @@ const ParticipantsTable = () => {
                       </TableRow>
                     )
                   })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
                 </TableBody>
                 <TableFooter>
                   <TableRow
