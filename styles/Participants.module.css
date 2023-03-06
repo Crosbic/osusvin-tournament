@@ -27,4 +27,11 @@
 
 .loading {
     color: #eaeaea;
+    font-size: 24px;
+}
+
+.profileLink:hover {
+    color: #ff7eb9;
+    transition: color 0.2s ease;
+    cursor: pointer;
 }

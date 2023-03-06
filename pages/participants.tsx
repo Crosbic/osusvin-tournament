@@ -24,8 +24,10 @@ import { ruRU } from '@mui/material/locale'
 import Image from 'next/image'
 import { NumericFormat } from 'react-number-format'
 import axios from 'axios'
+import Link from 'next/link'
 
 interface Data {
+  id: number
   avatarUrl: string
   flagUrl: string
   username: string
@@ -327,7 +329,11 @@ const ParticipantsTable = () => {
                           />
                         </TableCell>
                         <TableCell align="center" size="small">
-                          {row.username}
+                          <div className={styles.profileLink}>
+                            <Link href={`https://osu.ppy.sh/users/${row.id}`}>
+                              {row.username}
+                            </Link>
+                          </div>
                         </TableCell>
                         <TableCell align="center" size="small">
                           <NumericFormat
