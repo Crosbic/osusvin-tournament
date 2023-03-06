@@ -255,12 +255,13 @@ const ParticipantsTable = () => {
     setPage(0)
   }
 
-  const emptyRows = rowsPerPage ? rowsPerPage - rows.length : 0
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
 
   useEffect(() => {
     setLoading(true)
     axios
-      .post(`https://osusvin.ru/users/participants`, {
+      .post(`https://auth.osusvin.ru/users/participants`, {
         page,
         perPage: rowsPerPage !== -1 ? rowsPerPage : undefined,
         reverse: order === 'asc',
@@ -277,7 +278,7 @@ const ParticipantsTable = () => {
   console.log(rows)
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <div className={styles.loading}>Loading...</div>
   }
 
   return (
