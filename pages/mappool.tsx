@@ -67,7 +67,7 @@ function createData(
   }
 }
 
-const rows: any = [
+const constRows: Data[] = [
   createData(
     'https://assets.ppy.sh/beatmaps/842412/covers/cover.jpg',
     "https://osu.ppy.sh/beatmapsets/842412#osu/1762731",
@@ -129,32 +129,7 @@ const rows: any = [
     "Muga",
   ),
 ]
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1
-  }
-
-  return 0
-}
-
-type Order = 'asc' | 'desc'
-
-function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy)
-}
-
-function stableSort<T>(
+/*function stableSort<T>(
   array: readonly T[],
   comparator: (a: T, b: T) => number
 ) {
@@ -169,7 +144,7 @@ function stableSort<T>(
   })
 
   return stabilizedThis.map((el) => el[0])
-}
+}*/
 
 interface HeadCell {
   disablePadding: boolean
@@ -232,12 +207,6 @@ const headCells: readonly HeadCell[] = [
 ]
 
 interface MappoolTableProps {
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: string
-  ) => void
-  order: Order
-  orderBy: string
   rowCount: number
 }
 
@@ -321,41 +290,15 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   )
 }
 
-const MappoolTableHead = (props: MappoolTableProps) => {
-  const { order, orderBy, onRequestSort } = props
-
-  const createSortHandler =
-    (property: string) => (event: React.MouseEvent<unknown>) => {
-      onRequestSort(event, property)
-    }
-
+const MappoolTableHead = (props: MappoolTableProps) => { 
   return (
     <TableHead>
       <TableRow>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align="center"
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            {headCell.sort ? (
-              <TableSortLabel
-                active={headCell.sort ? orderBy === headCell.id : false}
-                direction={orderBy === headCell.id ? order : 'asc'}
-                onClick={createSortHandler(headCell.id)}
-              >
-                {headCell.label}
-                {orderBy === headCell.id ? (
-                  <Box component="span" sx={visuallyHidden}>
-                    {order === 'desc'
-                      ? 'sorted descending'
-                      : 'sorted ascending'}
-                  </Box>
-                ) : null}
-              </TableSortLabel>
-            ) : (
-              headCell.label
-            )}
+            align="center">
+            {headCell.label}
           </TableCell>
         ))}
       </TableRow>
@@ -364,20 +307,11 @@ const MappoolTableHead = (props: MappoolTableProps) => {
 }
 
 const MappoolTable = () => {
-  const [order, setOrder] = useState<Order>('desc')
-  const [orderBy, setOrderBy] = useState<string>('datetime')
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
   const [value, setValue] = useState('1')
+  const [rows, setRows] = useState<Data[]>(constRows)//loadind from back
 
-  const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
-    property: string
-  ) => {
-    const isAsc = orderBy === property && order === 'asc'
-    setOrder(isAsc ? 'desc' : 'asc')
-    setOrderBy(property)
-  }
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -422,26 +356,21 @@ const MappoolTable = () => {
                           minWidth: 500,
                         }}
                       >
-                        <MappoolTableHead
-                          order={order}
-                          orderBy={orderBy}
-                          onRequestSort={handleRequestSort}
+                        <MappoolTableHead                       
                           rowCount={rows.length}
                         />
                         <TableBody>
                           {(rowsPerPage > 0
-                            ? stableSort(
-                              rows,
-                              getComparator(order, orderBy)
-                            ).slice(
+                            ? 
+                            rows.slice(
                               page * rowsPerPage,
                               page * rowsPerPage + rowsPerPage
                             )
-                            : stableSort(rows, getComparator(order, orderBy))
+                            : rows
                           ).map((row) => {
                             return (
                               <TableRow
-                                key={row.matchID}
+                                key={row.mapID}
                                 sx={{
                                   '&:last-child td, &:last-child th': {
                                     border: 0,
