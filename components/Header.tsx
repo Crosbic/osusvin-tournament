@@ -1,8 +1,9 @@
-import Image from 'next/image'
-import styles from '/styles/Header.module.css'
-import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import headerImg from '/public/header.svg'
+import styles from '/styles/Header.module.css'
 
 const Header = () => {
   return (

@@ -1,3 +1,6 @@
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
+import FirstPageIcon from '@mui/icons-material/FirstPage'
+import LastPageIcon from '@mui/icons-material/LastPage'
 import {
   Box,
   createTheme,
@@ -14,17 +17,15 @@ import {
   TableSortLabel,
   ThemeProvider,
 } from '@mui/material'
-import styles from '../styles/Participants.module.css'
-import React, { ChangeEvent, useState, useEffect } from 'react'
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
-import LastPageIcon from '@mui/icons-material/LastPage'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
-import Image from 'next/image'
-import { NumericFormat } from 'react-number-format'
+import { visuallyHidden } from '@mui/utils'
 import axios from 'axios'
+import Image from 'next/image'
 import Link from 'next/link'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { NumericFormat } from 'react-number-format'
+
+import styles from '../styles/Participants.module.css'
 
 interface Data {
   id: number

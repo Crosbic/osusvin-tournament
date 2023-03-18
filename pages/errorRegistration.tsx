@@ -1,7 +1,8 @@
-import React from 'react'
-import styles from '../styles/ErrorRegistration.module.css'
 import Image from 'next/image'
+import React from 'react'
+
 import errorRegistrationImg from '../public/errorRegistration.png'
+import styles from '../styles/ErrorRegistration.module.css'
 
 const errorRegistration = () => {
   return (

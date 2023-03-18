@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
-import styles from '../styles/SuccesRegistration.module.css'
 import Image from 'next/image'
-import succesRegistrationImg from '../public/succesRegistration.png'
 import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
+
+import succesRegistrationImg from '../public/succesRegistration.png'
+import styles from '../styles/SuccesRegistration.module.css'
 
 const SuccessRegistration = () => {
   const router = useRouter()

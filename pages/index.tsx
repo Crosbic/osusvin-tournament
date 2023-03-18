@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+
 import AuthButton from '../components/AuthButton'
+import styles from '../styles/Home.module.css'
 const Home = () => {
   return (
     <>
