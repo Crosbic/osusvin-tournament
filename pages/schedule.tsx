@@ -1,3 +1,7 @@
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
+import FirstPageIcon from '@mui/icons-material/FirstPage'
+import LastPageIcon from '@mui/icons-material/LastPage'
+import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
   Box,
   createTheme,
@@ -15,14 +19,11 @@ import {
   TableSortLabel,
   ThemeProvider,
 } from '@mui/material'
-import styles from '../styles/Schedule.module.css'
-import React, { ChangeEvent, useState } from 'react'
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
-import LastPageIcon from '@mui/icons-material/LastPage'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import { visuallyHidden } from '@mui/utils'
 import { ruRU } from '@mui/material/locale'
-import { TabContext, TabList, TabPanel } from '@mui/lab'
+import { visuallyHidden } from '@mui/utils'
+import React, { ChangeEvent, useState } from 'react'
+
+import styles from '../styles/Schedule.module.css'
 
 interface Data {
   matchID: string
