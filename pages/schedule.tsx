@@ -64,7 +64,7 @@ const ScheduleTable = () => {
     setUser(JSON.parse(localStorage.getItem('user') ?? '{}'))
     setLoading(true)
     axios
-      .get('http://localhost:8080/lobbies/')
+      .get('https://auth.osusvin.ru/lobbies/')
       .then((res) => res.data)
       .then((data) => {
         setRows(data as QualifiersData[])
@@ -94,7 +94,7 @@ const ScheduleTable = () => {
   }
 
   const handleChooseLobby = () =>
-    axios.post(`http://localhost:8080/lobbies/register/${lobby}`)
+    axios.post(`https://auth.osusvin.ru/lobbies/register/${lobby}`)
 
   return (
     <>
