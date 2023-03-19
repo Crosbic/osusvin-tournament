@@ -1,3 +1,4 @@
+import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
   createTheme,
   Paper,
@@ -10,12 +11,12 @@ import {
   TableRow,
   ThemeProvider,
 } from '@mui/material'
-import styles from '../styles/Mappols.module.css'
-import React, { useState } from 'react'
 import { ruRU } from '@mui/material/locale'
-import { TabContext, TabList, TabPanel } from '@mui/lab'
 import Image from 'next/image'
 import Link from 'next/link'
+import React, { useState } from 'react'
+
+import styles from '../styles/Mappols.module.css'
 
 interface Data {
   backgroundLink: string

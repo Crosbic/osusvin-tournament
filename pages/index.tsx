@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import AuthButton from '../components/AuthButton'
+import styles from '../styles/Home.module.css'
+
 const Home = () => {
   return (
     <>
@@ -17,7 +19,7 @@ const Home = () => {
                 <h2>Расписание</h2>
               </a>
             </Link>
-            <Link href="mappools">
+            <Link href="">
               <a className={styles.card}>
                 <h2>Маппулы</h2>
               </a>

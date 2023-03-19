@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import styles from '../styles/404.module.css'
+
 import errorImg from '../public/404.png'
+import styles from '../styles/404.module.css'
 
 const Custom404 = () => {
   return (
