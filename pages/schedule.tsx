@@ -8,12 +8,9 @@ import {
   DialogContent,
   DialogTitle,
   FormControl,
-  InputLabel,
   MenuItem,
-  OutlinedInput,
   Paper,
   Select,
-  SelectChangeEvent,
   Tab,
   Table,
   TableBody,
@@ -59,7 +56,7 @@ const ScheduleTable = () => {
   const [isLoading, setLoading] = useState<boolean>(false)
   const [user, setUser] = useState<any>()
   const [open, setOpen] = useState<boolean>(false)
-  const [lobby, setLobby] = useState<string>()
+  const [lobby, setLobby] = useState<string>('')
 
   const referees = [13679658, 14942638, 25952679, 10434594, 19699989, 12048705]
 
@@ -83,10 +80,6 @@ const ScheduleTable = () => {
     setValue(newValue)
   }
 
-  const handleLobbyChange = (event: SelectChangeEvent<typeof lobby>) => {
-    setLobby(event.target.value)
-  }
-
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -100,39 +93,40 @@ const ScheduleTable = () => {
     }
   }
 
+  const handleChooseLobby = () =>
+    axios.post(`http://localhost:8080/lobbies/register/${lobby}`)
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <div className={styles.wrapper}>
           <Button onClick={handleClickOpen}>Зарегестрироваться в лобби</Button>
-          {rows.map((lobbyId) => {
-            return (
-              <Dialog open={open} onClose={handleClose} key={lobbyId.id}>
-                <DialogTitle>Выберите лобби</DialogTitle>
-                <DialogContent>
-                  <Box
-                    component="form"
-                    sx={{ display: 'flex', flexWrap: 'wrap' }}
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Выберите лобби</DialogTitle>
+            <DialogContent>
+              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <Select
+                    onChange={(e) => setLobby(e.target.value)}
+                    value={lobby}
+                    required
                   >
-                    <FormControl sx={{ m: 1, minWidth: 120 }}>
-                      <InputLabel htmlFor="quals">Лобби</InputLabel>
-                      <Select
-                        input={<OutlinedInput id="quals" />}
-                        onChange={handleLobbyChange}
-                        value={''}
-                      >
-                        <MenuItem value={lobby}>{lobbyId.name}</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Box>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose}>Выбрать</Button>
-                  <Button onClick={handleClose}>Назад</Button>
-                </DialogActions>
-              </Dialog>
-            )
-          })}
+                    {rows.map((lobbyId) => {
+                      return (
+                        <MenuItem key={lobbyId.id} value={lobbyId.id}>
+                          {lobbyId.name}
+                        </MenuItem>
+                      )
+                    })}
+                  </Select>
+                </FormControl>
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleChooseLobby}>Выбрать</Button>
+              <Button onClick={handleClose}>Назад</Button>
+            </DialogActions>
+          </Dialog>
           <TabContext value={value}>
             <TabList
               textColor="inherit"
@@ -184,9 +178,9 @@ const ScheduleTable = () => {
                               <TableCell align="center">
                                 {referees.map((referee) => {
                                   if (referee === user.id) {
-                                    return <div>asda</div>
+                                    return <div key={referee}>asda</div>
                                   } else {
-                                    return <></>
+                                    return <div key={referee}></div>
                                   }
                                 })}
                               </TableCell>
