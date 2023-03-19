@@ -35,11 +35,12 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: true
+          push: ${{ github.ref_name == 'master'}}
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/svin_tournament_ui:latest,${{ secrets.DOCKER_HUB_USERNAME }}/svin_tournament_ui:${{ steps.commit.outputs.short }}
           
           
       - name: Redeploy UI
+        if: ${{ github.ref_name == 'master'}}
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: bash redeploy.sh
