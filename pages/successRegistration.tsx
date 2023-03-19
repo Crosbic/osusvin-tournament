@@ -16,7 +16,7 @@ const SuccessRegistration = () => {
     return () => {
       clearTimeout(timeout)
     }
-  }, [])
+  }, [timeout])
 
   return (
     <>
