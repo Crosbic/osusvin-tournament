@@ -1,384 +1,47 @@
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import LastPageIcon from '@mui/icons-material/LastPage'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
   Box,
+  Button,
   createTheme,
-  IconButton,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControl,
+  MenuItem,
   Paper,
+  Select,
   Tab,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableFooter,
   TableHead,
-  TablePagination,
   TableRow,
-  TableSortLabel,
   ThemeProvider,
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
-import { visuallyHidden } from '@mui/utils'
-import React, { ChangeEvent, useState } from 'react'
+import axios from 'axios'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
 import styles from '../styles/Schedule.module.css'
 
-interface Data {
-  matchID: string
-  datetime: string
-  avatar1: string
-  player1: string
-  score1: number
-  score2: number
-  player2: string
-  avatar2: string
-  referee: string
-  commentator: string
-  mplink: string
-}
-
-function createData(
-  matchID: string,
-  datetime: string,
-  avatar1: string,
-  player1: string,
-  score1: number,
-  score2: number,
-  player2: string,
-  avatar2: string,
-  referee: string,
-  commentator: string,
-  mplink: string
-): Data {
-  return {
-    matchID,
-    datetime,
-    avatar1,
-    player1,
-    score1,
-    score2,
-    player2,
-    avatar2,
-    referee,
-    commentator,
-    mplink,
-  }
-}
-
-const rows = [
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-  createData(
-    'а',
-    'a',
-    '1',
-    'asdas',
-    12,
-    12,
-    'asd',
-    'asds',
-    '23a',
-    'dsad',
-    'dsd'
-  ),
-]
-
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1
-  }
-
-  return 0
-}
-
-type Order = 'asc' | 'desc'
-
-function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy)
-}
-
-function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0])
-    if (order !== 0) {
-      return order
-    }
-
-    return a[1] - b[1]
-  })
-
-  return stabilizedThis.map((el) => el[0])
-}
-
-interface HeadCell {
-  disablePadding: boolean
-  id: keyof Data
-  label: string
-  numeric: boolean
-  sort: boolean
-}
-
-const headCells: readonly HeadCell[] = [
-  {
-    id: 'matchID',
-    numeric: false,
-    disablePadding: true,
-    label: 'ID',
-    sort: true,
-  },
-  {
-    id: 'datetime',
-    numeric: false,
-    disablePadding: false,
-    label: 'Дата и время',
-    sort: true,
-  },
-  {
-    id: 'avatar1',
-    numeric: false,
-    disablePadding: false,
-    label: '',
-    sort: false,
-  },
-  {
-    id: 'player1',
-    numeric: false,
-    disablePadding: false,
-    label: 'Игрок 1',
-    sort: true,
-  },
-  {
-    id: 'score1',
-    numeric: true,
-    disablePadding: false,
-    label: '',
-    sort: false,
-  },
-  {
-    id: 'score2',
-    numeric: true,
-    disablePadding: false,
-    label: '',
-    sort: false,
-  },
-  {
-    id: 'player2',
-    numeric: false,
-    disablePadding: false,
-    label: 'Игрок 2',
-    sort: true,
-  },
-  {
-    id: 'avatar2',
-    numeric: false,
-    disablePadding: false,
-    label: '',
-    sort: false,
-  },
-  {
-    id: 'referee',
-    numeric: false,
-    disablePadding: false,
-    label: 'Рефери',
-    sort: true,
-  },
-  {
-    id: 'commentator',
-    numeric: false,
-    disablePadding: false,
-    label: 'Комментатор',
-    sort: true,
-  },
-  {
-    id: 'mplink',
-    numeric: false,
-    disablePadding: false,
-    label: 'MP Link',
-    sort: false,
-  },
-]
-
-interface PartcipantsTableProps {
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: keyof Data
-  ) => void
-  order: Order
-  orderBy: string
-  rowCount: number
-}
-
-interface TablePaginationActionsProps {
-  count: number
-  page: number
-  rowsPerPage: number
-  onPageChange: (
-    event: React.MouseEvent<HTMLButtonElement>,
-    newPage: number
-  ) => void
+interface QualifiersData {
+  id: number
+  name: string
+  dateStarted: string
+  resultLink: string
+  users: any
 }
 
 const theme = createTheme(
   {
-    palette: { mode: 'dark' },
+    palette: {
+      mode: 'dark',
+      primary: { main: '#eaeaea' },
+      secondary: { main: '#ff7eb9' },
+    },
     typography: {
       fontFamily: ['Comfortaa', 'TrebuchetMS'].join(','),
       fontSize: 16,
@@ -387,153 +50,93 @@ const theme = createTheme(
   ruRU
 )
 
-function TablePaginationActions(props: TablePaginationActionsProps) {
-  const { count, page, rowsPerPage, onPageChange } = props
-
-  const handleFirstPageButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    onPageChange(event, 0)
-  }
-
-  const handleBackButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    onPageChange(event, page - 1)
-  }
-
-  const handleNextButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    onPageChange(event, page + 1)
-  }
-
-  const handleLastPageButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1))
-  }
-
-  return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-      <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0}>
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
-      </IconButton>
-      <IconButton onClick={handleBackButtonClick} disabled={page === 0}>
-        {theme.direction === 'rtl' ? (
-          <KeyboardArrowRight />
-        ) : (
-          <KeyboardArrowLeft />
-        )}
-      </IconButton>
-      <IconButton
-        onClick={handleNextButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-      >
-        {theme.direction === 'rtl' ? (
-          <KeyboardArrowLeft />
-        ) : (
-          <KeyboardArrowRight />
-        )}
-      </IconButton>
-      <IconButton
-        onClick={handleLastPageButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-      >
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
-      </IconButton>
-    </Box>
-  )
-}
-
-const ParticipantsTableHead = (props: PartcipantsTableProps) => {
-  const { order, orderBy, onRequestSort } = props
-
-  const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-      onRequestSort(event, property)
-    }
-
-  return (
-    <TableHead>
-      <TableRow>
-        {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            align="center"
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            {headCell.sort ? (
-              <TableSortLabel
-                active={headCell.sort ? orderBy === headCell.id : false}
-                direction={orderBy === headCell.id ? order : 'asc'}
-                onClick={createSortHandler(headCell.id)}
-              >
-                {headCell.label}
-                {orderBy === headCell.id ? (
-                  <Box component="span" sx={visuallyHidden}>
-                    {order === 'desc'
-                      ? 'sorted descending'
-                      : 'sorted ascending'}
-                  </Box>
-                ) : null}
-              </TableSortLabel>
-            ) : (
-              headCell.label
-            )}
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
-  )
-}
-
-const ParticipantsTable = () => {
-  const [order, setOrder] = useState<Order>('desc')
-  const [orderBy, setOrderBy] = useState<keyof Data>('datetime')
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+const ScheduleTable = () => {
   const [value, setValue] = useState('1')
+  const [rows, setRows] = useState<QualifiersData[]>([])
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const [user, setUser] = useState<any>()
+  const [open, setOpen] = useState<boolean>(false)
+  const [lobby, setLobby] = useState<string>('')
 
-  const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
-    property: keyof Data
-  ) => {
-    const isAsc = orderBy === property && order === 'asc'
-    setOrder(isAsc ? 'desc' : 'asc')
-    setOrderBy(property)
-  }
+  const referees = [13679658, 14942638, 25952679, 10434594, 19699989, 12048705]
 
-  const handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number
-  ) => {
-    setPage(newPage)
-  }
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user') ?? '{}'))
+    setLoading(true)
+    axios
+      .get('http://localhost:8080/lobbies/')
+      .then((res) => res.data)
+      .then((data) => {
+        setRows(data as QualifiersData[])
+      })
+      .finally(() => setLoading(false))
+  }, [])
 
-  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
+  if (isLoading) {
+    return <div>Loading...</div>
   }
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
   }
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = (
+    event: React.SyntheticEvent<unknown>,
+    reason?: string
+  ) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false)
+    }
+  }
+
+  const handleChooseLobby = () =>
+    axios.post(`http://localhost:8080/lobbies/register/${lobby}`)
 
   return (
     <>
-      <div className={styles.tabs}>
-        <TabContext value={value}>
-          <TabList onChange={handleTabChange}>
-            <Tab label="RO32" value="1" />
-            <Tab label="RO322" value="2" />
-            <Tab label="RO323" value="3" />
-          </TabList>
-          <TabPanel value="1">
-            <div className={styles.tableContainer}>
+      <ThemeProvider theme={theme}>
+        <div className={styles.wrapper}>
+          <Button onClick={handleClickOpen}>Зарегестрироваться в лобби</Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Выберите лобби</DialogTitle>
+            <DialogContent>
+              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <Select
+                    onChange={(e) => setLobby(e.target.value)}
+                    value={lobby}
+                    required
+                  >
+                    {rows.map((lobbyId) => {
+                      return (
+                        <MenuItem key={lobbyId.id} value={lobbyId.id}>
+                          {lobbyId.name}
+                        </MenuItem>
+                      )
+                    })}
+                  </Select>
+                </FormControl>
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleChooseLobby}>Выбрать</Button>
+              <Button onClick={handleClose}>Назад</Button>
+            </DialogActions>
+          </Dialog>
+          <TabContext value={value}>
+            <TabList
+              textColor="inherit"
+              indicatorColor="secondary"
+              className={styles.tabs}
+              onChange={handleTabChange}
+            >
+              <Tab label="Квалификация" value="1" />
+            </TabList>
+            <TabPanel value="1">
               <Paper
                 sx={{
                   width: '100%',
@@ -541,117 +144,66 @@ const ParticipantsTable = () => {
                 }}
               >
                 <div className={styles.table}>
-                  <ThemeProvider theme={theme}>
-                    <TableContainer>
-                      <Table
-                        sx={{
-                          minWidth: 500,
-                        }}
-                      >
-                        <ParticipantsTableHead
-                          order={order}
-                          orderBy={orderBy}
-                          onRequestSort={handleRequestSort}
-                          rowCount={rows.length}
-                        />
-                        <TableBody>
-                          {(rowsPerPage > 0
-                            ? stableSort(
-                                rows,
-                                getComparator(order, orderBy)
-                              ).slice(
-                                page * rowsPerPage,
-                                page * rowsPerPage + rowsPerPage
-                              )
-                            : stableSort(rows, getComparator(order, orderBy))
-                          ).map((row) => {
-                            return (
-                              <TableRow
-                                key={row.matchID}
-                                sx={{
-                                  '&:last-child td, &:last-child th': {
-                                    border: 0,
-                                  },
-                                }}
-                              >
-                                <TableCell align="center">
-                                  {row.matchID}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.datetime}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.avatar1}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.player1}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.score1}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.score2}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.player2}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.avatar2}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.referee}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.commentator}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {row.mplink}
-                                </TableCell>
-                              </TableRow>
-                            )
-                          })}
-                          {emptyRows > 0 && (
-                            <TableRow style={{ height: 53 * emptyRows }}>
-                              <TableCell colSpan={6} />
+                  <TableContainer>
+                    <Table
+                      sx={{
+                        minWidth: 500,
+                      }}
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center">ID</TableCell>
+                          <TableCell align="center">Дата</TableCell>
+                          <TableCell align="center">Игроки</TableCell>
+                          <TableCell align="center">Рефери</TableCell>
+                          <TableCell align="center">Ссылка</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => {
+                          return (
+                            <TableRow
+                              key={row.name}
+                              sx={{
+                                '&:last-child td, &:last-child th': {
+                                  border: 0,
+                                },
+                              }}
+                            >
+                              <TableCell align="center">{row.name}</TableCell>
+                              <TableCell align="center">
+                                {row.dateStarted}
+                              </TableCell>
+                              <TableCell align="center">{row.users}</TableCell>
+                              <TableCell align="center">
+                                {referees.map((referee) => {
+                                  if (referee === user.id) {
+                                    return <div key={referee}>asda</div>
+                                  } else {
+                                    return <div key={referee}></div>
+                                  }
+                                })}
+                              </TableCell>
+                              <TableCell align="center">
+                                <Link href={row.resultLink}>Amogus</Link>
+                              </TableCell>
                             </TableRow>
-                          )}
-                        </TableBody>
-                        <TableFooter>
-                          <TableRow
-                            sx={{
-                              '&:last-child td, &:last-child th': { border: 0 },
-                            }}
-                          >
-                            <TablePagination
-                              rowsPerPageOptions={[
-                                5,
-                                10,
-                                25,
-                                { label: 'Все', value: -1 },
-                              ]}
-                              count={rows.length}
-                              rowsPerPage={rowsPerPage}
-                              page={page}
-                              onPageChange={handleChangePage}
-                              onRowsPerPageChange={handleChangeRowsPerPage}
-                              ActionsComponent={TablePaginationActions}
-                            />
-                          </TableRow>
-                        </TableFooter>
-                      </Table>
-                    </TableContainer>
-                  </ThemeProvider>
+                          )
+                        })}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
                 </div>
               </Paper>
-            </div>
-          </TabPanel>
-          <TabPanel value="2">
-            <div className={styles.table2}>sdafghjfdgs</div>
-          </TabPanel>
-        </TabContext>
-      </div>
+            </TabPanel>
+            <TabPanel value="2">
+              <div>Empty</div>
+            </TabPanel>
+          </TabContext>
+        </div>
+      </ThemeProvider>
     </>
   )
 }
 
-export default ParticipantsTable
+export default ScheduleTable

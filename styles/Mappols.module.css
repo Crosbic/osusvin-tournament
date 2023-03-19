@@ -1,0 +1,48 @@
+.tabs {
+    display: block;
+    max-width: 1150px;
+    width: calc(100% - 100px);
+    color: #eaeaea;
+    padding: 0 3rem 0 3rem;
+}
+
+.table {
+    background: linear-gradient(107.64deg, rgba(255, 255, 255, 0.28) 1.92%, rgba(255, 255, 255, 0) 100.84%);
+    border: 1px inset #eaeaea;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.bg {
+    border-radius: 5px;
+}
+
+.link:hover {
+    color: #ff7eb9;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.nm {
+    background-color: #7289da;
+}
+
+.hd {
+    background-color: goldenrod;
+}
+
+.hr {
+    background-color: indianred;
+}
+
+.dt {
+    background-color: mediumpurple;
+}
+
+.fm {
+    background-color: darkcyan;
+}
+
+.tb {
+    background-color: darkslateblue;
+}
