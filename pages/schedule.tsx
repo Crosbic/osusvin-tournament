@@ -1,5 +1,6 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
+  createTheme,
   Box,
   Button,
   createTheme,
@@ -21,6 +22,40 @@ import {
   ThemeProvider,
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
+import Link from 'next/link'
+import React, { useState } from 'react'
+
+import styles from '../styles/Schedule.module.css'
+
+interface QualifiersData {
+  id: string
+  users: string
+  date: string
+  referee: string
+  resultLink: string
+}
+
+function createData(
+  id: string,
+  users: string,
+  date: string,
+  referee: string,
+  resultLink: string
+): QualifiersData {
+  return { id, users, date, referee, resultLink }
+}
+
+const rows: any = [
+  createData('A1', '', '25.03.23 13:00 МСК', '', ''),
+  createData('A2', '', '25.03.23 15:00 МСК', '', ''),
+  createData('A3', '', '25.03.23 17:00 МСК', '', ''),
+  createData('A4', '', '25.03.23 19:00 МСК', '', ''),
+  createData('B1', '', '26.03.23 13:00 МСК', '', ''),
+  createData('B2', '', '26.03.23 15:00 МСК', '', ''),
+  createData('B3', '', '26.03.23 17:00 МСК', '', ''),
+  createData('B4', '', '26.03.23 19:00 МСК', '', ''),
+]
+
 import axios from 'axios'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -52,81 +87,15 @@ const theme = createTheme(
 
 const ScheduleTable = () => {
   const [value, setValue] = useState('1')
-  const [rows, setRows] = useState<QualifiersData[]>([])
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const [user, setUser] = useState<any>()
-  const [open, setOpen] = useState<boolean>(false)
-  const [lobby, setLobby] = useState<string>('')
-
-  const referees = [13679658, 14942638, 25952679, 10434594, 19699989, 12048705]
-
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('user') ?? '{}'))
-    setLoading(true)
-    axios
-      .get('https://auth.osusvin.ru/lobbies/')
-      .then((res) => res.data)
-      .then((data) => {
-        setRows(data as QualifiersData[])
-      })
-      .finally(() => setLoading(false))
-  }, [])
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
   }
 
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = (
-    event: React.SyntheticEvent<unknown>,
-    reason?: string
-  ) => {
-    if (reason !== 'backdropClick') {
-      setOpen(false)
-    }
-  }
-
-  const handleChooseLobby = () =>
-    axios.post(`https://auth.osusvin.ru/lobbies/register/${lobby}`)
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <div className={styles.wrapper}>
-          <Button onClick={handleClickOpen}>Зарегестрироваться в лобби</Button>
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Выберите лобби</DialogTitle>
-            <DialogContent>
-              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    onChange={(e) => setLobby(e.target.value)}
-                    value={lobby}
-                    required
-                  >
-                    {rows.map((lobbyId) => {
-                      return (
-                        <MenuItem key={lobbyId.id} value={lobbyId.id}>
-                          {lobbyId.name}
-                        </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-              </Box>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleChooseLobby}>Выбрать</Button>
-              <Button onClick={handleClose}>Назад</Button>
-            </DialogActions>
-          </Dialog>
           <TabContext value={value}>
             <TabList
               textColor="inherit"
@@ -160,32 +129,24 @@ const ScheduleTable = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row) => {
+                        {rows.map((row: any) => {
                           return (
                             <TableRow
-                              key={row.name}
+                              key={row.id}
                               sx={{
                                 '&:last-child td, &:last-child th': {
                                   border: 0,
                                 },
                               }}
                             >
-                              <TableCell align="center">{row.name}</TableCell>
-                              <TableCell align="center">
-                                {row.dateStarted}
-                              </TableCell>
+                              <TableCell align="center">{row.id}</TableCell>
+                              <TableCell align="center">{row.date}</TableCell>
                               <TableCell align="center">{row.users}</TableCell>
                               <TableCell align="center">
-                                {referees.map((referee) => {
-                                  if (referee === user.id) {
-                                    return <div key={referee}>asda</div>
-                                  } else {
-                                    return <div key={referee}></div>
-                                  }
-                                })}
+                                {row.referee}
                               </TableCell>
                               <TableCell align="center">
-                                <Link href={row.resultLink}>Amogus</Link>
+                                <Link href={row.resultLink}>Тут нажать</Link>
                               </TableCell>
                             </TableRow>
                           )

@@ -1,14 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
 import AuthButton from '../components/AuthButton'
 import styles from '../styles/Home.module.css'
+
 const Home = () => {
   return (
     <>
       <div className={styles.content}>
         <div className={styles.reggrid}>
-          <AuthButton />
           <div className={styles.grid}>
             <Link href="participants">
               <a className={styles.card}>
@@ -42,12 +41,16 @@ const Home = () => {
                 <Image src="/osu.svg" alt="Osu logo" width={30} height={30} />
               </a>
             </Link>
-            <Image
-              src="/twitch.svg"
-              alt="Twitch logo"
-              width={32.25}
-              height={30}
-            />
+            <Link href="https://www.twitch.tv/osu_svin">
+              <a>
+                <Image
+                  src="/twitch.svg"
+                  alt="Twitch logo"
+                  width={32.25}
+                  height={30}
+                />
+              </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 .tabs {
     display: block;
-    max-width: 1150px;
+    max-width: 1550px;
     width: calc(100% - 100px);
     color: #eaeaea;
     padding: 0 3rem 0 3rem;
@@ -21,28 +21,4 @@
     color: #ff7eb9;
     transition: color 0.2s ease;
     cursor: pointer;
-}
-
-.nm {
-    background-color: #7289da;
-}
-
-.hd {
-    background-color: goldenrod;
-}
-
-.hr {
-    background-color: indianred;
-}
-
-.dt {
-    background-color: mediumpurple;
-}
-
-.fm {
-    background-color: darkcyan;
-}
-
-.tb {
-    background-color: darkslateblue;
 }
