@@ -19,7 +19,7 @@ const Home = () => {
                 <h2>Расписание</h2>
               </a>
             </Link>
-            <Link href="">
+            <Link href="mappools">
               <a className={styles.card}>
                 <h2>Маппулы</h2>
               </a>
