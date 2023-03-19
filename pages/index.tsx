@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import AuthButton from '../components/AuthButton'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
     <>
       <div className={styles.content}>
         <div className={styles.reggrid}>
+          <AuthButton />
           <div className={styles.grid}>
             <Link href="participants">
               <a className={styles.card}>
