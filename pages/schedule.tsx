@@ -1,17 +1,7 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
   createTheme,
-  Box,
-  Button,
-  createTheme,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  MenuItem,
   Paper,
-  Select,
   Tab,
   Table,
   TableBody,
@@ -55,20 +45,6 @@ const rows: any = [
   createData('B3', '', '26.03.23 17:00 МСК', '', ''),
   createData('B4', '', '26.03.23 19:00 МСК', '', ''),
 ]
-
-import axios from 'axios'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
-
-import styles from '../styles/Schedule.module.css'
-
-interface QualifiersData {
-  id: number
-  name: string
-  dateStarted: string
-  resultLink: string
-  users: any
-}
 
 const theme = createTheme(
   {
