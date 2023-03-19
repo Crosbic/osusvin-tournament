@@ -23,6 +23,7 @@ interface Data {
   modeID: string
   title: string
   stats: string
+  bpm: string
   mapper: string
   mapID: number
   suggester: string
@@ -34,6 +35,7 @@ function createData(
   modeID: string,
   title: string,
   stats: string,
+  bpm: string,
   mapper: string,
   mapID: number,
   suggester: string
@@ -44,6 +46,7 @@ function createData(
     modeID,
     title,
     stats,
+    bpm,
     mapper,
     mapID,
     suggester,
@@ -52,64 +55,114 @@ function createData(
 
 const rows: any = [
   createData(
-    'https://assets.ppy.sh/beatmaps/842412/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/842412#osu/1762731',
-    'NM',
+    'https://assets.ppy.sh/beatmaps/226670/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/226670#osu/862642',
+    'NM1',
+    'senya - Iro wa Jou e to Izanau',
+    '4 | 6 | 7 | 9',
+    '200',
+    'Momizi',
+    226670,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1297231/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1297231#osu/2842753',
+    'NM2',
+    'F-777 - Unsafe Speeds',
+    '3,2 | 4 | 7,2 | 9',
+    '170',
+    'Quag',
+    1297231,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1705113/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1705113#osu/3490443',
+    'NM3',
+    'DECO*27 - Parasite',
+    '3,6 | 4 | 8,7 | 9',
+    '138',
+    'Vanya2',
+    1705113,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1458846/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1458846#osu/3005759',
+    'NM4',
     'Harumachi Clover - Will Stetson 00',
-    '3/3/5',
-    'Sotarks',
-    1762731,
-    'Muga'
+    '3,8 | 4,6 | 8 | 9',
+    '92,48',
+    '- ascended -',
+    1458846,
+    'SLAVA MARL0W'
   ),
   createData(
-    'https://assets.ppy.sh/beatmaps/1790301/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/1790301#osu/3678648',
-    'NM',
-    'Dokuzu - NAKISO',
-    '4/4/7,5',
+    'https://assets.ppy.sh/beatmaps/1323916/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1323916#osu/2818046',
+    'HD1',
+    'DUSTCELL - STIGMA',
+    '4 | 5 | 7,7 | 9',
+    '220',
+    'SMOKELIND',
+    1323916,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/37391/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/37391#osu/120250',
+    'HD2',
+    'Hatsune Miku - Mushroom Mother',
+    '4 | 7 | 7 | 8',
+    '168',
     'Ryuusei Aika',
-    3678648,
-    'Muga'
+    37391,
+    'Crosbic'
   ),
   createData(
-    'https://assets.ppy.sh/beatmaps/1422289/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/1422289#osu/2929300',
-    'HR',
-    'yama - Yuurei Tokyo [Ghost]',
-    '4/5,5/9,3',
-    'climbx3145',
-    2929300,
-    'Muga'
+    'https://assets.ppy.sh/beatmaps/932457/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/932457#osu/2294195',
+    'HR1',
+    'Liz Triangle - Yoru no Circus',
+    '4 | 5 | 7 | 8,8',
+    '192',
+    'Entry',
+    932457,
+    'Kobra_TF'
   ),
   createData(
-    'https://assets.ppy.sh/beatmaps/842412/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/842412#osu/1762731',
-    'FM',
-    'Harumachi Clover - Will Stetson 01',
-    '3/3/5',
-    'Sotarks',
+    'https://assets.ppy.sh/beatmaps/5763/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/5763#osu/27546',
+    'HR2',
+    'UI-70 - Invisible Full Moon',
+    '5 | 3 | 7 | 7',
+    '159',
+    'James',
+    5763,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/193583/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/193583#osu/459993',
+    'DT1',
+    'Mizukara o Enshutsu Suru Otome no Kai - Girlish Lover',
+    '4 | 5 | 6 | 8',
+    '165',
+    'No Dap',
+    193583,
+    'Crosbic'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1717807/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1717807#osu/3518574',
+    'DT2',
+    'Tsuko G. - You Will Know Our Names... KAZOO`d!',
+    '3,6 | 4,5 | 6 | 7,5',
+    '176',
+    'Sylvarus',
     1762731,
-    'Muga'
-  ),
-  createData(
-    'https://assets.ppy.sh/beatmaps/842412/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/842412#osu/1762731',
-    'TB',
-    'Harumachi Clover - Will Stetson 02',
-    '3/3/5',
-    'Sotarks',
-    1762731,
-    'Muga'
-  ),
-  createData(
-    'https://assets.ppy.sh/beatmaps/842412/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/842412#osu/1762731',
-    'HD',
-    'Harumachi Clover - Will Stetson 03',
-    '3/3/5',
-    'Sotarks',
-    1762731,
-    'Muga'
+    'Crosbic'
   ),
 ]
 
@@ -122,7 +175,7 @@ const theme = createTheme(
     },
     typography: {
       fontFamily: ['Comfortaa', 'TrebuchetMS'].join(','),
-      fontSize: 16,
+      fontSize: 14,
     },
   },
   ruRU
@@ -146,8 +199,7 @@ const MappoolTable = () => {
               className={styles.tabs}
               onChange={handleTabChange}
             >
-              <Tab label="Quals" value="1" />
-              <Tab label="Amogus" value="2" />
+              <Tab label="Квалификация" value="1" />
             </TabList>
             <TabPanel value="1">
               <Paper
@@ -165,10 +217,16 @@ const MappoolTable = () => {
                     >
                       <TableHead>
                         <TableRow>
-                          <TableCell></TableCell>
-                          <TableCell align="center">Мод</TableCell>
-                          <TableCell align="center">Название</TableCell>
-                          <TableCell align="center">Статы</TableCell>
+                          <TableCell align="center"></TableCell>
+                          <TableCell align="center"></TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link
+                              href={`https://disk.yandex.ru/d/HguyjMD5mXZydA`}
+                            >
+                              Скачать маппак
+                            </Link>
+                          </TableCell>
+                          <TableCell align="center">CS|HP|OD|AR</TableCell>
                           <TableCell align="center">Маппер</TableCell>
                           <TableCell align="center">Саггестер</TableCell>
                         </TableRow>
