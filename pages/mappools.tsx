@@ -92,7 +92,7 @@ const rows: any = [
     'https://assets.ppy.sh/beatmaps/1458846/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1458846#osu/3005759',
     'NM4',
-    'Harumachi Clover - Will Stetson 00',
+    'midwxst - Smile (feat. glaive)',
     '3,8 | 4,6 | 8 | 9',
     '92,48',
     '- ascended -',
@@ -228,6 +228,7 @@ const MappoolTable = () => {
                             </Link>
                           </TableCell>
                           <TableCell align="center">CS|HP|OD|AR</TableCell>
+                          <TableCell align="center">BPM</TableCell>
                           <TableCell align="center">Маппер</TableCell>
                           <TableCell align="center">Саггестер</TableCell>
                         </TableRow>
@@ -258,6 +259,7 @@ const MappoolTable = () => {
                                 <Link href={row.mapLink}>{row.title}</Link>
                               </TableCell>
                               <TableCell align="center">{row.stats}</TableCell>
+                              <TableCell align="center">{row.bpm}</TableCell>
                               <TableCell align="center">{row.mapper}</TableCell>
                               <TableCell align="center">
                                 {row.suggester}
