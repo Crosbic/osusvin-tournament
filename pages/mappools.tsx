@@ -215,6 +215,7 @@ const MappoolTable = () => {
                       sx={{
                         minWidth: 500,
                       }}
+                      size="small"
                     >
                       <TableHead>
                         <TableRow>
@@ -237,14 +238,14 @@ const MappoolTable = () => {
                         {rows.map((row: any) => {
                           return (
                             <TableRow
-                              key={row.modeId}
+                              key={row.id}
                               sx={{
                                 '&:last-child td, &:last-child th': {
                                   border: 0,
                                 },
                               }}
                             >
-                              <TableCell align="center" padding="none">
+                              <TableCell align="center">
                                 <Image
                                   className={styles.bg}
                                   src={row.backgroundLink}

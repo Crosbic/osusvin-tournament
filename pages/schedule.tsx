@@ -1,7 +1,19 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
+  Alert,
+  AlertTitle,
+  Box,
+  Button,
   createTheme,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControl,
+  MenuItem,
   Paper,
+  Select,
+  Snackbar,
   Tab,
   Table,
   TableBody,
@@ -12,39 +24,18 @@ import {
   ThemeProvider,
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
-import Link from 'next/link'
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 import styles from '../styles/Schedule.module.css'
 
 interface QualifiersData {
-  id: string
-  users: string
-  date: string
-  referee: string
+  id: number
+  name: string
+  dateStarted: Date
   resultLink: string
+  users: any
 }
-
-function createData(
-  id: string,
-  users: string,
-  date: string,
-  referee: string,
-  resultLink: string
-): QualifiersData {
-  return { id, users, date, referee, resultLink }
-}
-
-const rows: any = [
-  createData('A1', '', '25.03.23 13:00 МСК', '', ''),
-  createData('A2', '', '25.03.23 15:00 МСК', '', ''),
-  createData('A3', '', '25.03.23 17:00 МСК', '', ''),
-  createData('A4', '', '25.03.23 19:00 МСК', '', ''),
-  createData('B1', '', '26.03.23 13:00 МСК', '', ''),
-  createData('B2', '', '26.03.23 15:00 МСК', '', ''),
-  createData('B3', '', '26.03.23 17:00 МСК', '', ''),
-  createData('B4', '', '26.03.23 19:00 МСК', '', ''),
-]
 
 const theme = createTheme(
   {
@@ -63,15 +54,96 @@ const theme = createTheme(
 
 const ScheduleTable = () => {
   const [value, setValue] = useState('1')
+  const [rows, setRows] = useState<QualifiersData[]>([])
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(false)
+  const [lobby, setLobby] = useState<string>('')
+  const [key, setKey] = useState<any>()
+  const [error, setError] = useState<boolean>(false)
+  const [openAlert, setOpenAlert] = useState<boolean>(false)
+
+  useEffect(() => {
+    setKey(localStorage.getItem('jwt') ?? '')
+    setLoading(true)
+    axios
+      .get('http://localhost:8080/lobbies/')
+      .then((res) => res.data)
+      .then((data) => {
+        setRows(data as QualifiersData[])
+      })
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
+  }
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = (
+    event: React.SyntheticEvent<unknown>,
+    reason?: string
+  ) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false)
+    }
+  }
+
+  const handleChooseLobby = async () => {
+    await axios
+      .post(`http://localhost:8080/lobbies/register/${lobby}`, null, {
+        headers: {
+          Authorization: `Bearer ${key}`,
+        },
+      })
+      .catch((err) => {
+        if (err.response === 401) {
+          setOpenAlert(true)
+          setError(true)
+        } else {
+          location.reload()
+        }
+      })
+    setOpen(false)
   }
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <div className={styles.wrapper}>
+          <Button onClick={handleClickOpen}>Зарегестрироваться в лобби</Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Выберите лобби</DialogTitle>
+            <DialogContent>
+              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <Select
+                    onChange={(e) => setLobby(e.target.value)}
+                    value={lobby}
+                    required
+                  >
+                    {rows.map((lobbyId) => {
+                      return (
+                        <MenuItem key={lobbyId.id} value={lobbyId.id}>
+                          {lobbyId.name}
+                        </MenuItem>
+                      )
+                    })}
+                  </Select>
+                </FormControl>
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleChooseLobby}>Выбрать</Button>
+              <Button onClick={handleClose}>Назад</Button>
+            </DialogActions>
+          </Dialog>
           <TabContext value={value}>
             <TabList
               textColor="inherit"
@@ -105,24 +177,48 @@ const ScheduleTable = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row: any) => {
+                        {rows.map((row) => {
+                          const date = (row.dateStarted = new Date())
+
                           return (
                             <TableRow
-                              key={row.id}
+                              key={row.name}
                               sx={{
                                 '&:last-child td, &:last-child th': {
                                   border: 0,
                                 },
                               }}
                             >
-                              <TableCell align="center">{row.id}</TableCell>
-                              <TableCell align="center">{row.date}</TableCell>
-                              <TableCell align="center">{row.users}</TableCell>
+                              <TableCell align="center">{row.name}</TableCell>
                               <TableCell align="center">
-                                {row.referee}
+                                {date.toLocaleDateString('ru-RU')}
                               </TableCell>
                               <TableCell align="center">
-                                <Link href={row.resultLink}>Тут нажать</Link>
+                                {row.users.map((data: any) => {
+                                  return (
+                                    <div className={styles.users} key={data.id}>
+                                      {data.role === 'user'
+                                        ? data.username + ' '
+                                        : null}
+                                    </div>
+                                  )
+                                })}
+                              </TableCell>
+                              <TableCell align="center">
+                                {row.users.map((data: any) => {
+                                  return (
+                                    <div className={styles.users} key={data.id}>
+                                      {data.role === 'referee'
+                                        ? data.username + ' '
+                                        : null}
+                                    </div>
+                                  )
+                                })}
+                              </TableCell>
+                              <TableCell align="center">
+                                <a href={row.resultLink}>
+                                  {row.resultLink ? 'Ссылка есть' : null}
+                                </a>
                               </TableCell>
                             </TableRow>
                           )
@@ -137,6 +233,14 @@ const ScheduleTable = () => {
               <div>Empty</div>
             </TabPanel>
           </TabContext>
+          {error ? (
+            <Snackbar open={openAlert} autoHideDuration={3000}>
+              <Alert severity="error">
+                <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Авторизуйтесь
+                на сайте
+              </Alert>
+            </Snackbar>
+          ) : null}
         </div>
       </ThemeProvider>
     </>
