@@ -39,7 +39,7 @@ const AuthButton = () => {
     return (
       <Link href={'https://auth.osusvin.ru/auth/osu/login'}>
         <a className={styles.regcard}>
-          <h2>Регистрация</h2>
+          <h2>Вход</h2>
         </a>
       </Link>
     )
