@@ -138,33 +138,6 @@ const ScheduleTable = () => {
     <>
       <ThemeProvider theme={theme}>
         <div className={styles.wrapper}>
-          <Button onClick={handleClickOpen}>Зарегестрироваться в лобби</Button>
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Выберите лобби</DialogTitle>
-            <DialogContent>
-              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    onChange={(e) => setLobby(e.target.value)}
-                    value={lobby}
-                    required
-                  >
-                    {sortedRows.map((lobbyId) => {
-                      return (
-                        <MenuItem key={lobbyId.id} value={lobbyId.id}>
-                          {lobbyId.name}
-                        </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-              </Box>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleChooseLobby}>Выбрать</Button>
-              <Button onClick={handleClose}>Назад</Button>
-            </DialogActions>
-          </Dialog>
           <TabContext value={value}>
             <TabList
               textColor="inherit"
@@ -254,6 +227,40 @@ const ScheduleTable = () => {
               </Paper>
             </TabPanel>
           </TabContext>
+          <div className={styles.regButton}>
+            <Button onClick={handleClickOpen} variant="outlined">
+              Зарегистрироваться в лобби
+            </Button>
+            <Dialog open={open} onClose={handleClose}>
+              <DialogTitle>Выберите лобби</DialogTitle>
+              <DialogContent>
+                <Box
+                  component="form"
+                  sx={{ display: 'flex', flexWrap: 'wrap' }}
+                >
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <Select
+                      onChange={(e) => setLobby(e.target.value)}
+                      value={lobby}
+                      required
+                    >
+                      {sortedRows.map((lobbyId) => {
+                        return (
+                          <MenuItem key={lobbyId.id} value={lobbyId.id}>
+                            {lobbyId.name}
+                          </MenuItem>
+                        )
+                      })}
+                    </Select>
+                  </FormControl>
+                </Box>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleChooseLobby}>Выбрать</Button>
+                <Button onClick={handleClose}>Назад</Button>
+              </DialogActions>
+            </Dialog>
+          </div>
           {error ? (
             <Snackbar
               open={openAlert}
