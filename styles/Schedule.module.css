@@ -1,6 +1,6 @@
 .wrapper {
     display: block;
-    max-width: 1150px;
+    max-width: 1500px;
     width: calc(100% - 100px);
     color: #eaeaea;
     padding: 0 3rem 0 3rem;
@@ -25,6 +25,6 @@
     backdrop-filter: blur(10px);
 }
 
-.table2 {
-    color: #eaeaea;
+.users {
+    display: inline;
 }

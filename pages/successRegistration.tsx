@@ -28,7 +28,7 @@ const SuccessRegistration = () => {
           width="329"
           unoptimized
         />
-        <div className={styles.succesText}>Успешная регистрация</div>
+        <div className={styles.succesText}>Успешная авторизация</div>
       </div>
     </>
   )
