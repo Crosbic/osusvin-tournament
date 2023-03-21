@@ -61,6 +61,7 @@ const ScheduleTable = () => {
   const [key, setKey] = useState<any>()
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
 
   useEffect(() => {
     setKey(localStorage.getItem('jwt') ?? '')
@@ -95,6 +96,17 @@ const ScheduleTable = () => {
     }
   }
 
+  const handleAlertClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenAlert(false)
+  }
+
   const handleChooseLobby = async () => {
     await axios
       .post(`http://localhost:8080/lobbies/register/${lobby}`, null, {
@@ -102,12 +114,19 @@ const ScheduleTable = () => {
           Authorization: `Bearer ${key}`,
         },
       })
+      .then(() => {
+        setTimeout(function () {
+          window.location.reload()
+        }, 3500)
+        setSuccess(true)
+        setOpenAlert(true)
+      })
       .catch((err) => {
-        if (err.response === 401) {
+        if (err.request === 401) {
+          console.log('Успех')
+        } else {
           setOpenAlert(true)
           setError(true)
-        } else {
-          location.reload()
         }
       })
     setOpen(false)
@@ -166,6 +185,7 @@ const ScheduleTable = () => {
                       sx={{
                         minWidth: 500,
                       }}
+                      size="small"
                     >
                       <TableHead>
                         <TableRow>
@@ -178,7 +198,10 @@ const ScheduleTable = () => {
                       </TableHead>
                       <TableBody>
                         {rows.map((row) => {
-                          const date = (row.dateStarted = new Date())
+                          console.log(row.dateStarted)
+                          const date = (row.dateStarted = new Date(
+                            row.dateStarted
+                          ))
 
                           return (
                             <TableRow
@@ -191,7 +214,7 @@ const ScheduleTable = () => {
                             >
                               <TableCell align="center">{row.name}</TableCell>
                               <TableCell align="center">
-                                {date.toLocaleDateString('ru-RU')}
+                                {date.toLocaleString('ru-RU')}
                               </TableCell>
                               <TableCell align="center">
                                 {row.users.map((data: any) => {
@@ -229,12 +252,13 @@ const ScheduleTable = () => {
                 </div>
               </Paper>
             </TabPanel>
-            <TabPanel value="2">
-              <div>Empty</div>
-            </TabPanel>
           </TabContext>
           {error ? (
-            <Snackbar open={openAlert} autoHideDuration={3000}>
+            <Snackbar
+              open={openAlert}
+              autoHideDuration={3000}
+              onClose={handleAlertClose}
+            >
               <Alert severity="error">
                 <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Авторизуйтесь
                 на сайте
@@ -242,6 +266,17 @@ const ScheduleTable = () => {
             </Snackbar>
           ) : null}
         </div>
+        {success ? (
+          <Snackbar
+            open={openAlert}
+            autoHideDuration={3000}
+            onClose={handleAlertClose}
+          >
+            <Alert severity="success">
+              <AlertTitle>Успех</AlertTitle>Успешная регистрация на сайте
+            </Alert>
+          </Snackbar>
+        ) : null}
       </ThemeProvider>
     </>
   )
