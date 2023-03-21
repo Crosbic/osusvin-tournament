@@ -67,7 +67,7 @@ const ScheduleTable = () => {
     setKey(localStorage.getItem('jwt') ?? '')
     setLoading(true)
     axios
-      .get('http://localhost:8080/lobbies/')
+      .get('https://auth.osusvin.ru/lobbies/')
       .then((res) => res.data)
       .then((data) => {
         setRows(data as QualifiersData[])
@@ -78,6 +78,8 @@ const ScheduleTable = () => {
   if (isLoading) {
     return <div>Loading...</div>
   }
+
+  const sortedRows = rows.sort((a, b) => a.id - b.id)
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -109,7 +111,7 @@ const ScheduleTable = () => {
 
   const handleChooseLobby = async () => {
     await axios
-      .post(`http://localhost:8080/lobbies/register/${lobby}`, null, {
+      .post(`https://auth.osusvin.ru/lobbies/register/${lobby}`, null, {
         headers: {
           Authorization: `Bearer ${key}`,
         },
@@ -117,7 +119,7 @@ const ScheduleTable = () => {
       .then(() => {
         setTimeout(function () {
           window.location.reload()
-        }, 3500)
+        }, 1000)
         setSuccess(true)
         setOpenAlert(true)
       })
@@ -147,7 +149,7 @@ const ScheduleTable = () => {
                     value={lobby}
                     required
                   >
-                    {rows.map((lobbyId) => {
+                    {sortedRows.map((lobbyId) => {
                       return (
                         <MenuItem key={lobbyId.id} value={lobbyId.id}>
                           {lobbyId.name}
@@ -197,8 +199,7 @@ const ScheduleTable = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row) => {
-                          console.log(row.dateStarted)
+                        {sortedRows.map((row) => {
                           const date = (row.dateStarted = new Date(
                             row.dateStarted
                           ))
@@ -269,7 +270,7 @@ const ScheduleTable = () => {
         {success ? (
           <Snackbar
             open={openAlert}
-            autoHideDuration={3000}
+            autoHideDuration={1000}
             onClose={handleAlertClose}
           >
             <Alert severity="success">
