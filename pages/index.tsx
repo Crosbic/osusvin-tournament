@@ -16,7 +16,7 @@ const Home = () => {
                 <h2>Список игроков</h2>
               </a>
             </Link>
-            <Link href="schedule">
+            <Link href="">
               <a className={styles.card}>
                 <h2>Расписание</h2>
               </a>
