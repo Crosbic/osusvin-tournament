@@ -363,7 +363,6 @@ const ParticipantsTable = () => {
                   >
                     <TablePagination
                       rowsPerPageOptions={[
-                        1,
                         5,
                         10,
                         25,

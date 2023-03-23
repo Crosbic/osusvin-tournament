@@ -25,6 +25,7 @@ import {
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
 import axios from 'axios'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 import styles from '../styles/Schedule.module.css'
@@ -192,11 +193,21 @@ const ScheduleTable = () => {
                               </TableCell>
                               <TableCell align="center">
                                 {row.users.map((data: any) => {
+                                  const usernames = data.username
+                                  console.log(usernames)
+
                                   return (
-                                    <div className={styles.users} key={data.id}>
-                                      {data.role === 'user'
-                                        ? data.username + ' '
-                                        : null}
+                                    <div key={data.id} className={styles.users}>
+                                      {data.role === 'user' ? (
+                                        <div className={styles.users}>
+                                          <Link
+                                            href={`https://osu.ppy.sh/users/${data.id}`}
+                                          >
+                                            {data.username}
+                                          </Link>
+                                          &nbsp; &nbsp;
+                                        </div>
+                                      ) : null}
                                     </div>
                                   )
                                 })}
@@ -205,9 +216,13 @@ const ScheduleTable = () => {
                                 {row.users.map((data: any) => {
                                   return (
                                     <div className={styles.users} key={data.id}>
-                                      {data.role === 'referee'
-                                        ? data.username + ' '
-                                        : null}
+                                      {data.role === 'referee' ? (
+                                        <Link
+                                          href={`https://osu.ppy.sh/users/${data.id}`}
+                                        >
+                                          {data.username}
+                                        </Link>
+                                      ) : null}
                                     </div>
                                   )
                                 })}
@@ -264,12 +279,12 @@ const ScheduleTable = () => {
           {error ? (
             <Snackbar
               open={openAlert}
-              autoHideDuration={3000}
+              autoHideDuration={4000}
               onClose={handleAlertClose}
             >
               <Alert severity="error">
-                <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Авторизуйтесь
-                на сайте
+                <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно
+                лобби заполнено либо вы не авторизованы
               </Alert>
             </Snackbar>
           ) : null}
