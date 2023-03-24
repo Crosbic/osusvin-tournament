@@ -36,6 +36,7 @@ interface QualifiersData {
   dateStarted: Date
   resultLink: string
   users: any
+  referees: any
 }
 
 const theme = createTheme(
@@ -192,37 +193,33 @@ const ScheduleTable = () => {
                                 {date.toLocaleString('ru-RU')}
                               </TableCell>
                               <TableCell align="center">
-                                {row.users.map((data: any) => {
-                                  const usernames = data.username
-                                  console.log(usernames)
-
+                                {row.users.map((user: any) => {
                                   return (
-                                    <div key={data.id} className={styles.users}>
-                                      {data.role === 'user' ? (
-                                        <div className={styles.users}>
-                                          <Link
-                                            href={`https://osu.ppy.sh/users/${data.id}`}
-                                          >
-                                            {data.username}
-                                          </Link>
-                                          &nbsp; &nbsp;
-                                        </div>
-                                      ) : null}
+                                    <div key={user.id} className={styles.users}>
+                                      <div className={styles.users}>
+                                        <Link
+                                          href={`https://osu.ppy.sh/users/${user.id}`}
+                                        >
+                                          {user.username}
+                                        </Link>
+                                        &nbsp; &nbsp;
+                                      </div>
                                     </div>
                                   )
                                 })}
                               </TableCell>
                               <TableCell align="center">
-                                {row.users.map((data: any) => {
+                                {row.referees.map((referee: any) => {
                                   return (
-                                    <div className={styles.users} key={data.id}>
-                                      {data.role === 'referee' ? (
-                                        <Link
-                                          href={`https://osu.ppy.sh/users/${data.id}`}
-                                        >
-                                          {data.username}
-                                        </Link>
-                                      ) : null}
+                                    <div
+                                      className={styles.users}
+                                      key={referee.id}
+                                    >
+                                      <Link
+                                        href={`https://osu.ppy.sh/users/${referee.id}`}
+                                      >
+                                        {referee.username}
+                                      </Link>
                                     </div>
                                   )
                                 })}
