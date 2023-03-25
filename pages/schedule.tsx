@@ -247,12 +247,12 @@ const ScheduleTable = () => {
               </Paper>
             </TabPanel>
           </TabContext>
-          <>
-            {localStorage.getItem('user.role') === 'referee' ||
-            localStorage.getItem('user.role') === 'admin' ? (
-              <Button>ффффф</Button>
-            ) : null}
-          </>
+          {/*<>*/}
+          {/*  {localStorage.getItem('user.role') === 'referee' ||*/}
+          {/*  localStorage.getItem('user.role') === 'admin' ? (*/}
+          {/*    <Button>ффффф</Button>*/}
+          {/*  ) : null}*/}
+          {/*</>*/}
           <div className={styles.regButton}>
             <Button onClick={handleClickOpen} variant="outlined">
               Зарегистрироваться в лобби
