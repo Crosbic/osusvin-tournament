@@ -69,7 +69,7 @@ const ScheduleTable = () => {
     setKey(localStorage.getItem('jwt') ?? '')
     setLoading(true)
     axios
-      .get('https://auth.osusvin.ru/lobbies/')
+      .get('https://auth.osusvin.ru/qualification-lobbies/')
       .then((res) => res.data)
       .then((data) => {
         setRows(data as QualifiersData[])
@@ -113,7 +113,7 @@ const ScheduleTable = () => {
 
   const handleChooseLobby = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/lobbies/register/${lobby}`, null, {
+      .post(`https://auth.osusvin.ru/qualification-lobbies/register/${lobby}`, null, {
         headers: {
           Authorization: `Bearer ${key}`,
         },
