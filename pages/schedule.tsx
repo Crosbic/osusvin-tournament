@@ -113,11 +113,15 @@ const ScheduleTable = () => {
 
   const handleChooseLobby = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/qualification-lobbies/register/${lobby}`, null, {
-        headers: {
-          Authorization: `Bearer ${key}`,
-        },
-      })
+      .post(
+        `https://auth.osusvin.ru/qualification-lobbies/register/${lobby}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${key}`,
+          },
+        }
+      )
       .then(() => {
         setTimeout(function () {
           window.location.reload()
@@ -135,6 +139,10 @@ const ScheduleTable = () => {
       })
     setOpen(false)
   }
+
+  // const handleSetLink = async () => {
+  //   await axios.post({resultLink})
+  // }
 
   return (
     <>
@@ -239,6 +247,12 @@ const ScheduleTable = () => {
               </Paper>
             </TabPanel>
           </TabContext>
+          <>
+            {localStorage.getItem('user.role') === 'referee' ||
+            localStorage.getItem('user.role') === 'admin' ? (
+              <Button>ффффф</Button>
+            ) : null}
+          </>
           <div className={styles.regButton}>
             <Button onClick={handleClickOpen} variant="outlined">
               Зарегистрироваться в лобби
@@ -273,19 +287,20 @@ const ScheduleTable = () => {
               </DialogActions>
             </Dialog>
           </div>
-          {error ? (
-            <Snackbar
-              open={openAlert}
-              autoHideDuration={4000}
-              onClose={handleAlertClose}
-            >
-              <Alert severity="error">
-                <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно
-                лобби заполнено либо вы не авторизованы
-              </Alert>
-            </Snackbar>
-          ) : null}
         </div>
+        {error ? (
+          <Snackbar
+            open={openAlert}
+            autoHideDuration={4000}
+            onClose={handleAlertClose}
+          >
+            <Alert severity="error">
+              <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно лобби
+              заполнено либо вы не авторизованы
+            </Alert>
+          </Snackbar>
+        ) : null}
+
         {success ? (
           <Snackbar
             open={openAlert}
