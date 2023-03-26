@@ -18,7 +18,7 @@ import React, { useState } from 'react'
 
 import styles from '../styles/Mappols.module.css'
 
-interface Data {
+interface QualifiersData {
   backgroundLink: string
   mapLink: string
   modeID: string
@@ -30,7 +30,19 @@ interface Data {
   suggester: string
 }
 
-function createData(
+interface Ro32Data {
+  backgroundLink: string
+  mapLink: string
+  modeID: string
+  title: string
+  stats: string
+  bpm: string
+  mapper: string
+  mapID: number
+  suggester: string
+}
+
+function createRo32Data(
   backgroundLink: string,
   mapLink: string,
   modeID: string,
@@ -40,7 +52,7 @@ function createData(
   mapper: string,
   mapID: number,
   suggester: string
-): Data {
+): Ro32Data {
   return {
     backgroundLink,
     mapLink,
@@ -54,8 +66,32 @@ function createData(
   }
 }
 
-const rows: any = [
-  createData(
+function createQualsData(
+  backgroundLink: string,
+  mapLink: string,
+  modeID: string,
+  title: string,
+  stats: string,
+  bpm: string,
+  mapper: string,
+  mapID: number,
+  suggester: string
+): QualifiersData {
+  return {
+    backgroundLink,
+    mapLink,
+    modeID,
+    title,
+    stats,
+    bpm,
+    mapper,
+    mapID,
+    suggester,
+  }
+}
+
+const qualifiersRows: any = [
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/226670/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/226670#osu/862642',
     'NM1',
@@ -66,7 +102,7 @@ const rows: any = [
     226670,
     'SLAVA MARL0W'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/1297231/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1297231#osu/2842753',
     'NM2',
@@ -77,7 +113,7 @@ const rows: any = [
     1297231,
     'lefrutit230'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/1705113/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1705113#osu/3490443',
     'NM3',
@@ -88,7 +124,7 @@ const rows: any = [
     1705113,
     'lefrutit230'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/1458846/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1458846#osu/3005759',
     'NM4',
@@ -99,7 +135,7 @@ const rows: any = [
     1458846,
     'SLAVA MARL0W'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/1323916/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1323916#osu/2818046',
     'HD1',
@@ -110,7 +146,7 @@ const rows: any = [
     1323916,
     'SLAVA MARL0W'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/37391/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/37391#osu/120250',
     'HD2',
@@ -121,7 +157,7 @@ const rows: any = [
     37391,
     'Crosbic'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/932457/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/932457#osu/2294195',
     'HR1',
@@ -132,7 +168,7 @@ const rows: any = [
     932457,
     'Kobra_TF'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/5763/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/5763#osu/27546',
     'HR2',
@@ -143,7 +179,7 @@ const rows: any = [
     5763,
     'SLAVA MARL0W'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/193583/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/193583#osu/459993',
     'DT1',
@@ -154,7 +190,7 @@ const rows: any = [
     193583,
     'Crosbic'
   ),
-  createData(
+  createQualsData(
     'https://assets.ppy.sh/beatmaps/1717807/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1717807#osu/3518574',
     'DT2',
@@ -163,6 +199,174 @@ const rows: any = [
     '176',
     'Sylvarus',
     1762731,
+    'Crosbic'
+  ),
+]
+
+const ro32Rows: any = [
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1143108/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1143108#osu/2387106',
+    'NM1',
+    'Mitchie M - Viva Happy [Yay!]',
+    '4.5 | 6 | 8 | 9',
+    '148',
+    'Remapper',
+    2387106,
+    'Crosbic'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/529212/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/529212#osu/1134784',
+    'NM2',
+    "XeoN - Xeus [Koiyuki's Insane]",
+    '4 | 6 | 7.5 | 8.5',
+    '148',
+    'My Angel Azusa',
+    1134784,
+    'SLAVA MARLOW'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1241588/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1241588#osu/2608162',
+    'NM3',
+    'YOASOBI - Yoru ni Kakeru [Ducky=Eresh`s Insane]',
+    '4.3 | 5 | 8.5 | 9',
+    '130',
+    'Smug Nanachi',
+    2608162,
+    'SLAVA MARLOW'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/529991/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/529991#osu/1370630',
+    'NM4',
+    'Camellia feat. Nanahira - PAPAYAPA BASS [Lasse`s Another]',
+    '4.8 | 5 | 7.4 | 9',
+    '147',
+    'Mir',
+    1370630,
+    'Crosbic'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1354017/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1354017#osu/2907223',
+    'NM5',
+    'PolyphonicBranch - Aru Shoujo no Senzai Ishiki [Collab Insane]',
+    '4 | 5 | 7 | 8',
+    '140',
+    'Some Hero',
+    2907223,
+    'lefrutit230'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1058659/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1058659#osu/2217225',
+    'HD1',
+    'Aimer - Kataomoi [Darlin`, Aishiteru.]',
+    '4 | 7 | 8 | 9',
+    '97',
+    'Moecho',
+    2217225,
+    'Kobra_TF'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1373644/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1373644#osu/2839868',
+    'HD2',
+    'Kitazawa Kyouhei feat. Hatsune Miku - ONIRIC [HOLLOW INSANE]',
+    '4.3 | 4.5 | 7 | 8',
+    '93',
+    '-Sylvari',
+    2839868,
+    'Crosbic'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/936267/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/936267#osu/2012244',
+    'HR1',
+    'JIN feat. LiSA - Headphone Actor [Sidetail`s Insane]',
+    '4 | 5 | 7.5 | 8.5',
+    '202',
+    'Amiya',
+    2012244,
+    'lefrutit230'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/275841/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/275841#osu/748754',
+    'HR2',
+    'Between August and December - Blow with the Fires [Shadren`s Shurik Insane]',
+    '5 | 6.5 | 7 | 9',
+    '75',
+    'AnatOWJIya',
+    748754,
+    'SLAVA MARL0W'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1064735/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1064735#osu/2229334',
+    'DT1',
+    'Britney Spears - ...Baby One More Time [My Loneliness is Killing Me.]',
+    '4 | 5 | 7 | 8',
+    '92.98',
+    'Nitroz',
+    2229334,
+    'Zoleks'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1004928/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1004928#osu/2498032',
+    'DT2',
+    "Kinoshita - Norowareta Sei / Shukufuku Sareta Sei (the confusion) [neko ds' Hard]",
+    '4 | 5 | 6.5 | 7.5',
+    '130',
+    'Mirash',
+    2498032,
+    'Kobra_TF'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1906645/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1906645#osu/3931739',
+    'DT3',
+    'Mewhan - Netsujou no Edda [Collab Hard]',
+    '3.6 | 4 | 6 | 8',
+    '132',
+    'Kuro Fuyusaki',
+    3931739,
+    'Kobra_TF'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/1253433/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1253433#osu/2991141',
+    'FM1',
+    "Palaye Royale - Massacre, The New American Dream [384's Insane]",
+    '4 | 5.5 | 8 | 9',
+    '168',
+    'C00L',
+    2991141,
+    'lefrutit230'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/12116/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/12116#osu/45695',
+    'FM2',
+    'Smiley - Delirium [Hard]',
+    '5 | 7 | 8 | 8',
+    '163',
+    'Hanyuu',
+    45695,
+    'Zoleks'
+  ),
+  createRo32Data(
+    'https://assets.ppy.sh/beatmaps/412140/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/412140#osu/974072',
+    'TB',
+    'Yousei Teikoku - Torikago [Insane]',
+    '4 | 6 | 7.5 | 9',
+    '172',
+    'Okorin',
+    974072,
     'Crosbic'
   ),
 ]
@@ -183,7 +387,7 @@ const theme = createTheme(
 )
 
 const MappoolTable = () => {
-  const [value, setValue] = useState('1')
+  const [value, setValue] = useState('2')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -192,7 +396,7 @@ const MappoolTable = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className={styles.tabs}>
+        <div className={styles.wrapper}>
           <TabContext value={value}>
             <TabList
               textColor="inherit"
@@ -201,6 +405,7 @@ const MappoolTable = () => {
               onChange={handleTabChange}
             >
               <Tab label="Квалификация" value="1" />
+              <Tab label="Round of 32" value="2" />
             </TabList>
             <TabPanel value="1">
               <Paper
@@ -235,7 +440,7 @@ const MappoolTable = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row: any) => {
+                        {qualifiersRows.map((row: any) => {
                           return (
                             <TableRow
                               key={row.id}
@@ -275,7 +480,76 @@ const MappoolTable = () => {
               </Paper>
             </TabPanel>
             <TabPanel value="2">
-              <div>Empty</div>
+              <Paper
+                sx={{
+                  width: '100%',
+                  backgroundColor: '#00000000',
+                }}
+              >
+                <div className={styles.table}>
+                  <TableContainer>
+                    <Table
+                      sx={{
+                        minWidth: 500,
+                      }}
+                      size="small"
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center"></TableCell>
+                          <TableCell align="center"></TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link
+                              href={`https://disk.yandex.ru/d/zpZZjm6_BU2_fw`}
+                            >
+                              Скачать маппак
+                            </Link>
+                          </TableCell>
+                          <TableCell align="center">CS|HP|OD|AR</TableCell>
+                          <TableCell align="center">BPM</TableCell>
+                          <TableCell align="center">Маппер</TableCell>
+                          <TableCell align="center">Саггестер</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {ro32Rows.map((row: any) => {
+                          return (
+                            <TableRow
+                              key={row.id}
+                              sx={{
+                                '&:last-child td, &:last-child th': {
+                                  border: 0,
+                                },
+                              }}
+                            >
+                              <TableCell align="center">
+                                <Image
+                                  className={styles.bg}
+                                  src={row.backgroundLink}
+                                  alt="mapImage"
+                                  height="30"
+                                  width="108"
+                                  unoptimized
+                                />
+                              </TableCell>
+                              <TableCell align="center">{row.modeID}</TableCell>
+                              <TableCell align="center" className={styles.link}>
+                                <Link href={row.mapLink}>{row.title}</Link>
+                              </TableCell>
+                              <TableCell align="center">{row.stats}</TableCell>
+                              <TableCell align="center">{row.bpm}</TableCell>
+                              <TableCell align="center">{row.mapper}</TableCell>
+                              <TableCell align="center">
+                                {row.suggester}
+                              </TableCell>
+                            </TableRow>
+                          )
+                        })}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </div>
+              </Paper>
             </TabPanel>
           </TabContext>
         </div>
