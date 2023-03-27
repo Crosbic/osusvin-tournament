@@ -205,26 +205,26 @@ const qualifiersRows: any = [
 
 const ro32Rows: any = [
   createRo32Data(
-    'https://assets.ppy.sh/beatmaps/1143108/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/1143108#osu/2387106',
+    'https://assets.ppy.sh/beatmaps/1531033/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1531033#osu/3221981',
     'NM1',
-    'Mitchie M - Viva Happy [Yay!]',
-    '4.5 | 6 | 8 | 9',
-    '148',
-    'Remapper',
-    2387106,
-    'Crosbic'
+    'AliA - nostalgia [banter`s insane]',
+    '3.6 | 5 | 8 | 9',
+    '190',
+    'Nelliel',
+    3221981,
+    'lefrutit230'
   ),
   createRo32Data(
-    'https://assets.ppy.sh/beatmaps/529212/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/529212#osu/1134784',
+    'https://assets.ppy.sh/beatmaps/317439/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/317439#osu/1319822',
     'NM2',
-    "XeoN - Xeus [Koiyuki's Insane]",
-    '4 | 6 | 7.5 | 8.5',
+    'dj TAKA - Colors -sasakure.UK Futurelogic Remix- [Hyper]',
+    '4 | 5 | 7.5 | 8.5',
     '148',
-    'My Angel Azusa',
-    1134784,
-    'SLAVA MARLOW'
+    'wa_',
+    1319822,
+    'Zoleks'
   ),
   createRo32Data(
     'https://assets.ppy.sh/beatmaps/1241588/covers/cover.jpg',
@@ -238,15 +238,15 @@ const ro32Rows: any = [
     'SLAVA MARLOW'
   ),
   createRo32Data(
-    'https://assets.ppy.sh/beatmaps/529991/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/529991#osu/1370630',
+    'https://assets.ppy.sh/beatmaps/917915/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/917915#osu/2039004',
     'NM4',
-    'Camellia feat. Nanahira - PAPAYAPA BASS [Lasse`s Another]',
-    '4.8 | 5 | 7.4 | 9',
-    '147',
-    'Mir',
-    1370630,
-    'Crosbic'
+    'Silentroom - Nhelv [Rhonen`s Hyper]',
+    '3.5 | 5 | 6.5 | 9',
+    '174.58',
+    'Nyxa',
+    2039004,
+    'lefrutit230'
   ),
   createRo32Data(
     'https://assets.ppy.sh/beatmaps/1354017/covers/cover.jpg',
@@ -260,15 +260,15 @@ const ro32Rows: any = [
     'lefrutit230'
   ),
   createRo32Data(
-    'https://assets.ppy.sh/beatmaps/1058659/covers/cover.jpg',
-    'https://osu.ppy.sh/beatmapsets/1058659#osu/2217225',
+    'https://assets.ppy.sh/beatmaps/1885417/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1885417#osu/3905815',
     'HD1',
-    'Aimer - Kataomoi [Darlin`, Aishiteru.]',
-    '4 | 7 | 8 | 9',
-    '97',
-    'Moecho',
-    2217225,
-    'Kobra_TF'
+    'Kawada Mami - No buts! [Level 4]',
+    '3.8 | 5.2 | 7.8 | 9',
+    '183',
+    'Akitoshi',
+    3905815,
+    'lefrutit230'
   ),
   createRo32Data(
     'https://assets.ppy.sh/beatmaps/1373644/covers/cover.jpg',
