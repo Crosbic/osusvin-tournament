@@ -1,49 +1,49 @@
 [
   {
     "scoresByMods": {
-      "NF": 2393930,
-      "NFHD": 545624,
-      "NFHR": 272516,
-      "NFDT": 624184
+      "NF": 3169950,
+      "NFHD": 813376,
+      "NFHR": 1146711,
+      "NFDT": 1785516
     },
-    "overalScore": 3836254,
+    "overalScore": 6915553,
     "user": {
-      "id": 12048705,
-      "username": "Crosbic",
-      "avatar_url": "https://a.ppy.sh/12048705?1597129514.jpeg"
+      "id": 3218675,
+      "username": "Egor20042004",
+      "avatar_url": "https://a.ppy.sh/3218675?1676381225.jpeg"
     },
     "scores": [
       {
         "beatmap_id": 862642,
-        "scoreValue": 889859,
+        "scoreValue": 846192,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2842753,
-        "scoreValue": 520924,
+        "scoreValue": 955037,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3490443,
-        "scoreValue": 328483,
+        "scoreValue": 689466,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3005759,
-        "scoreValue": 654664,
+        "scoreValue": 679255,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2818046,
-        "scoreValue": 425975,
+        "scoreValue": 433963,
         "mods": [
           "NF",
           "HD"
@@ -51,7 +51,7 @@
       },
       {
         "beatmap_id": 120250,
-        "scoreValue": 119649,
+        "scoreValue": 379413,
         "mods": [
           "NF",
           "HD"
@@ -59,7 +59,7 @@
       },
       {
         "beatmap_id": 2294195,
-        "scoreValue": 99525,
+        "scoreValue": 761121,
         "mods": [
           "NF",
           "HR"
@@ -67,7 +67,7 @@
       },
       {
         "beatmap_id": 27546,
-        "scoreValue": 172991,
+        "scoreValue": 385590,
         "mods": [
           "NF",
           "HR"
@@ -75,7 +75,7 @@
       },
       {
         "beatmap_id": 459993,
-        "scoreValue": 286190,
+        "scoreValue": 1033236,
         "mods": [
           "NF",
           "DT"
@@ -83,7 +83,7 @@
       },
       {
         "beatmap_id": 3518574,
-        "scoreValue": 337994,
+        "scoreValue": 752280,
         "mods": [
           "NF",
           "DT"
@@ -93,49 +93,49 @@
   },
   {
     "scoresByMods": {
-      "NF": 624201,
-      "NFHD": 133266,
-      "NFHR": 138581,
-      "NFDT": 185957
+      "NF": 2366214,
+      "NFHD": 382843,
+      "NFHR": 1273973,
+      "NFDT": 698389
     },
-    "overalScore": 1082005,
+    "overalScore": 4721419,
     "user": {
-      "id": 27805590,
-      "username": "Danton",
-      "avatar_url": "https://a.ppy.sh/27805590?1659702297.gif"
+      "id": 11349288,
+      "username": "Raylo121",
+      "avatar_url": "https://a.ppy.sh/11349288?1654972239.png"
     },
     "scores": [
       {
         "beatmap_id": 862642,
-        "scoreValue": 247080,
+        "scoreValue": 453352,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2842753,
-        "scoreValue": 198767,
+        "scoreValue": 775278,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3490443,
-        "scoreValue": 43192,
+        "scoreValue": 314689,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3005759,
-        "scoreValue": 135162,
+        "scoreValue": 822895,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2818046,
-        "scoreValue": 102598,
+        "scoreValue": 304691,
         "mods": [
           "NF",
           "HD"
@@ -143,7 +143,7 @@
       },
       {
         "beatmap_id": 120250,
-        "scoreValue": 30668,
+        "scoreValue": 78152,
         "mods": [
           "NF",
           "HD"
@@ -151,7 +151,7 @@
       },
       {
         "beatmap_id": 2294195,
-        "scoreValue": 52505,
+        "scoreValue": 796828,
         "mods": [
           "NF",
           "HR"
@@ -159,7 +159,7 @@
       },
       {
         "beatmap_id": 27546,
-        "scoreValue": 86076,
+        "scoreValue": 477145,
         "mods": [
           "NF",
           "HR"
@@ -167,7 +167,7 @@
       },
       {
         "beatmap_id": 459993,
-        "scoreValue": 83354,
+        "scoreValue": 508127,
         "mods": [
           "NF",
           "DT"
@@ -175,7 +175,7 @@
       },
       {
         "beatmap_id": 3518574,
-        "scoreValue": 102603,
+        "scoreValue": 190262,
         "mods": [
           "NF",
           "DT"
@@ -185,28 +185,49 @@
   },
   {
     "scoresByMods": {
-      "NF": 549242,
-      "NFHD": 494236,
-      "NFHR": 533826,
-      "NFDT": 1380225
+      "NF": 1739464,
+      "NFHD": 243988,
+      "NFHR": 169105,
+      "NFDT": 267739
     },
-    "overalScore": 2957529,
+    "overalScore": 2420296,
     "user": {
-      "id": 10002215,
-      "username": "RatatiC",
-      "avatar_url": "https://a.ppy.sh/10002215?1674948876.jpeg"
+      "id": 16277444,
+      "username": "makar1222",
+      "avatar_url": "https://a.ppy.sh/16277444?1671091686.jpeg"
     },
     "scores": [
       {
+        "beatmap_id": 862642,
+        "scoreValue": 239443,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 749766,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 143949,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
         "beatmap_id": 3005759,
-        "scoreValue": 549242,
+        "scoreValue": 606306,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2818046,
-        "scoreValue": 349363,
+        "scoreValue": 127181,
         "mods": [
           "NF",
           "HD"
@@ -214,7 +235,7 @@
       },
       {
         "beatmap_id": 120250,
-        "scoreValue": 144873,
+        "scoreValue": 116807,
         "mods": [
           "NF",
           "HD"
@@ -222,7 +243,7 @@
       },
       {
         "beatmap_id": 2294195,
-        "scoreValue": 240184,
+        "scoreValue": 62476,
         "mods": [
           "NF",
           "HR"
@@ -230,7 +251,7 @@
       },
       {
         "beatmap_id": 27546,
-        "scoreValue": 293642,
+        "scoreValue": 106629,
         "mods": [
           "NF",
           "HR"
@@ -238,7 +259,7 @@
       },
       {
         "beatmap_id": 459993,
-        "scoreValue": 590913,
+        "scoreValue": 58201,
         "mods": [
           "NF",
           "DT"
@@ -246,7 +267,7 @@
       },
       {
         "beatmap_id": 3518574,
-        "scoreValue": 789312,
+        "scoreValue": 209538,
         "mods": [
           "NF",
           "DT"
@@ -256,49 +277,49 @@
   },
   {
     "scoresByMods": {
-      "NF": 2159060,
-      "NFHD": 859183,
-      "NFHR": 1096215,
-      "NFDT": 1810810
+      "NF": 1957021,
+      "NFHD": 380953,
+      "NFHR": 530185,
+      "NFDT": 1040162
     },
-    "overalScore": 5925268,
+    "overalScore": 3908321,
     "user": {
-      "id": 12346190,
-      "username": "SLAVA MARL0W",
-      "avatar_url": "https://a.ppy.sh/12346190?1648672683.jpeg"
+      "id": 17438809,
+      "username": "EniarkuAvals",
+      "avatar_url": "https://a.ppy.sh/17438809?1658651063.jpeg"
     },
     "scores": [
       {
         "beatmap_id": 862642,
-        "scoreValue": 313726,
+        "scoreValue": 510708,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2842753,
-        "scoreValue": 134549,
+        "scoreValue": 447368,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3490443,
-        "scoreValue": 758008,
+        "scoreValue": 293592,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3005759,
-        "scoreValue": 952777,
+        "scoreValue": 705353,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2818046,
-        "scoreValue": 505401,
+        "scoreValue": 234591,
         "mods": [
           "NF",
           "HD"
@@ -306,7 +327,7 @@
       },
       {
         "beatmap_id": 120250,
-        "scoreValue": 353782,
+        "scoreValue": 146362,
         "mods": [
           "NF",
           "HD"
@@ -314,7 +335,7 @@
       },
       {
         "beatmap_id": 2294195,
-        "scoreValue": 661830,
+        "scoreValue": 382931,
         "mods": [
           "NF",
           "HR"
@@ -322,7 +343,7 @@
       },
       {
         "beatmap_id": 27546,
-        "scoreValue": 434385,
+        "scoreValue": 147254,
         "mods": [
           "NF",
           "HR"
@@ -330,7 +351,7 @@
       },
       {
         "beatmap_id": 459993,
-        "scoreValue": 707831,
+        "scoreValue": 605933,
         "mods": [
           "NF",
           "DT"
@@ -338,7 +359,7 @@
       },
       {
         "beatmap_id": 3518574,
-        "scoreValue": 1102979,
+        "scoreValue": 434229,
         "mods": [
           "NF",
           "DT"
@@ -348,57 +369,49 @@
   },
   {
     "scoresByMods": {
-      "NF": 3865777,
-      "NFHD": 1072324,
-      "NFHR": 721550,
-      "NFDT": 2216595
+      "NF": 1030719,
+      "NFHD": 127337,
+      "NFHR": 449229,
+      "NFDT": 1331119
     },
-    "overalScore": 7876246,
+    "overalScore": 2938404,
     "user": {
-      "id": 13679658,
-      "username": "lefrutit230",
-      "avatar_url": "https://a.ppy.sh/13679658?1647947196.jpeg"
+      "id": 21404355,
+      "username": "ADMAX333",
+      "avatar_url": "https://a.ppy.sh/21404355?1676813255.jpeg"
     },
     "scores": [
       {
         "beatmap_id": 862642,
-        "scoreValue": 1001747,
+        "scoreValue": 435094,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2842753,
-        "scoreValue": 981843,
+        "scoreValue": 205582,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3490443,
-        "scoreValue": 891947,
+        "scoreValue": 72346,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 3005759,
-        "scoreValue": 990240,
+        "scoreValue": 317697,
         "mods": [
           "NF"
         ]
       },
       {
         "beatmap_id": 2818046,
-        "scoreValue": 551194,
-        "mods": [
-          "NF",
-          "HD"
-        ]
-      },
-      {
-        "beatmap_id": 120250,
-        "scoreValue": 521130,
+        "scoreValue": 101214,
         "mods": [
           "NF",
           "HD"
@@ -406,7 +419,7 @@
       },
       {
         "beatmap_id": 2294195,
-        "scoreValue": 480297,
+        "scoreValue": 307811,
         "mods": [
           "NF",
           "HR"
@@ -414,7 +427,7 @@
       },
       {
         "beatmap_id": 27546,
-        "scoreValue": 241253,
+        "scoreValue": 141418,
         "mods": [
           "NF",
           "HR"
@@ -422,7 +435,7 @@
       },
       {
         "beatmap_id": 459993,
-        "scoreValue": 1172108,
+        "scoreValue": 961827,
         "mods": [
           "NF",
           "DT"
@@ -430,7 +443,3555 @@
       },
       {
         "beatmap_id": 3518574,
-        "scoreValue": 1044487,
+        "scoreValue": 369292,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 26123,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2330299,
+      "NFHD": 357000,
+      "NFHR": 488636,
+      "NFDT": 1782937
+    },
+    "overalScore": 4958872,
+    "user": {
+      "id": 22965253,
+      "username": "sqzme",
+      "avatar_url": "https://a.ppy.sh/22965253?1678614970.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 338739,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 907642,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 341961,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 741957,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 186160,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 170840,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 258866,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 229770,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 998407,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 784530,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2645693,
+      "NFHD": 499617,
+      "NFHR": 780268,
+      "NFDT": 1264506
+    },
+    "overalScore": 5190084,
+    "user": {
+      "id": 25822905,
+      "username": "Shimitori",
+      "avatar_url": "https://a.ppy.sh/25822905?1676188649.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 566209,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 900071,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 317866,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 861547,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 217607,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 282010,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 319036,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 461232,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 720547,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 543959,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2107604,
+      "NFHD": 415603,
+      "NFHR": 704285,
+      "NFDT": 533800
+    },
+    "overalScore": 3761292,
+    "user": {
+      "id": 20548060,
+      "username": "NekroGamer",
+      "avatar_url": "https://a.ppy.sh/20548060?1679241872.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 411541,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 501455,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 513941,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 680667,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 247398,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 168205,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 359823,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 344462,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 254271,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 279529,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2664289,
+      "NFHD": 257549,
+      "NFHR": 837658,
+      "NFDT": 687837
+    },
+    "overalScore": 4447333,
+    "user": {
+      "id": 21616010,
+      "username": "mazilforex",
+      "avatar_url": "https://a.ppy.sh/21616010?1674968823.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 904128,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 554513,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 288070,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 917578,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 204950,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 52599,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 580526,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 257132,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 428240,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 259597,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1531499,
+      "NFHD": 152101,
+      "NFHR": 185186,
+      "NFDT": 573081
+    },
+    "overalScore": 2441867,
+    "user": {
+      "id": 25967798,
+      "username": "ZeoStorm",
+      "avatar_url": "https://a.ppy.sh/25967798?1679250184.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 301870,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 706701,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 131370,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 391558,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 99714,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 52387,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 88624,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 96562,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 230243,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 342838,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1267021,
+      "NFHD": 169664,
+      "NFHR": 397915,
+      "NFDT": 1069858
+    },
+    "overalScore": 2904458,
+    "user": {
+      "id": 26680604,
+      "username": "taboovro20",
+      "avatar_url": "https://a.ppy.sh/26680604?1634910859.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 340886,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 477957,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 190555,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 257623,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 125161,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 44503,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 121460,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 276455,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 723226,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 346632,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1916926,
+      "NFHD": 419545,
+      "NFHR": 316119,
+      "NFDT": 1157953
+    },
+    "overalScore": 3810543,
+    "user": {
+      "id": 28752973,
+      "username": "Zipkek",
+      "avatar_url": "https://a.ppy.sh/28752973?1663769303.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 552551,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 479869,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 202080,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 682426,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 292406,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 127139,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 144851,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 171268,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 443392,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 714561,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1052751,
+      "NFHD": 109934,
+      "NFHR": 149844,
+      "NFDT": 557499
+    },
+    "overalScore": 1870028,
+    "user": {
+      "id": 29801017,
+      "username": "sponge_yob",
+      "avatar_url": "https://a.ppy.sh/29801017?1659427870.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 259866,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 356324,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 135393,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 301168,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 70739,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 39195,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 37308,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 112536,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 171042,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 386457,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 640902,
+      "NFHD": 108834,
+      "NFHR": 104661,
+      "NFDT": 182805
+    },
+    "overalScore": 1037202,
+    "user": {
+      "id": 29902835,
+      "username": "xvesta",
+      "avatar_url": "https://a.ppy.sh/29902835?1670620458.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 192450,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 169477,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 82634,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 196341,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 68538,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 40296,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 60993,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 43668,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 81559,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 101246,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1388215,
+      "NFHD": 316567,
+      "NFHR": 190279,
+      "NFDT": 669254
+    },
+    "overalScore": 2564315,
+    "user": {
+      "id": 31442770,
+      "username": "homophobiaisgay",
+      "avatar_url": "https://a.ppy.sh/31442770?1678640183.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 433887,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 458211,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 177314,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 318803,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 138044,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 178523,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 89156,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 101123,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 336460,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 332794,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1387617,
+      "NFHD": 157797,
+      "NFHR": 147761,
+      "NFDT": 393355
+    },
+    "overalScore": 2086530,
+    "user": {
+      "id": 4429575,
+      "username": "Arantear",
+      "avatar_url": "https://a.ppy.sh/4429575?1675377562.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 365280,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 457755,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 172566,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 392016,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 106482,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 51315,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 85855,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 61906,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 278632,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 114723,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1704356,
+      "NFHD": 560501,
+      "NFHR": 387619,
+      "NFDT": 1096641
+    },
+    "overalScore": 3749117,
+    "user": {
+      "id": 11006242,
+      "username": "Fishen",
+      "avatar_url": "https://a.ppy.sh/11006242?1678279736.gif"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 454388,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 365375,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 325338,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 559255,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 312045,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 248456,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 144360,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 243259,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 749028,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 347613,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 3056816,
+      "NFHD": 682389,
+      "NFHR": 689149,
+      "NFDT": 1237212
+    },
+    "overalScore": 5665566,
+    "user": {
+      "id": 11011448,
+      "username": "Andrey94",
+      "avatar_url": "https://a.ppy.sh/11011448?1672817580.png"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 722538,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 922043,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 660710,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 751525,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 407865,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 274524,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 433284,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 255865,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 746030,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 491182,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1339117,
+      "NFHD": 326749,
+      "NFHR": 647225,
+      "NFDT": 1077534
+    },
+    "overalScore": 3390625,
+    "user": {
+      "id": 13804967,
+      "username": "Shuusa",
+      "avatar_url": "https://a.ppy.sh/13804967?1679575229.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 390998,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 376319,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 148520,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 423280,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 295108,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 31641,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 361841,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 285384,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 699363,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 378171,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2155594,
+      "NFHD": 634058,
+      "NFHR": 443499,
+      "NFDT": 593300
+    },
+    "overalScore": 3826451,
+    "user": {
+      "id": 20591600,
+      "username": "Kiber_Kotleta18",
+      "avatar_url": "https://a.ppy.sh/20591600?1676482429.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 418560,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 690207,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 696248,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 350579,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 328950,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 305108,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 244538,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 198961,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 247614,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 345686,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2416994,
+      "NFHD": 357042,
+      "NFHR": 561989,
+      "NFDT": 670218
+    },
+    "overalScore": 4006243,
+    "user": {
+      "id": 21252327,
+      "username": "sasarehadd",
+      "avatar_url": "https://a.ppy.sh/21252327?1673740313.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 742177,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 879578,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 142249,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 652990,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 298003,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 59039,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 392036,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 169953,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 197035,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 473183,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1177669,
+      "NFHD": 73876,
+      "NFHR": 228982,
+      "NFDT": 527636
+    },
+    "overalScore": 2008163,
+    "user": {
+      "id": 25665548,
+      "username": "RitaSister",
+      "avatar_url": "https://a.ppy.sh/25665548?1631955048.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 341357,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 362051,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 133339,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 340922,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 62456,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 11420,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 116632,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 112350,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 306264,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 221372,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 884308,
+      "NFHD": 165022,
+      "NFHR": 440273,
+      "NFDT": 324076
+    },
+    "overalScore": 1813679,
+    "user": {
+      "id": 29043362,
+      "username": "ThygerWir",
+      "avatar_url": "https://a.ppy.sh/29043362?1673526831.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 261132,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 376655,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 77697,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 168824,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 78319,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 86703,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 259267,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 181006,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 195271,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 128805,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2920702,
+      "NFHD": 796877,
+      "NFHR": 846050,
+      "NFDT": 1073157
+    },
+    "overalScore": 5636786,
+    "user": {
+      "id": 14726100,
+      "username": "PaNika_",
+      "avatar_url": "https://a.ppy.sh/14726100?1679241419.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 971346,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 324309,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 743559,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 881488,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 437023,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 359854,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 378625,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 467425,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 603159,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 469998,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1813373,
+      "NFHD": 638537,
+      "NFHR": 304156,
+      "NFDT": 1070992
+    },
+    "overalScore": 3827058,
+    "user": {
+      "id": 17236489,
+      "username": "Norial",
+      "avatar_url": "https://a.ppy.sh/17236489?1674849106.png"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 494944,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 438837,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 386044,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 493548,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 378038,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 260499,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 177245,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 126911,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 722884,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 348108,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1351165,
+      "NFHD": 267416,
+      "NFHR": 773224,
+      "NFDT": 1226486
+    },
+    "overalScore": 3618291,
+    "user": {
+      "id": 20867779,
+      "username": "terrakuta",
+      "avatar_url": "https://a.ppy.sh/20867779?1647442797.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 407831,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 438202,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 199677,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 305455,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 205337,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 62079,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 487241,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 285983,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 528432,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 698054,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1796077,
+      "NFHD": 278848,
+      "NFHR": 1031365,
+      "NFDT": 1449759
+    },
+    "overalScore": 4556049,
+    "user": {
+      "id": 21169450,
+      "username": "Laneyn",
+      "avatar_url": "https://a.ppy.sh/21169450?1675007136.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 670646,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 558713,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 241902,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 324816,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 202017,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 76831,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 793571,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 237794,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 1035066,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 414693,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1367687,
+      "NFHD": 150855,
+      "NFHR": 110831,
+      "NFDT": 480126
+    },
+    "overalScore": 2109499,
+    "user": {
+      "id": 23843745,
+      "username": "vladi003032",
+      "avatar_url": "https://a.ppy.sh/23843745?1674505701.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 340725,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 697680,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 92629,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 236653,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 132532,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 18323,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 64365,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 46466,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 304691,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 175435,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1575082,
+      "NFHD": 233485,
+      "NFHR": 540420,
+      "NFDT": 1026648
+    },
+    "overalScore": 3375635,
+    "user": {
+      "id": 25573858,
+      "username": "LupikPupik3000",
+      "avatar_url": "https://a.ppy.sh/25573858?1679914249.png"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 324266,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 481192,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 312595,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 457029,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 149329,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 84156,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 368962,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 171458,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 763267,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 263381,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1581431,
+      "NFHD": 383234,
+      "NFHR": 500202,
+      "NFDT": 1393768
+    },
+    "overalScore": 3858635,
+    "user": {
+      "id": 25684239,
+      "username": "Matrix_Play",
+      "avatar_url": "https://a.ppy.sh/25684239?1676931997.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 420581,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 377240,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 398860,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 384750,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 249115,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 134119,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 272928,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 227274,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 694266,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 699502,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2350696,
+      "NFHD": 1075401,
+      "NFHR": 919705,
+      "NFDT": 1157107
+    },
+    "overalScore": 5502909,
+    "user": {
+      "id": 27831688,
+      "username": "Felichka",
+      "avatar_url": "https://a.ppy.sh/27831688?1672748568.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 787754,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 688852,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 465332,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 408758,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 884033,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 191368,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 543092,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 376613,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 698734,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 458373,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 259279,
+      "NFHD": 0,
+      "NFHR": 0,
+      "NFDT": 0
+    },
+    "overalScore": 259279,
+    "user": {
+      "id": 17471480,
+      "username": "Ak2R",
+      "avatar_url": "https://a.ppy.sh/17471480?1675447819.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 22852,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 106649,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 52490,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 77288,
+        "mods": [
+          "NF"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 713861,
+      "NFHD": 112084,
+      "NFHR": 845892,
+      "NFDT": 604589
+    },
+    "overalScore": 2276426,
+    "user": {
+      "id": 18540501,
+      "username": "artemandrik",
+      "avatar_url": "https://a.ppy.sh/18540501?1679320754.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 192214,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 269856,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 91491,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 160300,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 91148,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 20936,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 657072,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 188820,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 355493,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 249096,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1399622,
+      "NFHD": 248528,
+      "NFHR": 729647,
+      "NFDT": 394423
+    },
+    "overalScore": 2772220,
+    "user": {
+      "id": 18845216,
+      "username": "lnvoker",
+      "avatar_url": "https://a.ppy.sh/18845216?1679439268.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 290323,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 578845,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 194343,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 336111,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 128202,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 120326,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 590975,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 138672,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 221612,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 172811,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 3034242,
+      "NFHD": 447504,
+      "NFHR": 625685,
+      "NFDT": 1417632
+    },
+    "overalScore": 5525063,
+    "user": {
+      "id": 26095913,
+      "username": "codzzzi",
+      "avatar_url": "https://a.ppy.sh/26095913?1678799096.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 1003017,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 942807,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 533325,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 555093,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 297356,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 150148,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 453766,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 171919,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 1023558,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 394074,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 847316,
+      "NFHD": 146068,
+      "NFHR": 95764,
+      "NFDT": 181519
+    },
+    "overalScore": 1270667,
+    "user": {
+      "id": 26620307,
+      "username": "Tikerplay",
+      "avatar_url": "https://a.ppy.sh/26620307?1671825952.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 223495,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 210264,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 49316,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 364241,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 96063,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 50005,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 25671,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 70093,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 84128,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 97391,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 704431,
+      "NFHD": 110600,
+      "NFHR": 337247,
+      "NFDT": 429391
+    },
+    "overalScore": 1581669,
+    "user": {
+      "id": 27708622,
+      "username": "Ameko25",
+      "avatar_url": "https://a.ppy.sh/27708622?1679836270.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 309259,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 151971,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 65384,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 177817,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 91831,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 18769,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 224141,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 113106,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 307514,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 121877,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 2664661,
+      "NFHD": 484512,
+      "NFHR": 1193861,
+      "NFDT": 1391178
+    },
+    "overalScore": 5734212,
+    "user": {
+      "id": 3704677,
+      "username": "sxpoz",
+      "avatar_url": "https://a.ppy.sh/3704677?1675683692.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 951743,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 496368,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 391455,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 825095,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 299902,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 184610,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 885891,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 307970,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 1079408,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 311770,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 625166,
+      "NFHD": 114023,
+      "NFHR": 159947,
+      "NFDT": 114635
+    },
+    "overalScore": 1013771,
+    "user": {
+      "id": 12643505,
+      "username": "ugr1k",
+      "avatar_url": "https://a.ppy.sh/12643505?1540221378.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 204461,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 198080,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 40661,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 181964,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 64559,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 49464,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 51045,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 108902,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 41829,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 72806,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 644411,
+      "NFHD": 71672,
+      "NFHR": 420509,
+      "NFDT": 500941
+    },
+    "overalScore": 1637533,
+    "user": {
+      "id": 14038047,
+      "username": "Urayde",
+      "avatar_url": "https://a.ppy.sh/14038047?1678217443.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 240532,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 131416,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 48685,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 223778,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 54815,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 16857,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 223714,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 196795,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 323184,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 177757,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1975579,
+      "NFHD": 265061,
+      "NFHR": 672598,
+      "NFDT": 1174113
+    },
+    "overalScore": 4087351,
+    "user": {
+      "id": 20974846,
+      "username": "Rev1vall",
+      "avatar_url": "https://a.ppy.sh/20974846?1675089608.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 369924,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 832240,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 304275,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 469140,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 153060,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 112001,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 513016,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 159582,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 439726,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 734387,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1856928,
+      "NFHD": 263995,
+      "NFHR": 667672,
+      "NFDT": 1435190
+    },
+    "overalScore": 4223785,
+    "user": {
+      "id": 21593540,
+      "username": "Benqos",
+      "avatar_url": "https://a.ppy.sh/21593540?1679828828.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 375024,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 794302,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 188817,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 498785,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 216927,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 47068,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 468561,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 199111,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 684870,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 750320,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1020608,
+      "NFHD": 517032,
+      "NFHR": 122132,
+      "NFDT": 450487
+    },
+    "overalScore": 2110259,
+    "user": {
+      "id": 22527452,
+      "username": "Aria Holmes",
+      "avatar_url": "https://a.ppy.sh/22527452?1679554206.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 282959,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 267463,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 218953,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 251233,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 244307,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 272725,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 65778,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 56354,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 173476,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 277011,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      }
+    ]
+  },
+  {
+    "scoresByMods": {
+      "NF": 1957089,
+      "NFHD": 484741,
+      "NFHR": 746617,
+      "NFDT": 1694681
+    },
+    "overalScore": 4883128,
+    "user": {
+      "id": 29860675,
+      "username": "loys_0",
+      "avatar_url": "https://a.ppy.sh/29860675?1676142704.jpeg"
+    },
+    "scores": [
+      {
+        "beatmap_id": 862642,
+        "scoreValue": 541818,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2842753,
+        "scoreValue": 805131,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3490443,
+        "scoreValue": 262573,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 3005759,
+        "scoreValue": 347567,
+        "mods": [
+          "NF"
+        ]
+      },
+      {
+        "beatmap_id": 2818046,
+        "scoreValue": 317878,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 120250,
+        "scoreValue": 166863,
+        "mods": [
+          "NF",
+          "HD"
+        ]
+      },
+      {
+        "beatmap_id": 2294195,
+        "scoreValue": 573112,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 27546,
+        "scoreValue": 173505,
+        "mods": [
+          "NF",
+          "HR"
+        ]
+      },
+      {
+        "beatmap_id": 459993,
+        "scoreValue": 1157092,
+        "mods": [
+          "NF",
+          "DT"
+        ]
+      },
+      {
+        "beatmap_id": 3518574,
+        "scoreValue": 537589,
         "mods": [
           "NF",
           "DT"

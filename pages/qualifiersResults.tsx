@@ -22,7 +22,15 @@ const fetcher = (url: any) =>
   })
 
 const Quals = () => {
-  const { data } = useSWR('/api/staticdata', fetcher)
+  const { data, error } = useSWR('/api/staticdata', fetcher)
+  console.log(data)
+
+  if (error) {
+    return <div className={styles.loading}>Failed to load</div>
+  }
+  if (!data) {
+    return <div>Loading...</div>
+  }
 
   const sortedScores = data.sort(
     (a: any, b: any) => b.overalScore - a.overalScore
