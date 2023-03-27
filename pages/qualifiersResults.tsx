@@ -72,7 +72,6 @@ const Quals = () => {
                   <TableCell align="center">HR счёт</TableCell>
                   <TableCell align="center">DT счёт</TableCell>
                   <TableCell align="center">Общий счёт</TableCell>
-                  <TableCell align="center">Сид</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -124,9 +123,6 @@ const Quals = () => {
                           thousandSeparator=" "
                           displayType="text"
                         />
-                      </TableCell>
-                      <TableCell align="center">
-                        {userMatch.user.seed}
                       </TableCell>
                     </TableRow>
                   )
