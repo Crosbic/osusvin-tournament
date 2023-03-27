@@ -23,7 +23,6 @@ const fetcher = (url: any) =>
 
 const Quals = () => {
   const { data, error } = useSWR('/api/staticdata', fetcher)
-  console.log(data)
 
   if (error) {
     return <div className={styles.loading}>Failed to load</div>
