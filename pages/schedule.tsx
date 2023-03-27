@@ -11,7 +11,6 @@ import {
   DialogTitle,
   FormControl,
   MenuItem,
-  Paper,
   Select,
   Snackbar,
   Tab,
@@ -158,101 +157,88 @@ const ScheduleTable = () => {
               <Tab label="Квалификация" value="1" />
             </TabList>
             <TabPanel value="1">
-              <Paper
-                sx={{
-                  width: '100%',
-                  backgroundColor: '#00000000',
-                }}
-              >
-                <div className={styles.table}>
-                  <TableContainer>
-                    <Table
-                      sx={{
-                        minWidth: 500,
-                      }}
-                      size="small"
-                    >
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="center">ID</TableCell>
-                          <TableCell align="center">Дата</TableCell>
-                          <TableCell align="center">Игроки</TableCell>
-                          <TableCell align="center">Рефери</TableCell>
-                          <TableCell align="center">Ссылка</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {sortedRows.map((row) => {
-                          const date = (row.dateStarted = new Date(
-                            row.dateStarted
-                          ))
+              <div className={styles.table}>
+                <TableContainer>
+                  <Table
+                    sx={{
+                      minWidth: 500,
+                    }}
+                    size="small"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">ID</TableCell>
+                        <TableCell align="center">Дата</TableCell>
+                        <TableCell align="center">Игроки</TableCell>
+                        <TableCell align="center">Рефери</TableCell>
+                        <TableCell align="center">Ссылка</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedRows.map((row) => {
+                        const date = (row.dateStarted = new Date(
+                          row.dateStarted
+                        ))
 
-                          return (
-                            <TableRow
-                              key={row.name}
-                              sx={{
-                                '&:last-child td, &:last-child th': {
-                                  border: 0,
-                                },
-                              }}
-                            >
-                              <TableCell align="center">{row.name}</TableCell>
-                              <TableCell align="center">
-                                {date.toLocaleString('ru-RU')}
-                              </TableCell>
-                              <TableCell align="center">
-                                {row.users.map((user: any) => {
-                                  return (
-                                    <div key={user.id} className={styles.users}>
-                                      <div className={styles.users}>
-                                        <Link
-                                          href={`https://osu.ppy.sh/users/${user.id}`}
-                                        >
-                                          {user.username}
-                                        </Link>
-                                        &nbsp; &nbsp;
-                                      </div>
-                                    </div>
-                                  )
-                                })}
-                              </TableCell>
-                              <TableCell align="center">
-                                {row.referees.map((referee: any) => {
-                                  return (
-                                    <div
-                                      className={styles.users}
-                                      key={referee.id}
-                                    >
+                        return (
+                          <TableRow
+                            key={row.name}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
+                          >
+                            <TableCell align="center">{row.name}</TableCell>
+                            <TableCell align="center">
+                              {date.toLocaleString('ru-RU')}
+                            </TableCell>
+                            <TableCell align="center">
+                              {row.users.map((user: any) => {
+                                return (
+                                  <div key={user.id} className={styles.users}>
+                                    <div className={styles.users}>
                                       <Link
-                                        href={`https://osu.ppy.sh/users/${referee.id}`}
+                                        href={`https://osu.ppy.sh/users/${user.id}`}
                                       >
-                                        {referee.username}
+                                        {user.username}
                                       </Link>
+                                      &nbsp; &nbsp;
                                     </div>
-                                  )
-                                })}
-                              </TableCell>
-                              <TableCell align="center">
-                                <a href={row.resultLink}>
-                                  {row.resultLink ? 'Ссылка есть' : null}
-                                </a>
-                              </TableCell>
-                            </TableRow>
-                          )
-                        })}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </div>
-              </Paper>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {row.referees.map((referee: any) => {
+                                return (
+                                  <div
+                                    className={styles.users}
+                                    key={referee.id}
+                                  >
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${referee.id}`}
+                                    >
+                                      {referee.username}
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              <a href={row.resultLink}>
+                                {row.resultLink ? 'Ссылка есть' : null}
+                              </a>
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
             </TabPanel>
           </TabContext>
-          {/*<>*/}
-          {/*  {localStorage.getItem('user.role') === 'referee' ||*/}
-          {/*  localStorage.getItem('user.role') === 'admin' ? (*/}
-          {/*    <Button>ффффф</Button>*/}
-          {/*  ) : null}*/}
-          {/*</>*/}
           <div className={styles.regButton}>
             <Button onClick={handleClickOpen} variant="outlined">
               Зарегистрироваться в лобби

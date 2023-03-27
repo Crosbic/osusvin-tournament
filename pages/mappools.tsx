@@ -1,7 +1,6 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
   createTheme,
-  Paper,
   Tab,
   Table,
   TableBody,
@@ -203,76 +202,69 @@ const MappoolTable = () => {
               <Tab label="Квалификация" value="1" />
             </TabList>
             <TabPanel value="1">
-              <Paper
-                sx={{
-                  width: '100%',
-                  backgroundColor: '#00000000',
-                }}
-              >
-                <div className={styles.table}>
-                  <TableContainer>
-                    <Table
-                      sx={{
-                        minWidth: 500,
-                      }}
-                      size="small"
-                    >
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="center"></TableCell>
-                          <TableCell align="center"></TableCell>
-                          <TableCell align="center" className={styles.link}>
-                            <Link
-                              href={`https://disk.yandex.ru/d/HguyjMD5mXZydA`}
-                            >
-                              Скачать маппак
-                            </Link>
-                          </TableCell>
-                          <TableCell align="center">CS|HP|OD|AR</TableCell>
-                          <TableCell align="center">BPM</TableCell>
-                          <TableCell align="center">Маппер</TableCell>
-                          <TableCell align="center">Саггестер</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map((row: any) => {
-                          return (
-                            <TableRow
-                              key={row.id}
-                              sx={{
-                                '&:last-child td, &:last-child th': {
-                                  border: 0,
-                                },
-                              }}
-                            >
-                              <TableCell align="center">
-                                <Image
-                                  className={styles.bg}
-                                  src={row.backgroundLink}
-                                  alt="mapImage"
-                                  height="30"
-                                  width="108"
-                                  unoptimized
-                                />
-                              </TableCell>
-                              <TableCell align="center">{row.modeID}</TableCell>
-                              <TableCell align="center" className={styles.link}>
-                                <Link href={row.mapLink}>{row.title}</Link>
-                              </TableCell>
-                              <TableCell align="center">{row.stats}</TableCell>
-                              <TableCell align="center">{row.bpm}</TableCell>
-                              <TableCell align="center">{row.mapper}</TableCell>
-                              <TableCell align="center">
-                                {row.suggester}
-                              </TableCell>
-                            </TableRow>
-                          )
-                        })}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </div>
-              </Paper>
+              <div className={styles.table}>
+                <TableContainer>
+                  <Table
+                    sx={{
+                      minWidth: 500,
+                    }}
+                    size="small"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center"></TableCell>
+                        <TableCell align="center"></TableCell>
+                        <TableCell align="center" className={styles.link}>
+                          <Link
+                            href={`https://disk.yandex.ru/d/HguyjMD5mXZydA`}
+                          >
+                            Скачать маппак
+                          </Link>
+                        </TableCell>
+                        <TableCell align="center">CS|HP|OD|AR</TableCell>
+                        <TableCell align="center">BPM</TableCell>
+                        <TableCell align="center">Маппер</TableCell>
+                        <TableCell align="center">Саггестер</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row: any) => {
+                        return (
+                          <TableRow
+                            key={row.id}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
+                          >
+                            <TableCell align="center">
+                              <Image
+                                className={styles.bg}
+                                src={row.backgroundLink}
+                                alt="mapImage"
+                                height="30"
+                                width="108"
+                                unoptimized
+                              />
+                            </TableCell>
+                            <TableCell align="center">{row.modeID}</TableCell>
+                            <TableCell align="center" className={styles.link}>
+                              <Link href={row.mapLink}>{row.title}</Link>
+                            </TableCell>
+                            <TableCell align="center">{row.stats}</TableCell>
+                            <TableCell align="center">{row.bpm}</TableCell>
+                            <TableCell align="center">{row.mapper}</TableCell>
+                            <TableCell align="center">
+                              {row.suggester}
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
             </TabPanel>
             <TabPanel value="2">
               <div>Empty</div>
