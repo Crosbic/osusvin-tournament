@@ -1,7 +1,10 @@
-.tabs {
-    display: block;
+.wrapper {
     max-width: 1550px;
     width: calc(100% - 100px);
+}
+
+.tabs {
+    display: block;
     color: #eaeaea;
     padding: 0 3rem 0 3rem;
 }
