@@ -500,7 +500,7 @@ const MappoolTable = () => {
                           <TableCell align="center"></TableCell>
                           <TableCell align="center" className={styles.link}>
                             <Link
-                              href={`https://disk.yandex.ru/d/zpZZjm6_BU2_fw`}
+                              href={`https://disk.yandex.ru/d/Y9dieIEyFVA-vg`}
                             >
                               Скачать маппак
                             </Link>
