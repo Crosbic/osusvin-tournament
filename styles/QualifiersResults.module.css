@@ -1,0 +1,8 @@
+.table {
+    max-width: 1250px;
+    width: calc(100% - 100px);
+    background: linear-gradient(107.64deg, rgba(255, 255, 255, 0.28) 1.92%, rgba(255, 255, 255, 0) 100.84%);
+    border: 1px inset #eaeaea;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
