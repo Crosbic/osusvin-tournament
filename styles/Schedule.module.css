@@ -26,13 +26,31 @@
 }
 
 .users {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .regButton {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.avatar {
+    border-radius: 5px;
 }
 
 .users:hover {
