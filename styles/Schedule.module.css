@@ -40,3 +40,9 @@
     transition: color 0.2s ease;
     cursor: pointer;
 }
+
+.link:hover {
+    color: #ff7eb9;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}

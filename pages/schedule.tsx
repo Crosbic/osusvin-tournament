@@ -197,14 +197,12 @@ const ScheduleTable = () => {
                               {row.users.map((user: any) => {
                                 return (
                                   <div key={user.id} className={styles.users}>
-                                    <div className={styles.users}>
-                                      <Link
-                                        href={`https://osu.ppy.sh/users/${user.id}`}
-                                      >
-                                        {user.username}
-                                      </Link>
-                                      &nbsp; &nbsp;
-                                    </div>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
+                                    >
+                                      {user.username}
+                                    </Link>
+                                    &nbsp; &nbsp;
                                   </div>
                                 )
                               })}
@@ -212,10 +210,7 @@ const ScheduleTable = () => {
                             <TableCell align="center">
                               {row.referees.map((referee: any) => {
                                 return (
-                                  <div
-                                    className={styles.users}
-                                    key={referee.id}
-                                  >
+                                  <div className={styles.link} key={referee.id}>
                                     <Link
                                       href={`https://osu.ppy.sh/users/${referee.id}`}
                                     >
@@ -226,9 +221,11 @@ const ScheduleTable = () => {
                               })}
                             </TableCell>
                             <TableCell align="center">
-                              <a href={row.resultLink}>
-                                {row.resultLink ? 'Ссылка есть' : null}
-                              </a>
+                              {row.resultLink ? (
+                                <div className={styles.link}>
+                                  <Link href={row.resultLink}>Ссылка</Link>
+                                </div>
+                              ) : null}
                             </TableCell>
                           </TableRow>
                         )
