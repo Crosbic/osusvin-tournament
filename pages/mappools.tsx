@@ -426,7 +426,7 @@ const MappoolTable = () => {
                             Скачать маппак
                           </Link>
                         </TableCell>
-                        <TableCell align="center">CS|HP|OD|AR</TableCell>
+                        <TableCell align="center">CS | HP | OD | AR</TableCell>
                         <TableCell align="center">BPM</TableCell>
                         <TableCell align="center">Маппер</TableCell>
                         <TableCell align="center">Саггестер</TableCell>
@@ -491,7 +491,7 @@ const MappoolTable = () => {
                             Скачать маппак
                           </Link>
                         </TableCell>
-                        <TableCell align="center">CS|HP|OD|AR</TableCell>
+                        <TableCell align="center">CS | HP | OD | AR</TableCell>
                         <TableCell align="center">BPM</TableCell>
                         <TableCell align="center">Маппер</TableCell>
                         <TableCell align="center">Саггестер</TableCell>

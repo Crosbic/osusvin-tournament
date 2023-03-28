@@ -24,6 +24,7 @@ import {
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
 import axios from 'axios'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
@@ -36,6 +37,19 @@ interface QualifiersData {
   resultLink: string
   users: any
   referees: any
+}
+
+interface Data {
+  id: number
+  name: string
+  resultLink: string
+  dateStarted: Date
+  player1Score: number
+  player2Score: number
+  player1: any
+  player2: any
+  referees: any
+  casters: any
 }
 
 const theme = createTheme(
@@ -54,8 +68,9 @@ const theme = createTheme(
 )
 
 const ScheduleTable = () => {
-  const [value, setValue] = useState('1')
-  const [rows, setRows] = useState<QualifiersData[]>([])
+  const [value, setValue] = useState('2')
+  const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
+  const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
   // const [open, setOpen] = useState<boolean>(false)
   // const [lobby, setLobby] = useState<string>('')
@@ -71,20 +86,45 @@ const ScheduleTable = () => {
       .get('https://auth.osusvin.ru/qualification-lobbies/')
       .then((res) => res.data)
       .then((data) => {
-        setRows(data as QualifiersData[])
+        setQualifiersRows(data as QualifiersData[])
       })
       .finally(() => setLoading(false))
   }, [])
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue)
+  }
+
+  useEffect(() => {
+    if (value === '1') {
+      axios
+        .get('https://auth.osusvin.ru/qualification-lobbies/')
+        .then((res) => res.data)
+        .then((data) => {
+          setQualifiersRows(data as QualifiersData[])
+        })
+        .finally(() => setLoading(false))
+    } else if (value === '2') {
+      axios
+        .get('https://auth.osusvin.ru/lobbies/')
+        .then((res) => res.data)
+        .then((data) => {
+          setRows(data as Data[])
+        })
+        .finally(() => setLoading(false))
+    }
+  }, [value])
 
   if (isLoading) {
     return <div>Loading...</div>
   }
 
-  const sortedRows = rows.sort((a, b) => a.id - b.id)
+  const sortedRows = rows.sort(
+    (a, b) =>
+      new Date(a.dateStarted).getTime() - new Date(b.dateStarted).getTime()
+  )
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue)
-  }
+  const sortedQualifiersRows = qualifiersRows.sort((a, b) => a.id - b.id)
 
   // const handleClickOpen = () => {
   //   setOpen(true)
@@ -155,6 +195,7 @@ const ScheduleTable = () => {
               onChange={handleTabChange}
             >
               <Tab label="Квалификация" value="1" />
+              <Tab label="Round of 32" value="2" />
             </TabList>
             <TabPanel value="1">
               <div className={styles.table}>
@@ -175,26 +216,28 @@ const ScheduleTable = () => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {sortedRows.map((row) => {
-                        const date = (row.dateStarted = new Date(
-                          row.dateStarted
+                      {sortedQualifiersRows.map((qualifiersRow) => {
+                        const date = (qualifiersRow.dateStarted = new Date(
+                          qualifiersRow.dateStarted
                         ))
 
                         return (
                           <TableRow
-                            key={row.name}
+                            key={qualifiersRow.name}
                             sx={{
                               '&:last-child td, &:last-child th': {
                                 border: 0,
                               },
                             }}
                           >
-                            <TableCell align="center">{row.name}</TableCell>
+                            <TableCell align="center">
+                              {qualifiersRow.name}
+                            </TableCell>
                             <TableCell align="center">
                               {date.toLocaleString('ru-RU')}
                             </TableCell>
                             <TableCell align="center">
-                              {row.users.map((user: any) => {
+                              {qualifiersRow.users.map((user: any) => {
                                 return (
                                   <div key={user.id} className={styles.users}>
                                     <Link
@@ -208,7 +251,7 @@ const ScheduleTable = () => {
                               })}
                             </TableCell>
                             <TableCell align="center">
-                              {row.referees.map((referee: any) => {
+                              {qualifiersRow.referees.map((referee: any) => {
                                 return (
                                   <div className={styles.link} key={referee.id}>
                                     <Link
@@ -221,9 +264,176 @@ const ScheduleTable = () => {
                               })}
                             </TableCell>
                             <TableCell align="center">
-                              {row.resultLink ? (
+                              {qualifiersRow.resultLink ? (
                                 <div className={styles.link}>
-                                  <Link href={row.resultLink}>Ссылка</Link>
+                                  <Link href={qualifiersRow.resultLink}>
+                                    Ссылка
+                                  </Link>
+                                </div>
+                              ) : null}
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
+              <div className={styles.regButton}>
+                <Link href={`https://osusvin.ru/qualifiersResults`}>
+                  <Button variant="outlined">Результаты квалификаций</Button>
+                </Link>
+              </div>
+            </TabPanel>
+            <TabPanel value="2">
+              <div className={styles.table}>
+                <TableContainer>
+                  <Table
+                    sx={{
+                      minWidth: 500,
+                    }}
+                    size="small"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">ID</TableCell>
+                        <TableCell align="center">Дата</TableCell>
+                        <TableCell align="center">Игрок 1</TableCell>
+                        <TableCell align="center" colSpan={2}>
+                          Счёт
+                        </TableCell>
+                        <TableCell align="center">Игрок 2</TableCell>
+                        <TableCell align="center">Рефери</TableCell>
+                        <TableCell align="center">Стример</TableCell>
+                        <TableCell align="center">Ссылка</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedRows.map((rows) => {
+                        const date = (rows.dateStarted = new Date(
+                          rows.dateStarted
+                        ))
+
+                        return (
+                          <TableRow
+                            key={rows.id}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
+                          >
+                            <TableCell align="center">{rows.name}</TableCell>
+                            <TableCell align="center">
+                              {date.toLocaleString('ru-RU')}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player1.map((user: any) => {
+                                return (
+                                  <div key={user.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
+                                    >
+                                      <div className={styles.user1}>
+                                        {user.username}
+                                        &nbsp;&nbsp;
+                                        <Image
+                                          className={styles.avatar}
+                                          src={user.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player1Score}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player2Score}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player2.map((user: any) => {
+                                return (
+                                  <div key={user.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
+                                    >
+                                      <div className={styles.user2}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={user.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;&nbsp;
+                                        {user.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.referees.map((referee: any) => {
+                                return (
+                                  <div className={styles.link} key={referee.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${referee.id}`}
+                                    >
+                                      <div className={styles.user}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={referee.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;
+                                        {referee.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.casters.map((caster: any) => {
+                                return (
+                                  <div className={styles.link} key={caster.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${caster.id}`}
+                                    >
+                                      <div className={styles.user}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={caster.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;
+                                        {caster.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+
+                            <TableCell align="center">
+                              {rows.resultLink ? (
+                                <div className={styles.link}>
+                                  <Link href={rows.resultLink}>Ссылка</Link>
                                 </div>
                               ) : null}
                             </TableCell>
@@ -236,40 +446,35 @@ const ScheduleTable = () => {
               </div>
             </TabPanel>
           </TabContext>
-          <div className={styles.regButton}>
-            <Link href={`https://osusvin.ru/qualifiersResults`}>
-              <Button variant="outlined">Результаты квалификаций</Button>
-            </Link>
-            {/*<Dialog open={open} onClose={handleClose}>*/}
-            {/*  <DialogTitle>Выберите лобби</DialogTitle>*/}
-            {/*  <DialogContent>*/}
-            {/*    <Box*/}
-            {/*      component="form"*/}
-            {/*      sx={{ display: 'flex', flexWrap: 'wrap' }}*/}
-            {/*    >*/}
-            {/*      <FormControl sx={{ m: 1, minWidth: 120 }}>*/}
-            {/*        <Select*/}
-            {/*          onChange={(e) => setLobby(e.target.value)}*/}
-            {/*          value={lobby}*/}
-            {/*          required*/}
-            {/*        >*/}
-            {/*          {sortedRows.map((lobbyId) => {*/}
-            {/*            return (*/}
-            {/*              <MenuItem key={lobbyId.id} value={lobbyId.id}>*/}
-            {/*                {lobbyId.name}*/}
-            {/*              </MenuItem>*/}
-            {/*            )*/}
-            {/*          })}*/}
-            {/*        </Select>*/}
-            {/*      </FormControl>*/}
-            {/*    </Box>*/}
-            {/*  </DialogContent>*/}
-            {/*  <DialogActions>*/}
-            {/*    <Button onClick={handleChooseLobby}>Выбрать</Button>*/}
-            {/*    <Button onClick={handleClose}>Назад</Button>*/}
-            {/*  </DialogActions>*/}
-            {/*</Dialog>*/}
-          </div>
+          {/*<Dialog open={open} onClose={handleClose}>*/}
+          {/*  <DialogTitle>Выберите лобби</DialogTitle>*/}
+          {/*  <DialogContent>*/}
+          {/*    <Box*/}
+          {/*      component="form"*/}
+          {/*      sx={{ display: 'flex', flexWrap: 'wrap' }}*/}
+          {/*    >*/}
+          {/*      <FormControl sx={{ m: 1, minWidth: 120 }}>*/}
+          {/*        <Select*/}
+          {/*          onChange={(e) => setLobby(e.target.value)}*/}
+          {/*          value={lobby}*/}
+          {/*          required*/}
+          {/*        >*/}
+          {/*          {sortedRows.map((lobbyId) => {*/}
+          {/*            return (*/}
+          {/*              <MenuItem key={lobbyId.id} value={lobbyId.id}>*/}
+          {/*                {lobbyId.name}*/}
+          {/*              </MenuItem>*/}
+          {/*            )*/}
+          {/*          })}*/}
+          {/*        </Select>*/}
+          {/*      </FormControl>*/}
+          {/*    </Box>*/}
+          {/*  </DialogContent>*/}
+          {/*  <DialogActions>*/}
+          {/*    <Button onClick={handleChooseLobby}>Выбрать</Button>*/}
+          {/*    <Button onClick={handleClose}>Назад</Button>*/}
+          {/*  </DialogActions>*/}
+          {/*</Dialog>*/}
         </div>
         {/*{error ? (*/}
         {/*  <Snackbar*/}
