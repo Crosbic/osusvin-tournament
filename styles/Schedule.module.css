@@ -26,10 +26,15 @@
 }
 
 .users {
+    display: inline;
+}
+
+.user {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 .user1 {
     display: flex;
@@ -47,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
 }
 
 .avatar {

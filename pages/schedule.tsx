@@ -279,6 +279,11 @@ const ScheduleTable = () => {
                   </Table>
                 </TableContainer>
               </div>
+              <div className={styles.regButton}>
+                <Link href={`https://osusvin.ru/qualifiersResults`}>
+                  <Button variant="outlined">Результаты квалификаций</Button>
+                </Link>
+              </div>
             </TabPanel>
             <TabPanel value="2">
               <div className={styles.table}>
@@ -376,7 +381,6 @@ const ScheduleTable = () => {
                                 )
                               })}
                             </TableCell>
-
                             <TableCell align="center">
                               {rows.referees.map((referee: any) => {
                                 return (
@@ -384,7 +388,7 @@ const ScheduleTable = () => {
                                     <Link
                                       href={`https://osu.ppy.sh/users/${referee.id}`}
                                     >
-                                      <div className={styles.users}>
+                                      <div className={styles.user}>
                                         <Image
                                           className={styles.avatar}
                                           src={referee.avatarUrl}
@@ -408,7 +412,7 @@ const ScheduleTable = () => {
                                     <Link
                                       href={`https://osu.ppy.sh/users/${caster.id}`}
                                     >
-                                      <div className={styles.users}>
+                                      <div className={styles.user}>
                                         <Image
                                           className={styles.avatar}
                                           src={caster.avatarUrl}
@@ -442,40 +446,35 @@ const ScheduleTable = () => {
               </div>
             </TabPanel>
           </TabContext>
-          <div className={styles.regButton}>
-            <Link href={`https://osusvin.ru/qualifiersResults`}>
-              <Button variant="outlined">Результаты квалификаций</Button>
-            </Link>
-            {/*<Dialog open={open} onClose={handleClose}>*/}
-            {/*  <DialogTitle>Выберите лобби</DialogTitle>*/}
-            {/*  <DialogContent>*/}
-            {/*    <Box*/}
-            {/*      component="form"*/}
-            {/*      sx={{ display: 'flex', flexWrap: 'wrap' }}*/}
-            {/*    >*/}
-            {/*      <FormControl sx={{ m: 1, minWidth: 120 }}>*/}
-            {/*        <Select*/}
-            {/*          onChange={(e) => setLobby(e.target.value)}*/}
-            {/*          value={lobby}*/}
-            {/*          required*/}
-            {/*        >*/}
-            {/*          {sortedRows.map((lobbyId) => {*/}
-            {/*            return (*/}
-            {/*              <MenuItem key={lobbyId.id} value={lobbyId.id}>*/}
-            {/*                {lobbyId.name}*/}
-            {/*              </MenuItem>*/}
-            {/*            )*/}
-            {/*          })}*/}
-            {/*        </Select>*/}
-            {/*      </FormControl>*/}
-            {/*    </Box>*/}
-            {/*  </DialogContent>*/}
-            {/*  <DialogActions>*/}
-            {/*    <Button onClick={handleChooseLobby}>Выбрать</Button>*/}
-            {/*    <Button onClick={handleClose}>Назад</Button>*/}
-            {/*  </DialogActions>*/}
-            {/*</Dialog>*/}
-          </div>
+          {/*<Dialog open={open} onClose={handleClose}>*/}
+          {/*  <DialogTitle>Выберите лобби</DialogTitle>*/}
+          {/*  <DialogContent>*/}
+          {/*    <Box*/}
+          {/*      component="form"*/}
+          {/*      sx={{ display: 'flex', flexWrap: 'wrap' }}*/}
+          {/*    >*/}
+          {/*      <FormControl sx={{ m: 1, minWidth: 120 }}>*/}
+          {/*        <Select*/}
+          {/*          onChange={(e) => setLobby(e.target.value)}*/}
+          {/*          value={lobby}*/}
+          {/*          required*/}
+          {/*        >*/}
+          {/*          {sortedRows.map((lobbyId) => {*/}
+          {/*            return (*/}
+          {/*              <MenuItem key={lobbyId.id} value={lobbyId.id}>*/}
+          {/*                {lobbyId.name}*/}
+          {/*              </MenuItem>*/}
+          {/*            )*/}
+          {/*          })}*/}
+          {/*        </Select>*/}
+          {/*      </FormControl>*/}
+          {/*    </Box>*/}
+          {/*  </DialogContent>*/}
+          {/*  <DialogActions>*/}
+          {/*    <Button onClick={handleChooseLobby}>Выбрать</Button>*/}
+          {/*    <Button onClick={handleClose}>Назад</Button>*/}
+          {/*  </DialogActions>*/}
+          {/*</Dialog>*/}
         </div>
         {/*{error ? (*/}
         {/*  <Snackbar*/}
