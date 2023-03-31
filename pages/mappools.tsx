@@ -1,6 +1,5 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import {
-  createTheme,
   Tab,
   Table,
   TableBody,
@@ -8,9 +7,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  ThemeProvider,
 } from '@mui/material'
-import { ruRU } from '@mui/material/locale'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -370,21 +367,6 @@ const ro32Rows: any = [
   ),
 ]
 
-const theme = createTheme(
-  {
-    palette: {
-      mode: 'dark',
-      primary: { main: '#eaeaea' },
-      secondary: { main: '#ff7eb9' },
-    },
-    typography: {
-      fontFamily: ['Comfortaa', 'TrebuchetMS'].join(','),
-      fontSize: 14,
-    },
-  },
-  ruRU
-)
-
 const MappoolTable = () => {
   const [value, setValue] = useState('2')
 
@@ -394,151 +376,141 @@ const MappoolTable = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <div className={styles.wrapper}>
-          <TabContext value={value}>
-            <TabList
-              textColor="inherit"
-              indicatorColor="secondary"
-              className={styles.tabs}
-              onChange={handleTabChange}
-            >
-              <Tab label="Квалификация" value="1" />
-              <Tab label="Round of 32" value="2" />
-            </TabList>
-            <TabPanel value="1">
-              <div className={styles.table}>
-                <TableContainer>
-                  <Table
-                    sx={{
-                      minWidth: 500,
-                    }}
-                    size="small"
-                  >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell align="center"></TableCell>
-                        <TableCell align="center"></TableCell>
-                        <TableCell align="center" className={styles.link}>
-                          <Link
-                            href={`https://disk.yandex.ru/d/HguyjMD5mXZydA`}
-                          >
-                            Скачать маппак
-                          </Link>
-                        </TableCell>
-                        <TableCell align="center">CS | HP | OD | AR</TableCell>
-                        <TableCell align="center">BPM</TableCell>
-                        <TableCell align="center">Маппер</TableCell>
-                        <TableCell align="center">Саггестер</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {qualifiersRows.map((row: any) => {
-                        return (
-                          <TableRow
-                            key={row.id}
-                            sx={{
-                              '&:last-child td, &:last-child th': {
-                                border: 0,
-                              },
-                            }}
-                          >
-                            <TableCell align="center">
-                              <Image
-                                className={styles.bg}
-                                src={row.backgroundLink}
-                                alt="mapImage"
-                                height="30"
-                                width="108"
-                                unoptimized
-                              />
-                            </TableCell>
-                            <TableCell align="center">{row.modeID}</TableCell>
-                            <TableCell align="center" className={styles.link}>
-                              <Link href={row.mapLink}>{row.title}</Link>
-                            </TableCell>
-                            <TableCell align="center">{row.stats}</TableCell>
-                            <TableCell align="center">{row.bpm}</TableCell>
-                            <TableCell align="center">{row.mapper}</TableCell>
-                            <TableCell align="center">
-                              {row.suggester}
-                            </TableCell>
-                          </TableRow>
-                        )
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </div>
-            </TabPanel>
-            <TabPanel value="2">
-              <div className={styles.table}>
-                <TableContainer>
-                  <Table
-                    sx={{
-                      minWidth: 500,
-                    }}
-                    size="small"
-                  >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell align="center"></TableCell>
-                        <TableCell align="center"></TableCell>
-                        <TableCell align="center" className={styles.link}>
-                          <Link
-                            href={`https://disk.yandex.ru/d/Y9dieIEyFVA-vg`}
-                          >
-                            Скачать маппак
-                          </Link>
-                        </TableCell>
-                        <TableCell align="center">CS | HP | OD | AR</TableCell>
-                        <TableCell align="center">BPM</TableCell>
-                        <TableCell align="center">Маппер</TableCell>
-                        <TableCell align="center">Саггестер</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {ro32Rows.map((row: any) => {
-                        return (
-                          <TableRow
-                            key={row.id}
-                            sx={{
-                              '&:last-child td, &:last-child th': {
-                                border: 0,
-                              },
-                            }}
-                          >
-                            <TableCell align="center">
-                              <Image
-                                className={styles.bg}
-                                src={row.backgroundLink}
-                                alt="mapImage"
-                                height="30"
-                                width="108"
-                                unoptimized
-                              />
-                            </TableCell>
-                            <TableCell align="center">{row.modeID}</TableCell>
-                            <TableCell align="center" className={styles.link}>
-                              <Link href={row.mapLink}>{row.title}</Link>
-                            </TableCell>
-                            <TableCell align="center">{row.stats}</TableCell>
-                            <TableCell align="center">{row.bpm}</TableCell>
-                            <TableCell align="center">{row.mapper}</TableCell>
-                            <TableCell align="center">
-                              {row.suggester}
-                            </TableCell>
-                          </TableRow>
-                        )
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </div>
-            </TabPanel>
-          </TabContext>
-        </div>
-      </ThemeProvider>
+      <div className={styles.wrapper}>
+        <TabContext value={value}>
+          <TabList
+            textColor="inherit"
+            indicatorColor="secondary"
+            className={styles.tabs}
+            onChange={handleTabChange}
+          >
+            <Tab label="Квалификация" value="1" />
+            <Tab label="Round of 32" value="2" />
+          </TabList>
+          <TabPanel value="1">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/HguyjMD5mXZydA`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {qualifiersRows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="2">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/Y9dieIEyFVA-vg`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {ro32Rows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+        </TabContext>
+      </div>
     </>
   )
 }

@@ -14,7 +14,6 @@ import {
   TablePagination,
   TableRow,
   TableSortLabel,
-  ThemeProvider,
 } from '@mui/material'
 import { ruRU } from '@mui/material/locale'
 import { visuallyHidden } from '@mui/utils'
@@ -282,97 +281,90 @@ const ParticipantsTable = () => {
     <div className={styles.tableContainer}>
       <div className={styles.participantsList}>Список игроков</div>
       <div className={styles.table}>
-        <ThemeProvider theme={theme}>
-          <TableContainer>
-            <Table
-              sx={{
-                minWidth: 500,
-              }}
-            >
-              <ParticipantsTableHead
-                order={order}
-                orderBy={orderBy}
-                onRequestSort={handleRequestSort}
-                rowCount={rows.length}
-              />
-              <TableBody>
-                {rows.map((row) => {
-                  return (
-                    <TableRow
-                      key={row.username}
-                      sx={{
-                        '&:last-child td, &:last-child th': { border: 0 },
-                      }}
-                    >
-                      <TableCell align="center" size="small">
-                        <Image
-                          src={row.avatarUrl}
-                          alt="Avatar"
-                          className={styles.avatar}
-                          width="40"
-                          height="40"
-                          unoptimized
-                        />
-                      </TableCell>
-                      <TableCell align="center" size="small">
-                        <Image
-                          src={row.flagUrl}
-                          alt="Flag"
-                          width="40"
-                          height="40"
-                        />
-                      </TableCell>
-                      <TableCell align="center" size="small">
-                        <div className={styles.profileLink}>
-                          <Link href={`https://osu.ppy.sh/users/${row.id}`}>
-                            {row.username}
-                          </Link>
-                        </div>
-                      </TableCell>
-                      <TableCell align="center" size="small">
-                        <NumericFormat
-                          value={Number(row.pp.toFixed(0))}
-                          thousandSeparator=" "
-                          displayType="text"
-                        />
-                      </TableCell>
-                      <TableCell align="center" size="small">
-                        <NumericFormat
-                          value={row.rank}
-                          thousandSeparator=" "
-                          displayType="text"
-                        />
-                      </TableCell>
-                      <TableCell align="center" size="small">
-                        {row.accuracy.toFixed(2)}%
-                      </TableCell>
-                    </TableRow>
-                  )
-                })}
-              </TableBody>
-              <TableFooter>
-                <TableRow
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TablePagination
-                    rowsPerPageOptions={[
-                      5,
-                      10,
-                      25,
-                      { label: 'Все', value: -1 },
-                    ]}
-                    count={total}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  />
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </TableContainer>
-        </ThemeProvider>
+        <TableContainer>
+          <Table
+            sx={{
+              minWidth: 500,
+            }}
+          >
+            <ParticipantsTableHead
+              order={order}
+              orderBy={orderBy}
+              onRequestSort={handleRequestSort}
+              rowCount={rows.length}
+            />
+            <TableBody>
+              {rows.map((row) => {
+                return (
+                  <TableRow
+                    key={row.username}
+                    sx={{
+                      '&:last-child td, &:last-child th': { border: 0 },
+                    }}
+                  >
+                    <TableCell align="center" size="small">
+                      <Image
+                        src={row.avatarUrl}
+                        alt="Avatar"
+                        className={styles.avatar}
+                        width="40"
+                        height="40"
+                        unoptimized
+                      />
+                    </TableCell>
+                    <TableCell align="center" size="small">
+                      <Image
+                        src={row.flagUrl}
+                        alt="Flag"
+                        width="40"
+                        height="40"
+                      />
+                    </TableCell>
+                    <TableCell align="center" size="small">
+                      <div className={styles.profileLink}>
+                        <Link href={`https://osu.ppy.sh/users/${row.id}`}>
+                          {row.username}
+                        </Link>
+                      </div>
+                    </TableCell>
+                    <TableCell align="center" size="small">
+                      <NumericFormat
+                        value={Number(row.pp.toFixed(0))}
+                        thousandSeparator=" "
+                        displayType="text"
+                      />
+                    </TableCell>
+                    <TableCell align="center" size="small">
+                      <NumericFormat
+                        value={row.rank}
+                        thousandSeparator=" "
+                        displayType="text"
+                      />
+                    </TableCell>
+                    <TableCell align="center" size="small">
+                      {row.accuracy.toFixed(2)}%
+                    </TableCell>
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+            <TableFooter>
+              <TableRow
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 25, { label: 'Все', value: -1 }]}
+                  count={total}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   )
