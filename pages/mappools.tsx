@@ -14,7 +14,7 @@ import React, { useState } from 'react'
 
 import styles from '../styles/Mappols.module.css'
 
-interface QualifiersData {
+interface Data {
   backgroundLink: string
   mapLink: string
   modeID: string
@@ -26,19 +26,7 @@ interface QualifiersData {
   suggester: string
 }
 
-interface Ro32Data {
-  backgroundLink: string
-  mapLink: string
-  modeID: string
-  title: string
-  stats: string
-  bpm: string
-  mapper: string
-  mapID: number
-  suggester: string
-}
-
-function createRo32Data(
+function createData(
   backgroundLink: string,
   mapLink: string,
   modeID: string,
@@ -48,31 +36,7 @@ function createRo32Data(
   mapper: string,
   mapID: number,
   suggester: string
-): Ro32Data {
-  return {
-    backgroundLink,
-    mapLink,
-    modeID,
-    title,
-    stats,
-    bpm,
-    mapper,
-    mapID,
-    suggester,
-  }
-}
-
-function createQualsData(
-  backgroundLink: string,
-  mapLink: string,
-  modeID: string,
-  title: string,
-  stats: string,
-  bpm: string,
-  mapper: string,
-  mapID: number,
-  suggester: string
-): QualifiersData {
+): Data {
   return {
     backgroundLink,
     mapLink,
@@ -87,7 +51,7 @@ function createQualsData(
 }
 
 const qualifiersRows: any = [
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/226670/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/226670#osu/862642',
     'NM1',
@@ -98,7 +62,7 @@ const qualifiersRows: any = [
     226670,
     'SLAVA MARL0W'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/1297231/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1297231#osu/2842753',
     'NM2',
@@ -109,7 +73,7 @@ const qualifiersRows: any = [
     1297231,
     'lefrutit230'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/1705113/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1705113#osu/3490443',
     'NM3',
@@ -120,7 +84,7 @@ const qualifiersRows: any = [
     1705113,
     'lefrutit230'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/1458846/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1458846#osu/3005759',
     'NM4',
@@ -131,7 +95,7 @@ const qualifiersRows: any = [
     1458846,
     'SLAVA MARL0W'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/1323916/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1323916#osu/2818046',
     'HD1',
@@ -142,7 +106,7 @@ const qualifiersRows: any = [
     1323916,
     'SLAVA MARL0W'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/37391/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/37391#osu/120250',
     'HD2',
@@ -153,7 +117,7 @@ const qualifiersRows: any = [
     37391,
     'Crosbic'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/932457/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/932457#osu/2294195',
     'HR1',
@@ -164,7 +128,7 @@ const qualifiersRows: any = [
     932457,
     'Kobra_TF'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/5763/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/5763#osu/27546',
     'HR2',
@@ -175,7 +139,7 @@ const qualifiersRows: any = [
     5763,
     'SLAVA MARL0W'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/193583/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/193583#osu/459993',
     'DT1',
@@ -186,7 +150,7 @@ const qualifiersRows: any = [
     193583,
     'Crosbic'
   ),
-  createQualsData(
+  createData(
     'https://assets.ppy.sh/beatmaps/1717807/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1717807#osu/3518574',
     'DT2',
@@ -200,7 +164,7 @@ const qualifiersRows: any = [
 ]
 
 const ro32Rows: any = [
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1531033/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1531033#osu/3221981',
     'NM1',
@@ -211,7 +175,7 @@ const ro32Rows: any = [
     3221981,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/317439/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/317439#osu/1319822',
     'NM2',
@@ -222,7 +186,7 @@ const ro32Rows: any = [
     1319822,
     'Zoleks'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1241588/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1241588#osu/2608162',
     'NM3',
@@ -233,7 +197,7 @@ const ro32Rows: any = [
     2608162,
     'SLAVA MARLOW'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/917915/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/917915#osu/2039004',
     'NM4',
@@ -244,7 +208,7 @@ const ro32Rows: any = [
     2039004,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1354017/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1354017#osu/2907223',
     'NM5',
@@ -255,7 +219,7 @@ const ro32Rows: any = [
     2907223,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1885417/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1885417#osu/3905815',
     'HD1',
@@ -266,7 +230,7 @@ const ro32Rows: any = [
     3905815,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1373644/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1373644#osu/2839868',
     'HD2',
@@ -277,7 +241,7 @@ const ro32Rows: any = [
     2839868,
     'Crosbic'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/936267/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/936267#osu/2012244',
     'HR1',
@@ -288,7 +252,7 @@ const ro32Rows: any = [
     2012244,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/275841/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/275841#osu/748754',
     'HR2',
@@ -299,7 +263,7 @@ const ro32Rows: any = [
     748754,
     'SLAVA MARL0W'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1064735/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1064735#osu/2229334',
     'DT1',
@@ -310,7 +274,7 @@ const ro32Rows: any = [
     2229334,
     'Zoleks'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1004928/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1004928#osu/2498032',
     'DT2',
@@ -321,7 +285,7 @@ const ro32Rows: any = [
     2498032,
     'Kobra_TF'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1906645/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1906645#osu/3931739',
     'DT3',
@@ -332,7 +296,7 @@ const ro32Rows: any = [
     3931739,
     'Kobra_TF'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/1253433/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/1253433#osu/2991141',
     'FM1',
@@ -343,7 +307,7 @@ const ro32Rows: any = [
     2991141,
     'lefrutit230'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/12116/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/12116#osu/45695',
     'FM2',
@@ -354,7 +318,7 @@ const ro32Rows: any = [
     45695,
     'Zoleks'
   ),
-  createRo32Data(
+  createData(
     'https://assets.ppy.sh/beatmaps/412140/covers/cover.jpg',
     'https://osu.ppy.sh/beatmapsets/412140#osu/974072',
     'TB',
@@ -367,8 +331,176 @@ const ro32Rows: any = [
   ),
 ]
 
+const ro16Rows: any = [
+  createData(
+    'https://assets.ppy.sh/beatmaps/1638844/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1638844#osu/3839993',
+    'NM1',
+    'U2 - Saigetsu (Koko & Satsuki ga Tenkomori`s Sagyou Bougai Remix) [bnmc`s LUNATIC JAPANESE GOBLIN!]',
+    '4 | 5.5 | 8 | 9',
+    '180',
+    'Bloxi',
+    3839993,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/611095/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/611095#osu/1295717',
+    'NM2',
+    'Memme - Avalanche [Insane]',
+    '4 | 6 | 7.5 | 9',
+    '175',
+    'Starfy',
+    1295717,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1862243/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1862243#osu/3837066',
+    'NM3',
+    'Kotoha - Zecchou Sanka [Aglliu`s Insane]',
+    '4 | 5 | 7.5 | 9',
+    '140',
+    'achyoo',
+    3837066,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1190470/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1190470#osu/2529681',
+    'NM4',
+    'factal - Flux [frakturehawken`s insane]',
+    '4 | 5 | 7 | 9',
+    '195',
+    'Sharu',
+    2529681,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1257522/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1257522#osu/2613063',
+    'NM5',
+    'Gekidan Record feat. Nekomata Master - Houkou Orpheus [Insane]',
+    '3.8 | 3.7 | 7 | 8.4',
+    '150',
+    'DeviousPanda',
+    2613063,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1631189/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1631189#osu/3334181',
+    'HD1',
+    'Yorushika - Hole In The Heart [Insane]',
+    '4 | 5 | 8 | 9',
+    '200',
+    'alevi',
+    3334181,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/31224/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/31224#osu/105978',
+    'HD2',
+    'BRZion - Game Brain [Insane]',
+    '4 | 5 | 6 | 8',
+    '190',
+    'Zapy',
+    105978,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/342030/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/342030#osu/787587',
+    'HR1',
+    'Omoi - Totsugeki Zenya no Dance [Insane]',
+    '4 | 7 | 7 | 9',
+    '185',
+    'Yales',
+    787587,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/8198/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/8198#osu/33967',
+    'HR2',
+    'Ayane - Lunatic Tears [Hard]',
+    '5 | 7 | 7 | 7',
+    '176',
+    'azuki',
+    33967,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/956595/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/956595#osu/2044893',
+    'DT1',
+    'mafumafu - Moudoku ga Osou [Hard]',
+    '4 | 5 | 6 | 8',
+    '156',
+    'Namki',
+    2044893,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1570536/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1570536#osu/3417993',
+    'DT2',
+    "CHON - Splash [Lugu & mez's Hard]",
+    '4 | 5 | 6.7 | 8',
+    '144',
+    'mezelyus',
+    3417993,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1717491/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1717491#osu/3526717 ',
+    'DT3',
+    "Ushirokara Haiyoritai G - Koi wa Chaos no Shimobenari [Enon's Hard]",
+    '4 | 4 | 5 | 8',
+    '158',
+    'Amamya',
+    3526717,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1818185/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1818185#osu/3737442',
+    'FM1',
+    "Green Day - American Idiot [Nymphe's Insane]",
+    '3.8 | 5 | 8 | 9',
+    '186',
+    'Sotarks',
+    3737442,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1186908/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1186908#osu/2503454',
+    'FM2',
+    'Yorushika - Tada Kimi ni Hare [Ayucchi`s Insane]',
+    '5 | 5 | 7.5 | 8',
+    '140',
+    'newton-',
+    2503454,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/433723/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/433723#osu/934841',
+    'TB',
+    'amazarashi - Kisetsu wa Tsugitsugi Shindeiku [Suffering]',
+    '4 | 6.5 | 8 | 9',
+    '181',
+    '-Nya-',
+    934841,
+    'seriker'
+  ),
+]
+
 const MappoolTable = () => {
-  const [value, setValue] = useState('2')
+  const [value, setValue] = useState('3')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -386,6 +518,7 @@ const MappoolTable = () => {
           >
             <Tab label="Квалификация" value="1" />
             <Tab label="Round of 32" value="2" />
+            <Tab label="Round of 16" value="3" />
           </TabList>
           <TabPanel value="1">
             <div className={styles.table}>
@@ -474,6 +607,67 @@ const MappoolTable = () => {
                   </TableHead>
                   <TableBody>
                     {ro32Rows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="3">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/5t8QVN3MEMoKqg`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {ro16Rows.map((row: any) => {
                       return (
                         <TableRow
                           key={row.id}
