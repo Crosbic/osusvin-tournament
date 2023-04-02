@@ -332,11 +332,27 @@ const ScheduleTable = () => {
                               )
                             })}
                           </TableCell>
-                          <TableCell align="center">
-                            {rows.player1Score}
+                          <TableCell align="center" padding="none">
+                            {rows.player1Score > rows.player2Score ? (
+                              <div className={styles.winner}>
+                                {rows.player1Score}
+                              </div>
+                            ) : (
+                              <div className={styles.looser}>
+                                {rows.player1Score}
+                              </div>
+                            )}
                           </TableCell>
-                          <TableCell align="center">
-                            {rows.player2Score}
+                          <TableCell align="center" padding="none">
+                            {rows.player2Score > rows.player1Score ? (
+                              <div className={styles.winner}>
+                                {rows.player2Score}
+                              </div>
+                            ) : (
+                              <div className={styles.looser}>
+                                {rows.player2Score}
+                              </div>
+                            )}
                           </TableCell>
                           <TableCell align="center">
                             {rows.player2.map((user: any) => {
