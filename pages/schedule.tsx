@@ -50,7 +50,7 @@ interface Data {
 }
 
 const ScheduleTable = () => {
-  const [value, setValue] = useState('2')
+  const [value, setValue] = useState<string>('RO16')
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
@@ -78,7 +78,7 @@ const ScheduleTable = () => {
   }
 
   useEffect(() => {
-    if (value === '1') {
+    if (value === 'quals') {
       axios
         .get('https://auth.osusvin.ru/qualification-lobbies/')
         .then((res) => res.data)
@@ -86,9 +86,11 @@ const ScheduleTable = () => {
           setQualifiersRows(data as QualifiersData[])
         })
         .finally(() => setLoading(false))
-    } else if (value === '2') {
+    } else {
       axios
-        .get('https://auth.osusvin.ru/lobbies/')
+        .get('https://auth.osusvin.ru/lobbies/', {
+          params: { stage: value },
+        })
         .then((res) => res.data)
         .then((data) => {
           setRows(data as Data[])
@@ -174,11 +176,19 @@ const ScheduleTable = () => {
             indicatorColor="secondary"
             className={styles.tabs}
             onChange={handleTabChange}
+            variant="scrollable"
+            scrollButtons
+            allowScrollButtonsMobile
           >
-            <Tab label="Квалификация" value="1" />
-            <Tab label="Round of 32" value="2" />
+            <Tab label="Квалификация" value="quals" />
+            <Tab label="Round of 32" value="RO32" />
+            <Tab label="Round of 16" value="RO16" />
+            <Tab label="Quarterfinals" value="QF" disabled />
+            <Tab label="Semifinals" value="SF" disabled />
+            <Tab label="Finals" value="F" disabled />
+            <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
-          <TabPanel value="1">
+          <TabPanel value="quals">
             <div className={styles.table}>
               <TableContainer>
                 <Table
@@ -266,7 +276,7 @@ const ScheduleTable = () => {
               </Link>
             </div>
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel value={value}>
             <div className={styles.table}>
               <TableContainer>
                 <Table
@@ -311,7 +321,7 @@ const ScheduleTable = () => {
                           <TableCell align="center">
                             {rows.player1.map((user: any) => {
                               return (
-                                <div key={user.id}>
+                                <div key={user.id} className={styles.link}>
                                   <Link
                                     href={`https://osu.ppy.sh/users/${user.id}`}
                                   >
@@ -357,7 +367,7 @@ const ScheduleTable = () => {
                           <TableCell align="center">
                             {rows.player2.map((user: any) => {
                               return (
-                                <div key={user.id}>
+                                <div key={user.id} className={styles.link}>
                                   <Link
                                     href={`https://osu.ppy.sh/users/${user.id}`}
                                   >
