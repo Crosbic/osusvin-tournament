@@ -277,180 +277,181 @@ const ScheduleTable = () => {
             </div>
           </TabPanel>
           <TabPanel value={value}>
-            <div className={styles.table}>
-              <TableContainer>
-                <Table
-                  sx={{
-                    minWidth: 500,
-                  }}
-                  size="small"
-                >
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="center">ID</TableCell>
-                      <TableCell align="center">Дата</TableCell>
-                      <TableCell align="center">Игрок 1</TableCell>
-                      <TableCell align="center" colSpan={2}>
-                        Счёт
-                      </TableCell>
-                      <TableCell align="center">Игрок 2</TableCell>
-                      <TableCell align="center">Рефери</TableCell>
-                      <TableCell align="center">Стример</TableCell>
-                      <TableCell align="center">Ссылка</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {sortedRows.map((rows) => {
-                      const date = (rows.dateStarted = new Date(
-                        rows.dateStarted
-                      ))
+            {value !== 'quals' ? (
+              <div className={styles.table}>
+                <TableContainer>
+                  <Table
+                    sx={{
+                      minWidth: 500,
+                    }}
+                    size="small"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">ID</TableCell>
+                        <TableCell align="center">Дата</TableCell>
+                        <TableCell align="center">Игрок 1</TableCell>
+                        <TableCell align="center" colSpan={2}>
+                          Счёт
+                        </TableCell>
+                        <TableCell align="center">Игрок 2</TableCell>
+                        <TableCell align="center">Рефери</TableCell>
+                        <TableCell align="center">Стример</TableCell>
+                        <TableCell align="center">Ссылка</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedRows.map((rows) => {
+                        const date = (rows.dateStarted = new Date(
+                          rows.dateStarted
+                        ))
 
-                      return (
-                        <TableRow
-                          key={rows.id}
-                          sx={{
-                            '&:last-child td, &:last-child th': {
-                              border: 0,
-                            },
-                          }}
-                        >
-                          <TableCell align="center">{rows.name}</TableCell>
-                          <TableCell align="center">
-                            {date.toLocaleString('ru-RU')}
-                          </TableCell>
-                          <TableCell align="center">
-                            {rows.player1.map((user: any) => {
-                              return (
-                                <div key={user.id} className={styles.link}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${user.id}`}
-                                  >
-                                    <div className={styles.user1}>
-                                      {user.username}
-                                      &nbsp;&nbsp;
-                                      <Image
-                                        className={styles.avatar}
-                                        src={user.avatarUrl}
-                                        alt="User avatar"
-                                        width="30"
-                                        height="30"
-                                        unoptimized
-                                      />
-                                    </div>
-                                  </Link>
+                        return (
+                          <TableRow
+                            key={rows.id}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
+                          >
+                            <TableCell align="center">{rows.name}</TableCell>
+                            <TableCell align="center">
+                              {date.toLocaleString('ru-RU')}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player1.map((user: any) => {
+                                return (
+                                  <div key={user.id} className={styles.link}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
+                                    >
+                                      <div className={styles.user1}>
+                                        {user.username}
+                                        &nbsp;&nbsp;
+                                        <Image
+                                          className={styles.avatar}
+                                          src={user.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center" padding="none">
+                              {rows.player1Score > rows.player2Score ? (
+                                <div className={styles.winner}>
+                                  {rows.player1Score}
                                 </div>
-                              )
-                            })}
-                          </TableCell>
-                          <TableCell align="center" padding="none">
-                            {rows.player1Score > rows.player2Score ? (
-                              <div className={styles.winner}>
-                                {rows.player1Score}
-                              </div>
-                            ) : (
-                              <div className={styles.looser}>
-                                {rows.player1Score}
-                              </div>
-                            )}
-                          </TableCell>
-                          <TableCell align="center" padding="none">
-                            {rows.player2Score > rows.player1Score ? (
-                              <div className={styles.winner}>
-                                {rows.player2Score}
-                              </div>
-                            ) : (
-                              <div className={styles.looser}>
-                                {rows.player2Score}
-                              </div>
-                            )}
-                          </TableCell>
-                          <TableCell align="center">
-                            {rows.player2.map((user: any) => {
-                              return (
-                                <div key={user.id} className={styles.link}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${user.id}`}
-                                  >
-                                    <div className={styles.user2}>
-                                      <Image
-                                        className={styles.avatar}
-                                        src={user.avatarUrl}
-                                        alt="User avatar"
-                                        width="30"
-                                        height="30"
-                                        unoptimized
-                                      />
-                                      &nbsp;&nbsp;
-                                      {user.username}
-                                    </div>
-                                  </Link>
+                              ) : (
+                                <div className={styles.looser}>
+                                  {rows.player1Score}
                                 </div>
-                              )
-                            })}
-                          </TableCell>
-                          <TableCell align="center">
-                            {rows.referees.map((referee: any) => {
-                              return (
-                                <div className={styles.link} key={referee.id}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${referee.id}`}
-                                  >
-                                    <div className={styles.user}>
-                                      <Image
-                                        className={styles.avatar}
-                                        src={referee.avatarUrl}
-                                        alt="User avatar"
-                                        width="30"
-                                        height="30"
-                                        unoptimized
-                                      />
-                                      &nbsp;
-                                      {referee.username}
-                                    </div>
-                                  </Link>
+                              )}
+                            </TableCell>
+                            <TableCell align="center" padding="none">
+                              {rows.player2Score > rows.player1Score ? (
+                                <div className={styles.winner}>
+                                  {rows.player2Score}
                                 </div>
-                              )
-                            })}
-                          </TableCell>
-                          <TableCell align="center">
-                            {rows.casters.map((caster: any) => {
-                              return (
-                                <div className={styles.link} key={caster.id}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${caster.id}`}
-                                  >
-                                    <div className={styles.user}>
-                                      <Image
-                                        className={styles.avatar}
-                                        src={caster.avatarUrl}
-                                        alt="User avatar"
-                                        width="30"
-                                        height="30"
-                                        unoptimized
-                                      />
-                                      &nbsp;
-                                      {caster.username}
-                                    </div>
-                                  </Link>
+                              ) : (
+                                <div className={styles.looser}>
+                                  {rows.player2Score}
                                 </div>
-                              )
-                            })}
-                          </TableCell>
-
-                          <TableCell align="center">
-                            {rows.resultLink ? (
-                              <div className={styles.link}>
-                                <Link href={rows.resultLink}>Ссылка</Link>
-                              </div>
-                            ) : null}
-                          </TableCell>
-                        </TableRow>
-                      )
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </div>
+                              )}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.player2.map((user: any) => {
+                                return (
+                                  <div key={user.id} className={styles.link}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
+                                    >
+                                      <div className={styles.user2}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={user.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;&nbsp;
+                                        {user.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.referees.map((referee: any) => {
+                                return (
+                                  <div className={styles.link} key={referee.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${referee.id}`}
+                                    >
+                                      <div className={styles.user}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={referee.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;
+                                        {referee.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.casters.map((caster: any) => {
+                                return (
+                                  <div className={styles.link} key={caster.id}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${caster.id}`}
+                                    >
+                                      <div className={styles.user}>
+                                        <Image
+                                          className={styles.avatar}
+                                          src={caster.avatarUrl}
+                                          alt="User avatar"
+                                          width="30"
+                                          height="30"
+                                          unoptimized
+                                        />
+                                        &nbsp;
+                                        {caster.username}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {rows.resultLink ? (
+                                <div className={styles.link}>
+                                  <Link href={rows.resultLink}>Ссылка</Link>
+                                </div>
+                              ) : null}
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
+            ) : null}
           </TabPanel>
         </TabContext>
         {/*<Dialog open={open} onClose={handleClose}>*/}
