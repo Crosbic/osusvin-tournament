@@ -11,8 +11,17 @@ const AuthButton = () => {
   useEffect(() => {
     setToken(localStorage.getItem('jwt') ?? '')
     setUser(JSON.parse(localStorage.getItem('user') ?? '{}'))
+    migrateUserRole()
     checkLogin()
   }, [])
+
+  const migrateUserRole = () => {
+    if (!Array.isArray(user.role)) {
+      user.role = [user.role]
+      setUser(user)
+      localStorage.setItem('user', user)
+    }
+  }
 
   const checkLogin = () => {
     const urlSearchParams = new URLSearchParams(window.location.search)
