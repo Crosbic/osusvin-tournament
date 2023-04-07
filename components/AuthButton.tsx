@@ -17,7 +17,7 @@ const AuthButton = () => {
   }, [])
 
   const migrateUserRole = () => {
-    if (!Array.isArray(user.role)) {
+    if (user && !Array.isArray(user.role)) {
       user.role = [user.role]
       setUser(user)
       localStorage.setItem('user', user)
