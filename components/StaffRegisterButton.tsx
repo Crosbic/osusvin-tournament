@@ -32,7 +32,9 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
   useEffect(() => {
     setKey(localStorage.getItem('jwt') ?? '')
     if (typeof window !== 'undefined') {
-      setUser(JSON.parse(localStorage.getItem('user') ?? ''))
+      if (localStorage.getItem('user') !== null) {
+        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
+      }
     }
   }, [])
 
@@ -87,7 +89,7 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
 
   return (
     <div>
-      {user?.role === 'user' ? null : (
+      {user?.role === 'user' || !user ? null : (
         <>
           <Button variant="outlined" onClick={handleClickOpen}>
             Запись в лобби
