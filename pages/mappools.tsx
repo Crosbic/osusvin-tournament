@@ -499,8 +499,231 @@ const ro16Rows: any = [
   ),
 ]
 
+const qfRows: any = [
+  createData(
+    'https://assets.ppy.sh/beatmaps/1658721/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1658721#osu/3390576',
+    'NM1',
+    'Mimori Suzuko - Univer Page [Amawari`s Insane]',
+    '4 | 6 | 7.6 | 9',
+    '187',
+    'Amateurre',
+    3390576,
+    'RatatiC'
+  ),
+  createData(
+    'https://w7.pngwing.com/pngs/1020/310/png-transparent-trollface-internet-troll-rage-comic-trolls-miscellaneous-template-white.png',
+    'https://osu.ppy.sh/beatmapsets/44453#osu/139249',
+    'NM2',
+    'Suzaku VS Genbu - Himiko [Another]',
+    '4 | 8 | 8 | 9',
+    '185',
+    'Maddy',
+    139249,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1817884/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1817884#osu/3736118',
+    'NM3',
+    'ZAQ - Dance In The Game [Min`s Insane]',
+    '4 | 5 | 8 | 9',
+    '135',
+    'Airiesu',
+    3736118,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1192060/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1192060#osu/2919737',
+    'NM4',
+    'Camellia - #1f1e33 [Heatwave`s Insane]',
+    '4 | 5 | 8 | 9',
+    '181',
+    'Realazy',
+    2919737,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1278333/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1278333#osu/2666177',
+    'NM5',
+    "Omoi - Teioh Education [Daycore's Insane]",
+    '4.5 | 5 | 8.2 | 9',
+    '208',
+    'Yooh',
+    2666177,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1730932/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1730932#osu/3555364',
+    'NM6',
+    "Aether Realm - She's Back [Roupus' Insane]",
+    '4 | 4.9 | 8.5 | 9',
+    '210',
+    'iamtickrate',
+    3555364,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1699465/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1699465#osu/3741633',
+    'HD1',
+    'ATARASHII GAKKO! - Koi Geba [NcFix`s Insane]',
+    '3.8 | 6 | 8 | 9.2',
+    '202',
+    'Pigeons',
+    3741633,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/673878/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/673878#osu/1436998',
+    'HD2',
+    'Zekk - Calling [Reiji`s Insane]',
+    '4 | 6 | 7 | 8',
+    '180',
+    'NeilPerry',
+    1436998,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1107500/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1107500#osu/2402711',
+    'HD3',
+    'Doja Cat - Boss Bitch [Another]',
+    '3.7 | 5 | 8 | 9',
+    '126',
+    'Plaudible',
+    2402711,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/181681/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/181681#osu/816319',
+    'HR1',
+    'yanaginagi - Zoetrope [toykii`s Insane]',
+    '4 | 7 | 8 | 9',
+    '184',
+    'Asphyxia',
+    816319,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1766945/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1766945#osu/3616922',
+    'HR2',
+    'Ceres Fauna - Let Me Stay Here [A Fairy Tale For Saplings]',
+    '5 | 5 | 8 | 8.7',
+    '97',
+    'Gweon Sua',
+    3616922,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/440997/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/440997#osu/1045832',
+    'HR3',
+    'LeaF - Evanescent [Insane]',
+    '4 | 5 | 7 | 9',
+    '190',
+    'Anxient',
+    1045832,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/122349/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/122349#osu/312973',
+    'DT1',
+    'FELT - Hail Storm [Challenging]',
+    '4 | 6 | 6 | 8',
+    '134',
+    'Kite',
+    312973,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1301407/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1301407#osu/2699267',
+    'DT2',
+    'Mizuki Nana - PHANTOM MINDS [Hard]',
+    '3.8 | 4 | 6.8 | 7.8',
+    '150',
+    'Lasse',
+    2699267,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1023081/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1023081#osu/2198954',
+    'DT3',
+    'Suda Keina - veil [airin`s hard]',
+    '3.8 | 4 | 6 | 8',
+    '150',
+    'Kaitjuh',
+    2198954,
+    'seriker'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1646328/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1646328#osu/3360393',
+    'DT4',
+    'Bi-2 - Polkovniku nikto ne pishet [Toska]',
+    '4 | 5 | 8 | 6',
+    '87.98',
+    'riffy',
+    3360393,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1636051/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1636051#osu/3418164',
+    'FM1',
+    'Waterparks - Turbulent [Insane]',
+    '3.8 | 5 | 7 | 9',
+    '172',
+    'elvin',
+    3418164,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/39678/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/39678#osu/126337',
+    'FM2',
+    'Tokiwa Yuu - Shounen Ripples [EXTREME]',
+    '5 | 7 | 7 | 8',
+    '210',
+    'Suzully',
+    126337,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1061947/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1061947#osu/2251926',
+    'FM3',
+    'Britney Spears - Toxic [Emilia`s Expert]',
+    '4 | 5 | 8 | 9.1',
+    '143',
+    'schoolboy',
+    2251926,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1229050/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1229050#osu/2555507',
+    'TB',
+    'Mili - Vitamins feat. world`s end girlfriend [Scub x Kalibe`s Insane]',
+    '3.8 | 5 | 8 | 9',
+    '191',
+    'ScubDomino',
+    2555507,
+    'RatatiC'
+  ),
+]
+
 const MappoolTable = () => {
-  const [value, setValue] = useState('3')
+  const [value, setValue] = useState('QF')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -516,11 +739,15 @@ const MappoolTable = () => {
             className={styles.tabs}
             onChange={handleTabChange}
           >
-            <Tab label="Квалификация" value="1" />
-            <Tab label="Round of 32" value="2" />
-            <Tab label="Round of 16" value="3" />
+            <Tab label="Квалификация" value="quals" />
+            <Tab label="Round of 32" value="RO32" />
+            <Tab label="Round of 16" value="RO16" />
+            <Tab label="Quarterfinals" value="QF" />
+            <Tab label="Semifinals" value="SF" disabled />
+            <Tab label="Finals" value="F" disabled />
+            <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
-          <TabPanel value="1">
+          <TabPanel value="quals">
             <div className={styles.table}>
               <TableContainer>
                 <Table
@@ -542,13 +769,14 @@ const MappoolTable = () => {
                       <TableCell align="center">BPM</TableCell>
                       <TableCell align="center">Маппер</TableCell>
                       <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {qualifiersRows.map((row: any) => {
                       return (
                         <TableRow
-                          key={row.id}
+                          key={row.mapID}
                           sx={{
                             '&:last-child td, &:last-child th': {
                               border: 0,
@@ -573,6 +801,7 @@ const MappoolTable = () => {
                           <TableCell align="center">{row.bpm}</TableCell>
                           <TableCell align="center">{row.mapper}</TableCell>
                           <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
                         </TableRow>
                       )
                     })}
@@ -581,7 +810,7 @@ const MappoolTable = () => {
               </TableContainer>
             </div>
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel value="RO32">
             <div className={styles.table}>
               <TableContainer>
                 <Table
@@ -603,6 +832,7 @@ const MappoolTable = () => {
                       <TableCell align="center">BPM</TableCell>
                       <TableCell align="center">Маппер</TableCell>
                       <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -634,6 +864,7 @@ const MappoolTable = () => {
                           <TableCell align="center">{row.bpm}</TableCell>
                           <TableCell align="center">{row.mapper}</TableCell>
                           <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
                         </TableRow>
                       )
                     })}
@@ -642,7 +873,7 @@ const MappoolTable = () => {
               </TableContainer>
             </div>
           </TabPanel>
-          <TabPanel value="3">
+          <TabPanel value="RO16">
             <div className={styles.table}>
               <TableContainer>
                 <Table
@@ -664,6 +895,7 @@ const MappoolTable = () => {
                       <TableCell align="center">BPM</TableCell>
                       <TableCell align="center">Маппер</TableCell>
                       <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -695,6 +927,70 @@ const MappoolTable = () => {
                           <TableCell align="center">{row.bpm}</TableCell>
                           <TableCell align="center">{row.mapper}</TableCell>
                           <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="QF">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/IyBDMrUBPOwRQg`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {qfRows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
                         </TableRow>
                       )
                     })}
