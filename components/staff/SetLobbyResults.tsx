@@ -28,8 +28,8 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
   const [open, setOpen] = useState<boolean>(false)
   const [lobby, setLobby] = useState<string>('')
   const [link, setLink] = useState<string>('')
-  const [player1Score, setPlayer1Score] = useState<number>(0)
-  const [player2Score, setPlayer2Score] = useState<number>(0)
+  // const [player1Score, setPlayer1Score] = useState<number>(0)
+  // const [player2Score, setPlayer2Score] = useState<number>(0)
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
@@ -83,8 +83,8 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
       await axios.post(
         `https://auth.osusvin.ru/lobbies/setPlayerScores/${lobby}`,
         {
-          player1Score: player1Score,
-          player2Score: player2Score,
+          // player1Score: player1Score,
+          // player2Score: player2Score,
         },
         {
           headers: {
@@ -138,22 +138,22 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
                       )
                     })}
                   </Select>
-                  <TextField
-                    label="Счёт игрока 1"
-                    value={player1Score}
-                    type="number"
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      setPlayer1Score(event.target.value)
-                    }}
-                  />
-                  <TextField
-                    label="Счёт игрока 2"
-                    value={player2Score}
-                    type="number"
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      setPlayer2Score(event.target.value)
-                    }}
-                  />
+                  {/*<TextField*/}
+                  {/*  label="Счёт игрока 1"*/}
+                  {/*  value={player1Score}*/}
+                  {/*  type="number"*/}
+                  {/*  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {*/}
+                  {/*    setPlayer1Score(event.target.value)*/}
+                  {/*  }}*/}
+                  {/*/>*/}
+                  {/*<TextField*/}
+                  {/*  label="Счёт игрока 2"*/}
+                  {/*  value={player2Score}*/}
+                  {/*  type="number"*/}
+                  {/*  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {*/}
+                  {/*    setPlayer2Score(event.target.value)*/}
+                  {/*  }}*/}
+                  {/*/>*/}
                   <TextField
                     label="Ссылка"
                     value={link}
