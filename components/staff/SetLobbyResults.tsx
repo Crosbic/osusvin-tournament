@@ -68,31 +68,32 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
   }
 
   const handleSetResults = async () => {
-    await Promise.all([
-      axios.post(
-        `https://auth.osusvin.ru/lobbies/setResultLink/${lobby}`,
-        {
-          resultLink: link,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${key}`,
+    await axios
+      .all([
+        axios.post(
+          `https://auth.osusvin.ru/lobbies/setResultLink/${lobby}`,
+          {
+            resultLink: link,
           },
-        }
-      ),
-      await axios.post(
-        `https://auth.osusvin.ru/lobbies/setPlayerScores/${lobby}`,
-        {
-          // player1Score: player1Score,
-          // player2Score: player2Score,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${key}`,
-          },
-        }
-      ),
-    ])
+          {
+            headers: {
+              Authorization: `Bearer ${key}`,
+            },
+          }
+        ),
+        // axios.post(
+        //   `https://auth.osusvin.ru/lobbies/setPlayerScores/${lobby}`,
+        //   {
+        //     player1Score: player1Score,
+        //     player2Score: player2Score,
+        //   },
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${key}`,
+        //     },
+        //   }
+        // ),
+      ])
       .then(() => {
         setTimeout(function () {
           window.location.reload()
@@ -111,9 +112,11 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
     setOpen(false)
   }
 
+  const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
+
   return (
     <div>
-      {user?.role === 'user' || !user ? null : (
+      {currentRoles?.includes('user') || !user ? null : (
         <>
           <Button variant="outlined" onClick={handleClickOpen}>
             Вставка результатов
@@ -143,7 +146,13 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
                   {/*  value={player1Score}*/}
                   {/*  type="number"*/}
                   {/*  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {*/}
-                  {/*    setPlayer1Score(event.target.value)*/}
+                  {/*    const numberValue = !Number.isNaN(*/}
+                  {/*      +event.currentTarget.valueAsNumber*/}
+                  {/*    )*/}
+                  {/*      ? +event.currentTarget.valueAsNumber*/}
+                  {/*      : 0*/}
+
+                  {/*    setPlayer1Score(numberValue)*/}
                   {/*  }}*/}
                   {/*/>*/}
                   {/*<TextField*/}
@@ -151,14 +160,20 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
                   {/*  value={player2Score}*/}
                   {/*  type="number"*/}
                   {/*  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {*/}
-                  {/*    setPlayer2Score(event.target.value)*/}
+                  {/*    const numberValue = !Number.isNaN(*/}
+                  {/*      +event.currentTarget.valueAsNumber*/}
+                  {/*    )*/}
+                  {/*      ? +event.currentTarget.valueAsNumber*/}
+                  {/*      : 0*/}
+
+                  {/*    setPlayer2Score(numberValue)*/}
                   {/*  }}*/}
                   {/*/>*/}
                   <TextField
                     label="Ссылка"
                     value={link}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      setLink(event.target.value)
+                      setLink(event.currentTarget.value)
                     }}
                   />
                 </FormControl>
