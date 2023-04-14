@@ -82,7 +82,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
           }
         ),
         axios.post(
-          `https://auth.osusvin.ru/setPlayerScores/${lobby}`,
+          `https://auth.osusvin.ru/lobbies/setPlayerScores/${lobby}`,
           {
             player1Score: player1Score,
             player2Score: player2Score,
@@ -146,7 +146,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
                     value={player1Score}
                     type="number"
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      setPlayer1Score(+event.currentTarget.value)
+                      setPlayer1Score(event.currentTarget.valueAsNumber)
                     }}
                   />
                   <TextField
@@ -154,7 +154,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
                     value={player2Score}
                     type="number"
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                      setPlayer2Score(+event.currentTarget.value)
+                      setPlayer2Score(event.currentTarget.valueAsNumber)
                     }}
                   />
                   <TextField
