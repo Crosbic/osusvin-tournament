@@ -7,10 +7,12 @@
 
 }
 
-.button {
+.buttonGroup {
     display: flex;
     justify-content: center;
     align-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
 }
 
 .tabs {

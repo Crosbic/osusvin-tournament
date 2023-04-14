@@ -102,7 +102,10 @@ const ScheduleTable = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={styles.button}>
+        <div className={styles.buttonGroup}>
+          <Button variant="outlined" href="/bracket">
+            Сетка
+          </Button>
           <StaffRegisterButton rows={rows} />
         </div>
         <TabContext value={value}>
