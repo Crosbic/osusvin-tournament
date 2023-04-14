@@ -15,7 +15,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-import SetLobbyResults from '../components/staff/SetLobbyResults'
+// import SetLobbyResults from '../components/staff/SetLobbyResults'
 import StaffRegisterButton from '../components/staff/StaffRegisterButton'
 import styles from '../styles/Schedule.module.css'
 
