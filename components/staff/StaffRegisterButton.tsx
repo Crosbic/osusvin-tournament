@@ -62,9 +62,9 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
     setOpenAlert(false)
   }
 
-  const handleChooseLobby = async () => {
+  const handleSetReferee = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/lobbies/register/${lobby}`, null, {
+      .post(`https://auth.osusvin.ru/lobbies/register/referee/${lobby}`, null, {
         headers: {
           Authorization: `Bearer ${key}`,
         },
@@ -87,18 +87,45 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
     setOpen(false)
   }
 
+  const handleRemoveReferee = async () => {
+    await axios
+      .post(`https://auth.osusvin.ru/lobbies/remove/${lobby}`, null, {
+        headers: {
+          Authorization: `Bearer ${key}`,
+        },
+      })
+      .then(() => {
+        setTimeout(function () {
+          window.location.reload()
+        }, 1000)
+        setSuccess(true)
+        setOpenAlert(true)
+      })
+      .catch((err) => {
+        if (err.request === 401) {
+          console.log('Успех')
+        } else {
+          setOpenAlert(true)
+          setError(true)
+        }
+      })
+    setOpen(false)
+  }
+
+  const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
+
   return (
     <div>
-      {user?.role === 'user' || !user ? null : (
+      {currentRoles?.includes('user') || !user ? null : (
         <>
           <Button variant="outlined" onClick={handleClickOpen}>
-            Запись в лобби
+            Работа с рефери
           </Button>
           <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Выберите лобби</DialogTitle>
+            <DialogTitle align="center">Выберите лобби</DialogTitle>
             <DialogContent>
               <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <FormControl sx={{ m: 1, width: '100%' }}>
                   <Select
                     onChange={(e) => setLobby(e.target.value)}
                     value={lobby}
@@ -116,7 +143,8 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
               </Box>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleChooseLobby}>Выбрать</Button>
+              <Button onClick={handleSetReferee}>Выбрать</Button>
+              <Button onClick={handleRemoveReferee}>Удалить</Button>
               <Button onClick={handleClose}>Назад</Button>
             </DialogActions>
           </Dialog>
@@ -128,7 +156,7 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
             >
               <Alert severity="error">
                 <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно
-                лобби заполнено либо вы не авторизованы
+                рефери уже есть, либо вы не авторизованы
               </Alert>
             </Snackbar>
           ) : null}
@@ -140,7 +168,7 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
               onClose={handleAlertClose}
             >
               <Alert severity="success">
-                <AlertTitle>Успех</AlertTitle>Успешная регистрация на сайте
+                <AlertTitle>Успех</AlertTitle>Успешная запись
               </Alert>
             </Snackbar>
           ) : null}

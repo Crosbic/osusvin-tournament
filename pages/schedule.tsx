@@ -15,7 +15,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-// import StaffRegisterButton from '../components/StaffRegisterButton'
+import SetLobbyResults from '../components/staff/SetLobbyResults'
+import StaffRegisterButton from '../components/staff/StaffRegisterButton'
 import styles from '../styles/Schedule.module.css'
 
 interface QualifiersData {
@@ -106,7 +107,8 @@ const ScheduleTable = () => {
           <Button variant="outlined" href="/bracket">
             Сетка
           </Button>
-          {/*<StaffRegisterButton rows={rows} />*/}
+          <StaffRegisterButton rows={rows} />
+          {/*<SetLobbyResults rows={rows} />*/}
         </div>
         <TabContext value={value}>
           <TabList
