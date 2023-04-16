@@ -722,8 +722,231 @@ const qfRows: any = [
   ),
 ]
 
+const sfRows: any = [
+  createData(
+    'https://assets.ppy.sh/beatmaps/1876870/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1876870#osu/3862969',
+    'NM1',
+    'kessoku band - Karakara [Virtual Reality]',
+    '4 | 6 | 8 | 9',
+    '190',
+    'VINXIS',
+    3862969,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1551011/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1551011#osu/3169487',
+    'NM2',
+    'm108 - Shinku no Senkou [Niva`s Insane]',
+    '4 | 5 | 7.5 | 9',
+    '185',
+    'Leader',
+    3169487,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1791758/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1791758#osu/3671821',
+    'NM3',
+    'PALC - S kazhdym [Expert]',
+    '4 | 5 | 9 | 9.4',
+    '123',
+    'nemidnight',
+    3671821,
+    'bl1nq'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1219865/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1219865#osu/2537757',
+    'NM4',
+    'Dictate - Melodik (Short Ver.) [ozbargain]',
+    '4.2 | 6 | 8.6 | 9.2',
+    '155',
+    'Pentori',
+    2537757,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1765453/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1765453#osu/3646485',
+    'NM5',
+    "tarolabo - eth ken [zetera's insane]",
+    '3.8 | 3.6 | 7 | 9',
+    '126',
+    'DeviousPanda',
+    3646485,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1556131/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1556131#osu/3318542',
+    'NM6',
+    "Aether Realm - Swampwitch [Kerupt's Insane]",
+    '3.8 | 4.5 | 8.5 | 9',
+    '210',
+    'iamtickrate',
+    3318542,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1415113/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1415113#osu/2953364',
+    'HD1',
+    'Horie Yui - True truly love [Koori`s Insane]',
+    '4 | 5 | 8 | 9',
+    '204',
+    '[Karcher]',
+    2953364,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/45028/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/45028#osu/141669',
+    'HD2',
+    'Hatsune Miku - Dance of many [Pokie`s Insane]',
+    '4 | 6 | 8 | 8',
+    '183',
+    'LKs',
+    141669,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1505515/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1505515#osu/3113327',
+    'HD3',
+    'Moe Shop - Charm (w/ Puniden) [Mocaotic`s Another]',
+    '4.2 | 5 | 8 | 9.1',
+    '128',
+    'Amateurre',
+    3113327,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1177092/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1177092#osu/2456296',
+    'HR1',
+    'YOASOBI - Ano Yume o Nazotte [Kuse`s Insane]',
+    '4 | 5.2 | 8 | 9',
+    '180',
+    'Sarawatlism',
+    2456296,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1235574/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1235574#osu/2568447',
+    'HR2',
+    'Hikaru Station - Bubblegum K.K. [Insane]',
+    '5 | 6.5 | 8 | 8.8',
+    '166',
+    'Andrea',
+    2568447,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1719626/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1719626#osu/3583583',
+    'HR3',
+    'Masayoshi Iimori - Non Stop Rock [Another]',
+    '4 | 4 | 7.5 | 9',
+    '172',
+    'Fursum',
+    3583583,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/959074/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/959074#osu/2007934',
+    'DT1',
+    'Perfume - Secret Secret [Perception]',
+    '4 | 5 | 7.5 | 8.5',
+    '132',
+    'eiri-',
+    2007934,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1401651/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1401651#osu/2896899',
+    'DT2',
+    'kozato - Tsuki -Yue- [kanor`s Hard]',
+    '5 | 5 | 6 | 8',
+    '150',
+    'Gust',
+    2896899,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1572038/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1572038#osu/3253621',
+    'DT3',
+    'Sephid - Epistrofi [117`s Hard]',
+    '3.3 | 3.5 | 6 | 8',
+    '185',
+    'Mattay',
+    3253621,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1844850/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1844850#osu/3839743',
+    'DT4',
+    'Tyler, The Creator - I Ain`t Got Time! [Hard]',
+    '3.6 | 4 | 7 | 7.8',
+    '109',
+    'chaser01',
+    3839743,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1217477/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1217477#osu/2678864',
+    'FM1',
+    'Tiny Moving Parts - Whale Watching [FuJu`s Insane]',
+    '4.2 | 5 | 8 | 9',
+    '180',
+    'spoes',
+    2678864,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/15917/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/15917#osu/57380',
+    'FM2',
+    'Nightcore - You Got Me Dancing [Insane]',
+    '5 | 7 | 8 | 8',
+    '174.36',
+    'osuplayer111',
+    126337,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1580891/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1580891#osu/3851000',
+    'FM3',
+    'PSYQUI - Hysteric Night Girl -Awakening- (feat. Such) [Insane]',
+    '4 | 4 | 7 | 8.5',
+    '160',
+    'Luminiscental',
+    3851000,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1034179/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1034179#osu/2257469',
+    'TB',
+    'Demetori - Yuuga ni Sakase, Sumizome no Sakura ~ The Harm of Coming into Existence [Trustlfj`s Lunatic]',
+    '4 | 5 | 8 | 9',
+    '185',
+    'jonathanlfj',
+    2257469,
+    'RatatiC'
+  ),
+]
+
 const MappoolTable = () => {
-  const [value, setValue] = useState('QF')
+  const [value, setValue] = useState('SF')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -743,7 +966,7 @@ const MappoolTable = () => {
             <Tab label="Round of 32" value="RO32" />
             <Tab label="Round of 16" value="RO16" />
             <Tab label="Quarterfinals" value="QF" />
-            <Tab label="Semifinals" value="SF" disabled />
+            <Tab label="Semifinals" value="SF" />
             <Tab label="Finals" value="F" disabled />
             <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
@@ -963,6 +1186,69 @@ const MappoolTable = () => {
                   </TableHead>
                   <TableBody>
                     {qfRows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="SF">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/XWpOBnbp2zOYlg`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {sfRows.map((row: any) => {
                       return (
                         <TableRow
                           key={row.id}
