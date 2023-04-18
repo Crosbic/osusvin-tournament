@@ -42,12 +42,18 @@ interface Data {
 }
 
 const ScheduleTable = () => {
+  const [user, setUser] = useState<any>()
   const [value, setValue] = useState<string>('SF')
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('user') !== null) {
+        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
+      }
+    }
     setLoading(true)
     axios
       .get('https://auth.osusvin.ru/qualification-lobbies/')
@@ -99,17 +105,26 @@ const ScheduleTable = () => {
   )
 
   const sortedQualifiersRows = qualifiersRows.sort((a, b) => a.id - b.id)
+  const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
 
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={styles.buttonGroup}>
-          <Button variant="outlined" href="/bracket">
-            Сетка
-          </Button>
-          <StaffRegisterButton rows={rows} />
-          <SetLobbyResults rows={rows} />
-        </div>
+        {currentRoles?.includes('user') || !user ? (
+          <div className={styles.buttonGroup}>
+            <Button variant="outlined" href="/bracket">
+              Сетка
+            </Button>
+          </div>
+        ) : (
+          <div className={styles.buttonGroup}>
+            <Button variant="outlined" href="/bracket">
+              Сетка
+            </Button>
+            <StaffRegisterButton rows={rows} />
+            <SetLobbyResults rows={rows} />
+          </div>
+        )}
         <TabContext value={value}>
           <TabList
             textColor="inherit"

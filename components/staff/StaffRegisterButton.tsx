@@ -21,7 +21,6 @@ interface iStaffRegisterButtonProps {
 
 const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
   const { rows } = props
-  const [user, setUser] = useState<any>()
   const [open, setOpen] = useState<boolean>(false)
   const [lobby, setLobby] = useState<string>('')
   const [key, setKey] = useState<any>()
@@ -31,11 +30,6 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
 
   useEffect(() => {
     setKey(localStorage.getItem('jwt') ?? '')
-    if (typeof window !== 'undefined') {
-      if (localStorage.getItem('user') !== null) {
-        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
-      }
-    }
   }, [])
 
   const handleClickOpen = () => {
@@ -112,69 +106,63 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
     setOpen(false)
   }
 
-  const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
-
   return (
-    <div>
-      {currentRoles?.includes('user') || !user ? null : (
-        <>
-          <Button variant="outlined" onClick={handleClickOpen}>
-            Работа с рефери
-          </Button>
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle align="center">Выберите лобби</DialogTitle>
-            <DialogContent>
-              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                <FormControl sx={{ m: 1, width: '100%' }}>
-                  <Select
-                    onChange={(e) => setLobby(e.target.value)}
-                    value={lobby}
-                    required
-                  >
-                    {rows.map((row: any) => {
-                      return (
-                        <MenuItem key={row.id} value={row.id}>
-                          {row.name}
-                        </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-              </Box>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleSetReferee}>Выбрать</Button>
-              <Button onClick={handleRemoveReferee}>Удалить</Button>
-              <Button onClick={handleClose}>Назад</Button>
-            </DialogActions>
-          </Dialog>
-          {error ? (
-            <Snackbar
-              open={openAlert}
-              autoHideDuration={4000}
-              onClose={handleAlertClose}
-            >
-              <Alert severity="error">
-                <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно
-                рефери уже есть, либо вы не авторизованы
-              </Alert>
-            </Snackbar>
-          ) : null}
+    <>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Работа с рефери
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle align="center">Выберите лобби</DialogTitle>
+        <DialogContent>
+          <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+            <FormControl sx={{ m: 1, width: '100%' }}>
+              <Select
+                onChange={(e) => setLobby(e.target.value)}
+                value={lobby}
+                required
+              >
+                {rows.map((row: any) => {
+                  return (
+                    <MenuItem key={row.id} value={row.id}>
+                      {row.name}
+                    </MenuItem>
+                  )
+                })}
+              </Select>
+            </FormControl>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleSetReferee}>Выбрать</Button>
+          <Button onClick={handleRemoveReferee}>Удалить</Button>
+          <Button onClick={handleClose}>Назад</Button>
+        </DialogActions>
+      </Dialog>
+      {error ? (
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={4000}
+          onClose={handleAlertClose}
+        >
+          <Alert severity="error">
+            <AlertTitle>Ошибка регистрации в лобби</AlertTitle>Возможно рефери
+            уже есть, либо вы не авторизованы
+          </Alert>
+        </Snackbar>
+      ) : null}
 
-          {success ? (
-            <Snackbar
-              open={openAlert}
-              autoHideDuration={1000}
-              onClose={handleAlertClose}
-            >
-              <Alert severity="success">
-                <AlertTitle>Успех</AlertTitle>Успешная запись
-              </Alert>
-            </Snackbar>
-          ) : null}
-        </>
-      )}
-    </div>
+      {success ? (
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={1000}
+          onClose={handleAlertClose}
+        >
+          <Alert severity="success">
+            <AlertTitle>Успех</AlertTitle>Успешная запись
+          </Alert>
+        </Snackbar>
+      ) : null}
+    </>
   )
 }
 
