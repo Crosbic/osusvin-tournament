@@ -180,7 +180,13 @@ const ScheduleTable = () => {
                             {qualifiersRow.name}
                           </TableCell>
                           <TableCell align="center">
-                            {date.toLocaleString('ru-RU')}
+                            {date.toLocaleString('ru-RU', {
+                              day: 'numeric',
+                              month: 'long',
+                              hour: 'numeric',
+                              minute: '2-digit',
+                              second: undefined,
+                            })}
                           </TableCell>
                           <TableCell align="center">
                             {qualifiersRow.users.map((user: any) => {
@@ -272,7 +278,13 @@ const ScheduleTable = () => {
                           >
                             <TableCell align="center">{rows.name}</TableCell>
                             <TableCell align="center">
-                              {date.toLocaleString('ru-RU')}
+                              {date.toLocaleString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                second: undefined,
+                              })}
                             </TableCell>
                             <TableCell align="center">
                               {rows.player1.map((user: any) => {
