@@ -10,8 +10,9 @@ import {
 } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
+import CreateMappoolButton from '../components/mappols/CreateMappoolButton'
 import styles from '../styles/Mappols.module.css'
 
 interface Data {
@@ -946,7 +947,17 @@ const sfRows: any = [
 ]
 
 const MappoolTable = () => {
+  const [user, setUser] = useState<any>()
   const [value, setValue] = useState('SF')
+  const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('user') !== null) {
+        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
+      }
+    }
+  }, [])
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -955,6 +966,11 @@ const MappoolTable = () => {
   return (
     <>
       <div className={styles.wrapper}>
+        {currentRoles?.includes('user') || !user ? null : (
+          <div className={styles.buttonGroup}>
+            <CreateMappoolButton />
+          </div>
+        )}
         <TabContext value={value}>
           <TabList
             textColor="inherit"

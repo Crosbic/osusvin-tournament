@@ -3,6 +3,14 @@
     width: calc(100% - 100px);
 }
 
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
 .tabs {
     display: block;
     color: #eaeaea;
