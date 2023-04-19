@@ -1,7 +1,6 @@
 import {
   Alert,
   AlertTitle,
-  Autocomplete,
   Box,
   Button,
   Dialog,
@@ -29,41 +28,36 @@ const CreateMappoolButton = () => {
   const [beatmapUrl, setBeatmapUrl] = useState<string>('')
   const [tournamentMod, setTournamentMod] = useState<string>('')
   const [tournamentModName, setTournamentModName] = useState<string>('')
-  const [mapsList, setMapsList] = useState<any>([
-    {
-      mapId: 0,
-      beatmapUrl: '',
-      tournamentMod: '',
-      tournamentModName: '',
-    },
-  ])
   const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
-  const stages = ['RO32', 'RO16', 'QF', 'SF', 'F', 'GF']
+  const stages = [
+    { id: 1, label: 'Qualifications' },
+    { id: 2, label: 'Round of 32' },
+    { id: 3, label: 'Round of 16' },
+    { id: 4, label: 'Quarterfinals' },
+    { id: 5, label: 'Semifinals' },
+    { id: 6, label: 'Finals' },
+    { id: 7, label: 'Grand Finals' },
+  ]
 
   useEffect(() => {
     setKey(localStorage.getItem('jwt') ?? '')
   }, [])
 
-  const handleCreateMappol = async () => {
+  const handleAddBeatmap = async () => {
     await axios
-      .all([
-        axios.post(
-          `https://auth.osusvin.ru/mappool/create`,
-          {
-            stage: stage,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${key}`,
-            },
-          }
-        ),
-        axios.post(`https://auth.osusvin.ru/mappool/addBeatmap/${mapId}`, {
+      .post(
+        `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
+        {
           beatmapUrl: beatmapUrl,
           tournamentMod: tournamentMod,
           tournamentModName: tournamentModName,
-        }),
-      ])
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${key}`,
+          },
+        }
+      )
       .then(() => {
         setTimeout(function () {
           window.location.reload()
@@ -80,19 +74,6 @@ const CreateMappoolButton = () => {
         }
       })
     setOpen(false)
-  }
-
-  const handleMapRemove = (index: any) => {
-    const list = [...mapsList]
-    list.splice(index, 1)
-    setMapsList(list)
-  }
-
-  const handleAddMap = () => {
-    setMapsList([
-      ...mapsList,
-      { mapId: 0, beatmapUrl: '', tournamentMod: '', tournamentModName: '' },
-    ])
   }
 
   const handleClickOpen = () => {
@@ -122,20 +103,20 @@ const CreateMappoolButton = () => {
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Создать маппул
+        Добавить карту
       </Button>
-      <Dialog open={open} onClose={handleClose} sx={{ width: 1000 }}>
+      <Dialog open={open} onClose={handleClose} maxWidth={false}>
         <DialogTitle>Заполните данные</DialogTitle>
         <DialogContent>
           <Box
             sx={{
               display: 'flex',
               flexWrap: 'wrap',
-              minWidth: 500,
+              maxWidth: 1000,
               justifyContent: 'center',
             }}
           >
-            <FormControl sx={{ m: 1, minWidth: 500, gap: 2 }}>
+            <FormControl sx={{ m: 1, maxWidth: 1000, gap: 2 }}>
               <InputLabel variant="outlined">Стадия</InputLabel>
               <Select
                 label="Лобби"
@@ -145,75 +126,66 @@ const CreateMappoolButton = () => {
               >
                 {stages.map((row: any) => {
                   return (
-                    <MenuItem key={row} value={row}>
-                      {row}
+                    <MenuItem key={row.id} value={row.id}>
+                      {row.label}
                     </MenuItem>
                   )
                 })}
               </Select>
-              {mapsList.map((entity: any) => {
-                return (
-                  <FormControl
-                    key={entity}
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      gap: 2,
-                    }}
+              <FormControl
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: 2,
+                }}
+              >
+                <TextField
+                  sx={{ width: 140 }}
+                  label="ID карты"
+                  type="number"
+                  value={mapId}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setMapId(e.currentTarget.valueAsNumber)
+                  }
+                  required
+                />
+                <TextField
+                  sx={{ width: 390 }}
+                  label="Ссылка на карту"
+                  value={beatmapUrl}
+                  onChange={(e) => setBeatmapUrl(e.currentTarget.value)}
+                  required
+                />
+                <FormControl sx={{ width: 220 }}>
+                  <InputLabel variant="outlined">Статы по моду</InputLabel>
+                  <Select
+                    label="Статы по моду"
+                    onChange={(e) => setTournamentMod(e.target.value)}
+                    value={tournamentMod}
+                    required
                   >
-                    <TextField
-                      sx={{ width: 130 }}
-                      label="ID карты"
-                      value={mapsList.mapId}
-                      type="number"
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setMapId(e.currentTarget.valueAsNumber)
-                      }
-                      required
-                    />
-                    <TextField
-                      label="Ссылка на карту"
-                      value={mapsList.beatmapUrl}
-                      onChange={(e) => setBeatmapUrl(e.currentTarget.value)}
-                      required
-                    />
-                    <FormControl sx={{ width: 130 }}>
-                      <InputLabel id="stats">Age</InputLabel>
-                      <Select
-                        labelId="stats"
-                        label="stats"
-                        onChange={(e) => setTournamentMod(e.target.value)}
-                        value={mapsList.tournamentMod}
-                        required
-                      >
-                        {mods.map((mod: any) => {
-                          return (
-                            <MenuItem key={mod} value={mod}>
-                              {mod}
-                            </MenuItem>
-                          )
-                        })}
-                      </Select>
-                    </FormControl>
-                    <TextField
-                      // sx={{ width: '100%' }}
-                      label="Мод (Пример: NM1)"
-                      value={mapsList.tournamentModName}
-                      onChange={(e) =>
-                        setTournamentModName(e.currentTarget.value)
-                      }
-                      required
-                    />
-                    {/*{mapsList.length - 1 === index && mapsList.length < 20()}*/}
-                  </FormControl>
-                )
-              })}
+                    {mods.map((mod: any) => {
+                      return (
+                        <MenuItem key={mod} value={mod}>
+                          {mod}
+                        </MenuItem>
+                      )
+                    })}
+                  </Select>
+                </FormControl>
+                <TextField
+                  sx={{ width: 230 }}
+                  label="Мод (Пример: NM1)"
+                  value={tournamentModName}
+                  onChange={(e) => setTournamentModName(e.currentTarget.value)}
+                  required
+                />
+              </FormControl>
             </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCreateMappol}>Создать</Button>
+          <Button onClick={handleAddBeatmap}>Добавить</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
