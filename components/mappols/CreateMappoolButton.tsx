@@ -24,7 +24,6 @@ const CreateMappoolButton = () => {
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [mapId, setMapId] = useState<number>(0)
   const [beatmapUrl, setBeatmapUrl] = useState<string>('')
   const [tournamentMod, setTournamentMod] = useState<string>('')
   const [tournamentModName, setTournamentModName] = useState<string>('')
@@ -140,17 +139,6 @@ const CreateMappoolButton = () => {
                 }}
               >
                 <TextField
-                  sx={{ width: 140 }}
-                  label="ID карты"
-                  type="number"
-                  value={mapId}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setMapId(e.currentTarget.valueAsNumber)
-                  }
-                  required
-                />
-                <TextField
-                  sx={{ width: 390 }}
                   label="Ссылка на карту"
                   value={beatmapUrl}
                   onChange={(e) => setBeatmapUrl(e.currentTarget.value)}
@@ -174,7 +162,6 @@ const CreateMappoolButton = () => {
                   </Select>
                 </FormControl>
                 <TextField
-                  sx={{ width: 230 }}
                   label="Мод (Пример: NM1)"
                   value={tournamentModName}
                   onChange={(e) => setTournamentModName(e.currentTarget.value)}
