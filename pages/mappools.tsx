@@ -107,7 +107,7 @@ const MappoolTable = () => {
                           )
                         })}
                       </TableCell>
-                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">CS | AR | OD | HP</TableCell>
                       <TableCell align="center">BPM</TableCell>
                       <TableCell align="center">Маппер</TableCell>
                       <TableCell align="center">Саггестер</TableCell>
@@ -115,72 +115,61 @@ const MappoolTable = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {beatmaps?.map((map: any) => {
+                    {beatmaps?.flat().map((map: any) => {
+                      const name =
+                        map.artist +
+                        ' - ' +
+                        map.title +
+                        ' [' +
+                        map.difficultyName +
+                        ']'
+
+                      const stats =
+                        map.stats.cs +
+                        ' | ' +
+                        map.stats.hp +
+                        ' | ' +
+                        map.stats.od +
+                        ' | ' +
+                        map.stats.ar
+
                       return (
-                        <>
-                          {map.map((mapData: any) => {
-                            const name =
-                              mapData.artist +
-                              ' - ' +
-                              mapData.title +
-                              ' [' +
-                              mapData.difficultyName +
-                              ']'
-
-                            const stats =
-                              mapData.stats.cs +
-                              ' | ' +
-                              mapData.stats.hp +
-                              ' | ' +
-                              mapData.stats.od +
-                              ' | ' +
-                              mapData.stats.ar
-
-                            return (
-                              <TableRow
-                                key={mapData.id}
-                                sx={{
-                                  '&:last-child td, &:last-child th': {
-                                    border: 0,
-                                  },
-                                }}
-                              >
-                                <TableCell align="center">
-                                  <Image
-                                    className={styles.bg}
-                                    src={mapData.backgroundUrl}
-                                    alt="mapImage"
-                                    height="30"
-                                    width="108"
-                                    unoptimized
-                                  />
-                                </TableCell>
-                                <TableCell align="center">
-                                  {mapData.tournamentModName}
-                                </TableCell>
-                                <TableCell
-                                  align="center"
-                                  className={styles.link}
-                                >
-                                  <Link href={mapData.url}>{name}</Link>
-                                </TableCell>
-                                <TableCell align="center">{stats}</TableCell>
-                                <TableCell align="center">
-                                  {mapData.bpmString}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {mapData.mapper}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {mapData.suggesterUsername}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {mapData.id}
-                                </TableCell>
-                              </TableRow>
-                            )
-                          })}
-                        </>
+                        <TableRow
+                          key={map.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={map.backgroundUrl}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">
+                            {map.tournamentModName}
+                          </TableCell>
+                          <TableCell
+                            sx={{ maxWidth: 700 }}
+                            align="center"
+                            className={styles.link}
+                          >
+                            <Link href={map.url}>{name}</Link>
+                          </TableCell>
+                          <TableCell align="center">{stats}</TableCell>
+                          <TableCell align="center">{map.bpmString}</TableCell>
+                          <TableCell align="center">{map.mapper}</TableCell>
+                          <TableCell align="center">
+                            {map.suggesterUsername}
+                          </TableCell>
+                          <TableCell align="center">{map.id}</TableCell>
+                        </TableRow>
                       )
                     })}
                   </TableBody>
