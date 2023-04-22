@@ -31,6 +31,23 @@ const MappoolTable = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('user') !== null) {
+        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
+      }
+    }
+    axios
+      .get(`https://auth.osusvin.ru/mappool`, {
+        params: { stage: stage },
+      })
+      .then((res) => res.data)
+      .then((data) => {
+        setRows(data as MappolsData[])
+      })
+      .finally(() => setIsLoading(false))
+  }, [stage])
+
   if (isLoading) {
     return (
       <div>
