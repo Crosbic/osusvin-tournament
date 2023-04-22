@@ -65,7 +65,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
     await axios
       .all([
         axios.post(
-          `http://localhost:8080/lobbies/setResultLink/${lobby}`,
+          `https://auth.osusvin.ru/lobbies/setResultLink/${lobby}`,
           {
             resultLink: link,
           },
