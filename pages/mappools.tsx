@@ -918,7 +918,7 @@ const sfRows: any = [
     '5 | 7 | 8 | 8',
     '174.36',
     'osuplayer111',
-    126337,
+    57380,
     'RatatiC'
   ),
   createData(
