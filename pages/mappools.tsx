@@ -1522,7 +1522,7 @@ const MappoolTable = () => {
                       <TableCell align="center"></TableCell>
                       <TableCell align="center"></TableCell>
                       <TableCell align="center" className={styles.link}>
-                        <Link href={`https://disk.yandex.ru/d/XWpOBnbp2zOYlg`}>
+                        <Link href={`https://disk.yandex.ru/d/XLhNwL93CiGYZA`}>
                           Скачать маппак
                         </Link>
                       </TableCell>
