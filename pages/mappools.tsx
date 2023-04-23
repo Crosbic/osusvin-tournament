@@ -945,8 +945,231 @@ const sfRows: any = [
   ),
 ]
 
+const fRows: any = [
+  createData(
+    'https://assets.ppy.sh/beatmaps/1701031/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1701031#osu/3483436',
+    'NM1',
+    'ClariS - border [captin`s Extra]',
+    '4.2 | 5 | 8 | 9',
+    '178',
+    'Azu',
+    3483436,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1685761/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1685761#osu/3451428',
+    'NM2',
+    'Rhapsody - Emerald Sword (Cut Ver.) [Extra]',
+    '3.5 | 5 | 8.8 | 9.2',
+    '180',
+    'Kronick',
+    3451428,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/657341/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/657341#osu/1414767',
+    'NM3',
+    'fhana - Hello!My World!! [toyruto`s Insane]',
+    '4.1 | 6 | 8.2 | 9.2',
+    '141',
+    'Sotarks',
+    1414767,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1166748/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1166748#osu/2836212',
+    'NM4',
+    'Feryquitous vs. xi - Orca [Ducky x Risen`s Insane]',
+    '4 | 5 | 8 | 9',
+    '195',
+    'lcfc',
+    2836212,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/660630/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/660630#osu/1439335',
+    'NM5',
+    "Ocelot - KAEDE [Koiyuki's EX]",
+    '7 | 6 | 7 | 9',
+    '177',
+    'Hollow Wings',
+    1439335,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/480298/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/480298#osu/1215683',
+    'NM6',
+    "Veil of Maya - Mikasa [DavidEd's Insane]",
+    '4 | 6 | 7.5 | 9.2',
+    '220',
+    'Bergy',
+    1215683,
+    'Koteykaaa'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1865974/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1865974#osu/3849157',
+    'HD1',
+    'Nakigoto - Shiranai Wakusei [Kyuuchie`s Expert]',
+    '4 | 4.5 | 7 | 8.8',
+    '178',
+    'Amateurre',
+    3849157,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1069288/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1069288#osu/2239337',
+    'HD2',
+    'BUTAOTOME - Towa no Maigo [Insane]',
+    '4 | 5 | 7 | 8',
+    '180',
+    'Icekalt',
+    2239337,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1246543/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1246543#osu/2590940',
+    'HD3',
+    'K/DA - THE BADDEST feat. (G)I-DLE, Bea Miller, Wolftyla [AYYNNA`S EXTRA]',
+    '4 | 5 | 8.5 | 9',
+    '150',
+    'Sylas',
+    2590940,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1193063/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1193063#osu/2485990',
+    'HR1',
+    'BAND-MAID - RINNE [INSANE]',
+    '4 | 6 | 8 | 9',
+    '190',
+    'ShirohaMyMommy',
+    2485990,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1596341/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1596341#osu/3262088',
+    'HR2',
+    'Aishuu Mania - the lost dedicated [rolniczy`s insane]',
+    '5 | 5 | 8 | 8',
+    '134',
+    'Matrix',
+    3262088,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1329045/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1329045#osu/2794904',
+    'HR3',
+    'sakuraburst - Glacierfall (Park Remix) [haruto x ancel`s ins*ne]',
+    '4 | 5 | 7.5 | 9',
+    '170',
+    'ScubDomino',
+    2794904,
+    'hrds'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/393343/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/393343#osu/940293',
+    'DT1',
+    '96Neko x KurousaP - Kagen no Tsuki [Collab Insane]',
+    '4 | 6 | 7.5 | 8.5',
+    '92',
+    'jonathanlfj',
+    940293,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/751956/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/751956#osu/1589441',
+    'DT2',
+    'Ito Kashitaro - Kyouhansha [Hard]',
+    '3 | 5 | 7 | 8',
+    '155',
+    'Hailie',
+    1589441,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1898472/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1898472#osu/3912911',
+    'DT3',
+    'NOMA - Brain Power (Cranky Remix) [milr_`s Hard]',
+    '3.5 | 4 | 6 | 8',
+    '165',
+    'Cellina',
+    3912911,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1089084/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1089084#osu/2277127',
+    'DT4',
+    'Kola Kid - timer [Hard]',
+    '4 | 5 | 6 | 7',
+    '180',
+    'Mirash',
+    2277127,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1846926/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1846926#osu/3913657',
+    'FM1',
+    'Good Kid - No Time to Explain [Shiny Braixen`s Expert]',
+    '4 | 5.2 | 8.8 | 9.2',
+    '180',
+    'wafer',
+    3913657,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1786226/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1786226#osu/3714164',
+    'FM2',
+    'The Beatles - A Hard Day`s Night [Fsjallink`s Insane]',
+    '4.2 | 5 | 8 | 8.3',
+    '138',
+    'Apo11o',
+    3714164,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1842709/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1842709#osu/3886310',
+    'FM3',
+    'john - Utage [Silverboxer`s Insane]',
+    '4 | 6 | 8 | 8.5',
+    '175',
+    'Ryuusei Aika',
+    3886310,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/985041/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/985041#osu/2064113',
+    'TB',
+    'FELT - Lost in the Abyss [NowaTsuin`s Extra]',
+    '4 | 4.5 | 8.5 | 9.3',
+    '183',
+    'Nowaie',
+    2064113,
+    'RatatiC'
+  ),
+]
+
 const MappoolTable = () => {
-  const [value, setValue] = useState('SF')
+  const [value, setValue] = useState('F')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -967,7 +1190,7 @@ const MappoolTable = () => {
             <Tab label="Round of 16" value="RO16" />
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
-            <Tab label="Finals" value="F" disabled />
+            <Tab label="Finals" value="F" />
             <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
           <TabPanel value="quals">
@@ -1249,6 +1472,69 @@ const MappoolTable = () => {
                   </TableHead>
                   <TableBody>
                     {sfRows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="F">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/XWpOBnbp2zOYlg`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {fRows.map((row: any) => {
                       return (
                         <TableRow
                           key={row.id}
