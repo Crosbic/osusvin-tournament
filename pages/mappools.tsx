@@ -116,6 +116,7 @@ const MappoolTable = () => {
                   </TableHead>
                   <TableBody>
                     {beatmaps?.flat().map((map: any) => {
+                      console.log(map)
                       const name =
                         map.artist +
                         ' - ' +
@@ -125,13 +126,13 @@ const MappoolTable = () => {
                         ']'
 
                       const stats =
-                        map.stats.cs +
+                        map.stats.cs.toFixed(1) +
                         ' | ' +
-                        map.stats.hp +
+                        map.stats.hp.toFixed(1) +
                         ' | ' +
-                        map.stats.od +
+                        map.stats.od.toFixed(1) +
                         ' | ' +
-                        map.stats.ar
+                        map.stats.ar.toFixed(1)
 
                       return (
                         <TableRow
