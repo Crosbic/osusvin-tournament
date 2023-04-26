@@ -112,7 +112,7 @@ const ScheduleTable = () => {
     <>
       <div className={styles.wrapper}>
         {currentRoles?.includes('user') || !user ? (
-          <div className={styles.buttonGroup}>
+          <div className={styles.bracketButton}>
             <Button variant="outlined" href="/bracket">
               Сетка
             </Button>
