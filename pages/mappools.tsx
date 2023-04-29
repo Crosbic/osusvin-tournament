@@ -24,6 +24,15 @@ interface MappolsData {
   beatmaps: any
 }
 
+enum Modes {
+  NM,
+  HD,
+  HR,
+  DT,
+  FM,
+  TB
+}
+
 const MappoolTable = () => {
   const [user, setUser] = useState<any>()
   const [rows, setRows] = useState<MappolsData[]>()
@@ -115,7 +124,10 @@ const MappoolTable = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {beatmaps?.flat().map((map: any) => {
+                    {beatmaps?.flat().sort((mapA: any, mapB: any) => {                      
+                      let modComparasion = Number(Modes[mapA.tournamentMod]) - Number(Modes[mapB.tournamentMod])  
+                      return modComparasion === 0 ? mapA.tournamentModName.slice(-1) -  mapB.tournamentModName.slice(-1) : modComparasion
+                    }).map((map: any) => {
                       console.log(map)
                       const name =
                         map.artist +
