@@ -30,7 +30,7 @@ enum Modes {
   HR,
   DT,
   FM,
-  TB
+  TB,
 }
 
 const MappoolTable = () => {
@@ -124,67 +124,77 @@ const MappoolTable = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {beatmaps?.flat().sort((mapA: any, mapB: any) => {                      
-                      let modComparasion = Number(Modes[mapA.tournamentMod]) - Number(Modes[mapB.tournamentMod])  
-                      return modComparasion === 0 ? mapA.tournamentModName.slice(-1) -  mapB.tournamentModName.slice(-1) : modComparasion
-                    }).map((map: any) => {
-                      console.log(map)
-                      const name =
-                        map.artist +
-                        ' - ' +
-                        map.title +
-                        ' [' +
-                        map.difficultyName +
-                        ']'
+                    {beatmaps
+                      ?.flat()
+                      .sort((mapA: any, mapB: any) => {
+                        const modComparasion =
+                          Number(Modes[mapA.tournamentMod]) -
+                          Number(Modes[mapB.tournamentMod])
 
-                      const stats =
-                        map.stats.cs.toFixed(1) +
-                        ' | ' +
-                        map.stats.hp.toFixed(1) +
-                        ' | ' +
-                        map.stats.od.toFixed(1) +
-                        ' | ' +
-                        map.stats.ar.toFixed(1)
+                        return modComparasion === 0
+                          ? mapA.tournamentModName.slice(-1) -
+                              mapB.tournamentModName.slice(-1)
+                          : modComparasion
+                      })
+                      .map((map: any) => {
+                        const name =
+                          map.artist +
+                          ' - ' +
+                          map.title +
+                          ' [' +
+                          map.difficultyName +
+                          ']'
 
-                      return (
-                        <TableRow
-                          key={map.id}
-                          sx={{
-                            '&:last-child td, &:last-child th': {
-                              border: 0,
-                            },
-                          }}
-                        >
-                          <TableCell align="center">
-                            <Image
-                              className={styles.bg}
-                              src={map.backgroundUrl}
-                              alt="mapImage"
-                              height="30"
-                              width="108"
-                              unoptimized
-                            />
-                          </TableCell>
-                          <TableCell align="center">
-                            {map.tournamentModName}
-                          </TableCell>
-                          <TableCell
-                            sx={{ maxWidth: 700 }}
-                            align="center"
-                            className={styles.link}
+                        const stats =
+                          map.stats.cs.toFixed(1) +
+                          ' | ' +
+                          map.stats.hp.toFixed(1) +
+                          ' | ' +
+                          map.stats.od.toFixed(1) +
+                          ' | ' +
+                          map.stats.ar.toFixed(1)
+
+                        return (
+                          <TableRow
+                            key={map.id}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
                           >
-                            <Link href={map.url}>{name}</Link>
-                          </TableCell>
-                          <TableCell align="center">{stats}</TableCell>
-                          <TableCell align="center">{map.bpmString}</TableCell>
-                          <TableCell align="center">{map.mapper}</TableCell>
-                          <TableCell align="center">
-                            {map.suggesterUsername}
-                          </TableCell>
-                          <TableCell align="center">{map.id}</TableCell>
-                        </TableRow>
-                      )
-                    })}
+                            <TableCell align="center">
+                              <Image
+                                className={styles.bg}
+                                src={map.backgroundUrl}
+                                alt="mapImage"
+                                height="30"
+                                width="108"
+                                unoptimized
+                              />
+                            </TableCell>
+                            <TableCell align="center">
+                              {map.tournamentModName}
+                            </TableCell>
+                            <TableCell
+                              sx={{ maxWidth: 700 }}
+                              align="center"
+                              className={styles.link}
+                            >
+                              <Link href={map.url}>{name}</Link>
+                            </TableCell>
+                            <TableCell align="center">{stats}</TableCell>
+                            <TableCell align="center">
+                              {map.bpmString}
+                            </TableCell>
+                            <TableCell align="center">{map.mapper}</TableCell>
+                            <TableCell align="center">
+                              {map.suggesterUsername}
+                            </TableCell>
+                            <TableCell align="center">{map.id}</TableCell>
+                          </TableRow>
+                        )
+                      })}
                   </TableBody>
                 </Table>
               </TableContainer>
