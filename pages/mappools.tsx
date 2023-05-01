@@ -1808,7 +1808,7 @@ const MappoolTable = () => {
                       <TableCell align="center"></TableCell>
                       <TableCell align="center"></TableCell>
                       <TableCell align="center" className={styles.link}>
-                        <Link href={`https://disk.yandex.ru/d/XLhNwL93CiGYZA`}>
+                        <Link href={`https://disk.yandex.ru/d/sDNMiDny0TKmDQ`}>
                           Скачать маппак
                         </Link>
                       </TableCell>
