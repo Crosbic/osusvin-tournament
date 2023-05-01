@@ -1168,8 +1168,231 @@ const fRows: any = [
   ),
 ]
 
+const gfRows: any = [
+  createData(
+    'https://assets.ppy.sh/beatmaps/1693866/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1693866#osu/3461188',
+    'NM1',
+    'MindaRyn - Like Flames [Tempest]',
+    '4 | 5.2 | 8.7 | 9.2',
+    '175',
+    'MajK00',
+    3461188,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1281400/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1281400#osu/2680344',
+    'NM2',
+    'AVTechNO! - boku-boku SuketchP Remix [Astronic`s Extra]',
+    '3.8 | 4.6 | 8.6 | 9',
+    '180',
+    '-Tynamo',
+    2680344,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1875473/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1875473#osu/3859539',
+    'NM3',
+    'ZUTOMAYO - Time Left [Alongo`s Expert]',
+    '4.4 | 5.8 | 8.4 | 9.3',
+    '141',
+    'Maot',
+    3859539,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/824125/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/824125#osu/1734156',
+    'NM4',
+    'Function Phantom - Paradox [Sing`s Another]',
+    '4 | 6 | 8.6 | 9.3',
+    '175',
+    'byfar',
+    1734156,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1889101/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1889101#osu/3917117',
+    'NM5',
+    "II-L feat. amelie xoxo - THE EARTH [KogumaX's Extra]",
+    '4.8 | 5 | 8.6 | 9',
+    '128',
+    'Ryuusei Aika',
+    3917117,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1809661/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1809661#osu/3711739',
+    'NM6',
+    'deathcount - A Beautiful Degeneracy (Remix by Stazma The Junglechrist) [Expert]',
+    '4 | 5 | 8 | 9',
+    '230',
+    'quantumvortex',
+    3711739,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1418400/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1418400#osu/2940594',
+    'HD1',
+    'Kanye West - BLKKK SKKKN HEAD [ANCLLL + WFRRR XTTTR]',
+    '4 | 4.8 | 8.1 | 9.2',
+    '130',
+    'jamesjan3',
+    2940594,
+    'lefrutit230'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1069288/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1777533#osu/3674557',
+    'HD2',
+    'inabakumori - Tokoshizume [Mahiru`s Expert]',
+    '3.8 | 5 | 8.5 | 8.5',
+    '187',
+    'xyperX',
+    2239337,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1074222/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1074222#osu/2249004',
+    'HD3',
+    'Lena - Satellite [Extra]',
+    '4.5 | 4.5 | 8.5 | 9.1',
+    '190',
+    'DeviousPanda',
+    2249004,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1744025/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1744025#osu/3565579',
+    'HR1',
+    'Renard - Pyramid Head Is The World`s Greatest Lover [LC`s Extra]',
+    '4 | 7 | 8 | 9',
+    '205',
+    'Silverboxer',
+    3565579,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/61963/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/61963#osu/186665',
+    'HR2',
+    'PSY - GANGNAM STYLE [DaRRi sTyLE]',
+    '5 | 6 | 8 | 9',
+    '132',
+    'DaRRi MIx',
+    186665,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1333932/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1333932#osu/2844141',
+    'HR3',
+    'UKRampage - Jack-the-Ripper [Knight`s Insane]',
+    '4 | 5 | 7 | 9',
+    '210',
+    'DeviousPanda',
+    2844141,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1222543/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1222543#osu/2974697',
+    'DT1',
+    'inabakumori - Lagtrain [Ashemu`s Light Insane]',
+    '4.3 | 6.5 | 7 | 8.5',
+    '147',
+    'Sagu',
+    2974697,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1312343/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1312343#osu/2855311',
+    'DT2',
+    'Kijibato - w/WWW feat. Hoshimiya Toto [Hard]',
+    '3 | 4 | 7 | 8',
+    '166',
+    'Elcheer',
+    2855311,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/53342/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/53342#osu/162608',
+    'DT3',
+    'zts - Captain Murasa [Aye aye, Sir!]',
+    '4 | 7 | 8 | 8.5',
+    '140',
+    'Reiji-RJ',
+    162608,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/11096/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/11096#osu/42776',
+    'DT4',
+    'Gunther - Christmas Song [Insane]',
+    '5 | 6 | 7 | 7',
+    '128',
+    'osuplayer111',
+    42776,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1280194/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1280194#osu/3047819',
+    'FM1',
+    'seatrus - MONONOKE [Zelq`s Insane]',
+    '4 | 6 | 8 | 9',
+    '175',
+    'Realazy',
+    3047819,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/10891/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/10891#osu/42224',
+    'FM2',
+    'Nico Nico Douga - Misaka Odoru [WyndII`s Misaka Crazy!!]',
+    '5 | 8 | 8 | 8',
+    '113',
+    'KIA',
+    42224,
+    'SLAVA MARL0W'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/1606218/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/1606218#osu/3303203',
+    'FM3',
+    'cosMo@BousouP feat. Hatsune Miku - Machinegun Poem Doll [Another]',
+    '3.6 | 4 | 8 | 9',
+    '220',
+    'Zoli',
+    3303203,
+    'RatatiC'
+  ),
+  createData(
+    'https://assets.ppy.sh/beatmaps/852003/covers/cover.jpg',
+    'https://osu.ppy.sh/beatmapsets/852003#osu/1781015 ',
+    'TB',
+    'Shoujo - Reminiscing [Memories]',
+    '4 | 6 | 8.3 | 9.2',
+    '175',
+    'bbu',
+    1781015,
+    'RatatiC'
+  ),
+]
+
 const MappoolTable = () => {
-  const [value, setValue] = useState('F')
+  const [value, setValue] = useState('GF')
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -1191,7 +1414,7 @@ const MappoolTable = () => {
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
             <Tab label="Finals" value="F" />
-            <Tab label="Grand Finals" value="GF" disabled />
+            <Tab label="Grand Finals" value="GF" />
           </TabList>
           <TabPanel value="quals">
             <div className={styles.table}>
@@ -1535,6 +1758,69 @@ const MappoolTable = () => {
                   </TableHead>
                   <TableBody>
                     {fRows.map((row: any) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            '&:last-child td, &:last-child th': {
+                              border: 0,
+                            },
+                          }}
+                        >
+                          <TableCell align="center">
+                            <Image
+                              className={styles.bg}
+                              src={row.backgroundLink}
+                              alt="mapImage"
+                              height="30"
+                              width="108"
+                              unoptimized
+                            />
+                          </TableCell>
+                          <TableCell align="center">{row.modeID}</TableCell>
+                          <TableCell align="center" className={styles.link}>
+                            <Link href={row.mapLink}>{row.title}</Link>
+                          </TableCell>
+                          <TableCell align="center">{row.stats}</TableCell>
+                          <TableCell align="center">{row.bpm}</TableCell>
+                          <TableCell align="center">{row.mapper}</TableCell>
+                          <TableCell align="center">{row.suggester}</TableCell>
+                          <TableCell align="center">{row.mapID}</TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          </TabPanel>
+          <TabPanel value="GF">
+            <div className={styles.table}>
+              <TableContainer>
+                <Table
+                  sx={{
+                    minWidth: 500,
+                  }}
+                  size="small"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center"></TableCell>
+                      <TableCell align="center" className={styles.link}>
+                        <Link href={`https://disk.yandex.ru/d/XLhNwL93CiGYZA`}>
+                          Скачать маппак
+                        </Link>
+                      </TableCell>
+                      <TableCell align="center">CS | HP | OD | AR</TableCell>
+                      <TableCell align="center">BPM</TableCell>
+                      <TableCell align="center">Маппер</TableCell>
+                      <TableCell align="center">Саггестер</TableCell>
+                      <TableCell align="center">ID</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {gfRows.map((row: any) => {
                       return (
                         <TableRow
                           key={row.id}
