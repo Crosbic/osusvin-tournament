@@ -14,6 +14,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { isMobile, isTablet } from 'react-device-detect'
 
 import SetLobbyResults from '../components/staff/SetLobbyResults'
 import StaffRegisterButton from '../components/staff/StaffRegisterButton'
@@ -43,7 +44,7 @@ interface Data {
 
 const ScheduleTable = () => {
   const [user, setUser] = useState<any>()
-  const [value, setValue] = useState<string>('SF')
+  const [value, setValue] = useState<string>('F')
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
@@ -111,19 +112,23 @@ const ScheduleTable = () => {
     <>
       <div className={styles.wrapper}>
         {currentRoles?.includes('user') || !user ? (
-          <div className={styles.buttonGroup}>
+          <div className={styles.bracketButton}>
             <Button variant="outlined" href="/bracket">
               Сетка
             </Button>
           </div>
         ) : (
-          <div className={styles.buttonGroup}>
-            <Button variant="outlined" href="/bracket">
-              Сетка
-            </Button>
-            <StaffRegisterButton rows={rows} />
-            <SetLobbyResults rows={rows} />
-          </div>
+          <>
+            <div className={styles.bracketButton}>
+              <Button variant="outlined" href="/bracket">
+                Сетка
+              </Button>
+            </div>
+            <div className={styles.staffButtonGroup}>
+              <StaffRegisterButton rows={rows} />
+              <SetLobbyResults rows={rows} />
+            </div>
+          </>
         )}
         <TabContext value={value}>
           <TabList
@@ -132,7 +137,6 @@ const ScheduleTable = () => {
             className={styles.tabs}
             onChange={handleTabChange}
             variant="scrollable"
-            scrollButtons
             allowScrollButtonsMobile
           >
             <Tab label="Квалификация" value="quals" />
@@ -140,7 +144,7 @@ const ScheduleTable = () => {
             <Tab label="Round of 16" value="RO16" />
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
-            <Tab label="Finals" value="F" disabled />
+            <Tab label="Finals" value="F" />
             <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
           <TabPanel value="quals">
@@ -180,13 +184,21 @@ const ScheduleTable = () => {
                             {qualifiersRow.name}
                           </TableCell>
                           <TableCell align="center">
-                            {date.toLocaleString('ru-RU', {
-                              day: 'numeric',
-                              month: 'long',
-                              hour: 'numeric',
-                              minute: '2-digit',
-                              second: undefined,
-                            })}
+                            {isMobile && isTablet
+                              ? date.toLocaleString('ru-RU', {
+                                  day: 'numeric',
+                                  month: 'numeric',
+                                  hour: 'numeric',
+                                  minute: '2-digit',
+                                  second: undefined,
+                                })
+                              : date.toLocaleString('ru-RU', {
+                                  day: 'numeric',
+                                  month: 'long',
+                                  hour: 'numeric',
+                                  minute: '2-digit',
+                                  second: undefined,
+                                })}
                           </TableCell>
                           <TableCell align="center">
                             {qualifiersRow.users.map((user: any) => {
@@ -278,15 +290,23 @@ const ScheduleTable = () => {
                           >
                             <TableCell align="center">{rows.name}</TableCell>
                             <TableCell align="center">
-                              {date.toLocaleString('ru-RU', {
-                                day: 'numeric',
-                                month: 'long',
-                                hour: 'numeric',
-                                minute: '2-digit',
-                                second: undefined,
-                              })}
+                              {isMobile && isTablet
+                                ? date.toLocaleString('ru-RU', {
+                                    day: 'numeric',
+                                    month: 'numeric',
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    second: undefined,
+                                  })
+                                : date.toLocaleString('ru-RU', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    second: undefined,
+                                  })}
                             </TableCell>
-                            <TableCell align="center">
+                            <TableCell align="center" sx={{ minWidth: '30px' }}>
                               {rows.player1.map((user: any) => {
                                 return (
                                   <div key={user.id} className={styles.link}>
@@ -296,14 +316,16 @@ const ScheduleTable = () => {
                                       <div className={styles.user1}>
                                         {user.username}
                                         &nbsp;&nbsp;
-                                        <Image
-                                          className={styles.avatar}
-                                          src={user.avatarUrl}
-                                          alt="User avatar"
-                                          width="30"
-                                          height="30"
-                                          unoptimized
-                                        />
+                                        <div style={{ minWidth: '30px' }}>
+                                          <Image
+                                            className={styles.avatar}
+                                            src={user.avatarUrl}
+                                            alt="User avatar"
+                                            width="30"
+                                            height="30"
+                                            unoptimized
+                                          />
+                                        </div>
                                       </div>
                                     </Link>
                                   </div>
@@ -340,14 +362,16 @@ const ScheduleTable = () => {
                                       href={`https://osu.ppy.sh/users/${user.id}`}
                                     >
                                       <div className={styles.user2}>
-                                        <Image
-                                          className={styles.avatar}
-                                          src={user.avatarUrl}
-                                          alt="User avatar"
-                                          width="30"
-                                          height="30"
-                                          unoptimized
-                                        />
+                                        <div style={{ minWidth: '30px' }}>
+                                          <Image
+                                            className={styles.avatar}
+                                            src={user.avatarUrl}
+                                            alt="User avatar"
+                                            width="30"
+                                            height="30"
+                                            unoptimized
+                                          />
+                                        </div>
                                         &nbsp;&nbsp;
                                         {user.username}
                                       </div>
@@ -364,14 +388,16 @@ const ScheduleTable = () => {
                                       href={`https://osu.ppy.sh/users/${referee.id}`}
                                     >
                                       <div className={styles.user}>
-                                        <Image
-                                          className={styles.avatar}
-                                          src={referee.avatarUrl}
-                                          alt="User avatar"
-                                          width="30"
-                                          height="30"
-                                          unoptimized
-                                        />
+                                        <div style={{ minWidth: '30px' }}>
+                                          <Image
+                                            className={styles.avatar}
+                                            src={referee.avatarUrl}
+                                            alt="User avatar"
+                                            width="30"
+                                            height="30"
+                                            unoptimized
+                                          />
+                                        </div>
                                         &nbsp;
                                         {referee.username}
                                       </div>

@@ -108,7 +108,11 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        sx={{ minWidth: '230px' }}
+      >
         Вставка результатов
       </Button>
       <Dialog open={open} onClose={handleClose}>

@@ -91,7 +91,7 @@ const MappoolTable = () => {
             <Tab label="Round of 16" value="RO16" />
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
-            <Tab label="Finals" value="F" disabled />
+            <Tab label="Finals" value="F" />
             <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
           <TabPanel value={stage}>
