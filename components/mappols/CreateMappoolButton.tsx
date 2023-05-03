@@ -1,3 +1,4 @@
+import DeleteIcon from '@mui/icons-material/Delete'
 import {
   Alert,
   AlertTitle,
@@ -12,21 +13,29 @@ import {
   MenuItem,
   Select,
   Snackbar,
-  TextField,
 } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import DeleteIcon from '@mui/icons-material/Delete';
+
 import AddMap from './AddMap'
 
-const CreateMappoolButton = () => {
+interface MapDataProps {
+  beatmapUrl: string
+  tournamentMod: string
+  tournamentModName: string
+}
+
+const CreateMappoolButton = (props: MapDataProps) => {
+  const { beatmapUrl, tournamentMod, tournamentModName } = props
   const [key, setKey] = useState<any>()
   const [stage, setStage] = useState<string>('')
   const [open, setOpen] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [inputRowList, setInputRowList] = useState([<AddMap />]);
+  const [inputRowList, setInputRowList] = useState([
+    <AddMap key={beatmapUrl} />,
+  ])
 
   const stages = [
     { id: 1, label: 'Qualifications' },
@@ -43,7 +52,7 @@ const CreateMappoolButton = () => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    /*await axios
+    await axios
       .post(
         `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
         {
@@ -71,7 +80,7 @@ const CreateMappoolButton = () => {
           setOpenAlert(true)
           setError(true)
         }
-      })*/
+      })
     setOpen(false)
   }
 
@@ -98,18 +107,21 @@ const CreateMappoolButton = () => {
 
     setOpenAlert(false)
   }
+
   const handleAddInputRow = () => {
-    setInputRowList(inputRowList.concat(<AddMap />));
-  }
-  const handleRemoveInputRow = (
-    index: number,
-  ) => {
-    const rows = [...inputRowList];
-    if (rows.length <= 1) return
-    rows.splice(index, 1);
-    setInputRowList(rows);
+    setInputRowList(inputRowList.concat(<AddMap />))
   }
 
+  const handleRemoveInputRow = (index: number) => {
+    const rows = [...inputRowList]
+    if (rows.length <= 1) {
+      return
+    }
+    rows.splice(index, 1)
+    setInputRowList(rows)
+  }
+
+  console.log(beatmapUrl, tournamentMod, tournamentModName)
 
   return (
     <>
@@ -155,7 +167,15 @@ const CreateMappoolButton = () => {
                     key={index}
                   >
                     {map}
-                    <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
+                    </div>
                   </FormControl>
                 )
               })}
@@ -163,34 +183,34 @@ const CreateMappoolButton = () => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleAddInputRow}>Добавить ещё</Button>
-          <Button onClick={handleAddBeatmap}>Добавить</Button>
+          <Button onClick={handleAddInputRow}>Добавить карту</Button>
+          <Button onClick={handleAddBeatmap}>Создать пул</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
       {error ? (
-          <Snackbar
-            open={openAlert}
-            autoHideDuration={4000}
-            onClose={handleAlertClose}
-          >
-            <Alert severity="error">
-              <AlertTitle>Ошибка</AlertTitle>Некорректные данные
-            </Alert>
-          </Snackbar>
-        ) : null}
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={4000}
+          onClose={handleAlertClose}
+        >
+          <Alert severity="error">
+            <AlertTitle>Ошибка</AlertTitle>Некорректные данные
+          </Alert>
+        </Snackbar>
+      ) : null}
 
       {success ? (
-          <Snackbar
-            open={openAlert}
-            autoHideDuration={1000}
-            onClose={handleAlertClose}
-          >
-            <Alert severity="success">
-              <AlertTitle>Успех</AlertTitle>Данные успешно вставлены
-            </Alert>
-          </Snackbar>
-        ) : null}
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={1000}
+          onClose={handleAlertClose}
+        >
+          <Alert severity="success">
+            <AlertTitle>Успех</AlertTitle>Данные успешно вставлены
+          </Alert>
+        </Snackbar>
+      ) : null}
     </>
   )
 }

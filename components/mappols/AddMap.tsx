@@ -1,23 +1,13 @@
 import {
-    Alert,
-    AlertTitle,
-    Box,
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
-    Snackbar,
-    TextField,
-  } from '@mui/material' 
-  import React, { useEffect, useState } from 'react'
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@mui/material'
+import React, { useState } from 'react'
 
-
-const AddMap = () => { 
+const AddMap = () => {
   const [beatmapUrl, setBeatmapUrl] = useState<string>('')
   const [tournamentMod, setTournamentMod] = useState<string>('')
   const [tournamentModName, setTournamentModName] = useState<string>('')
@@ -54,7 +44,8 @@ const AddMap = () => {
         onChange={(e) => setTournamentModName(e.currentTarget.value)}
         required
       />
-    </>)
-};
+    </>
+  )
+}
 
 export default AddMap
