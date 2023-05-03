@@ -16,6 +16,8 @@ import {
 } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddMap from './AddMap'
 
 const CreateMappoolButton = () => {
   const [key, setKey] = useState<any>()
@@ -24,10 +26,8 @@ const CreateMappoolButton = () => {
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [beatmapUrl, setBeatmapUrl] = useState<string>('')
-  const [tournamentMod, setTournamentMod] = useState<string>('')
-  const [tournamentModName, setTournamentModName] = useState<string>('')
-  const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
+  const [inputRowList, setInputRowList] = useState([<AddMap />]);
+
   const stages = [
     { id: 1, label: 'Qualifications' },
     { id: 2, label: 'Round of 32' },
@@ -43,7 +43,7 @@ const CreateMappoolButton = () => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    await axios
+    /*await axios
       .post(
         `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
         {
@@ -71,7 +71,7 @@ const CreateMappoolButton = () => {
           setOpenAlert(true)
           setError(true)
         }
-      })
+      })*/
     setOpen(false)
   }
 
@@ -98,6 +98,18 @@ const CreateMappoolButton = () => {
 
     setOpenAlert(false)
   }
+  const handleAddInputRow = () => {
+    setInputRowList(inputRowList.concat(<AddMap />));
+  }
+  const handleRemoveInputRow = (
+    index: number,
+  ) => {
+    const rows = [...inputRowList];
+    if (rows.length <= 1) return
+    rows.splice(index, 1);
+    setInputRowList(rows);
+  }
+
 
   return (
     <>
@@ -131,74 +143,54 @@ const CreateMappoolButton = () => {
                   )
                 })}
               </Select>
-              <FormControl
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  gap: 2,
-                }}
-              >
-                <TextField
-                  label="Ссылка на карту"
-                  value={beatmapUrl}
-                  onChange={(e) => setBeatmapUrl(e.currentTarget.value)}
-                  required
-                />
-                <FormControl sx={{ width: 220 }}>
-                  <InputLabel variant="outlined">Статы по моду</InputLabel>
-                  <Select
-                    label="Статы по моду"
-                    onChange={(e) => setTournamentMod(e.target.value)}
-                    value={tournamentMod}
-                    required
+              {inputRowList.map((map: any, index: number) => {
+                return (
+                  <FormControl
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gap: 2,
+                      minWidth: 300,
+                    }}
+                    key={index}
                   >
-                    {mods.map((mod: any) => {
-                      return (
-                        <MenuItem key={mod} value={mod}>
-                          {mod}
-                        </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-                <TextField
-                  label="Мод (Пример: NM1)"
-                  value={tournamentModName}
-                  onChange={(e) => setTournamentModName(e.currentTarget.value)}
-                  required
-                />
-              </FormControl>
+                    {map}
+                    <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
+                  </FormControl>
+                )
+              })}
             </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleAddInputRow}>Добавить ещё</Button>
           <Button onClick={handleAddBeatmap}>Добавить</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
       {error ? (
-        <Snackbar
-          open={openAlert}
-          autoHideDuration={4000}
-          onClose={handleAlertClose}
-        >
-          <Alert severity="error">
-            <AlertTitle>Ошибка</AlertTitle>Некорректные данные
-          </Alert>
-        </Snackbar>
-      ) : null}
+          <Snackbar
+            open={openAlert}
+            autoHideDuration={4000}
+            onClose={handleAlertClose}
+          >
+            <Alert severity="error">
+              <AlertTitle>Ошибка</AlertTitle>Некорректные данные
+            </Alert>
+          </Snackbar>
+        ) : null}
 
       {success ? (
-        <Snackbar
-          open={openAlert}
-          autoHideDuration={1000}
-          onClose={handleAlertClose}
-        >
-          <Alert severity="success">
-            <AlertTitle>Успех</AlertTitle>Данные успешно вставлены
-          </Alert>
-        </Snackbar>
-      ) : null}
+          <Snackbar
+            open={openAlert}
+            autoHideDuration={1000}
+            onClose={handleAlertClose}
+          >
+            <Alert severity="success">
+              <AlertTitle>Успех</AlertTitle>Данные успешно вставлены
+            </Alert>
+          </Snackbar>
+        ) : null}
     </>
   )
 }
