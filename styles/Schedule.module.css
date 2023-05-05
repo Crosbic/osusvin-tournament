@@ -3,12 +3,23 @@
     max-width: 1500px;
     width: calc(100% - 100px);
     color: #eaeaea;
-    padding: 0 3rem 0 3rem;
-
 }
 
-.buttonGroup {
+.card {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.bracketButton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+}
+
+.staffButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     gap: 10px;
@@ -16,14 +27,10 @@
 }
 
 .tabs {
-    display: block;
-    max-width: 1150px;
-    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: row;
     color: #eaeaea;
-}
-
-.tableContainer {
-    padding-top: 1rem;
+    padding: 0 2rem 0 2rem;
 }
 
 .table {
@@ -43,7 +50,6 @@
     align-items: center;
 }
 
-
 .user1 {
     display: flex;
     justify-content: flex-end;
@@ -56,14 +62,9 @@
     align-items: center;
 }
 
-.regButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-}
-
 .avatar {
+    display: flex;
+    position: absolute;
     border-radius: 5px;
 }
 

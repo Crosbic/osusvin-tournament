@@ -85,13 +85,15 @@ const MappoolTable = () => {
             indicatorColor="secondary"
             className={styles.tabs}
             onChange={handleTabChange}
+            variant="scrollable"
+            allowScrollButtonsMobile
           >
             <Tab label="Квалификация" value="QUALS" />
             <Tab label="Round of 32" value="RO32" />
             <Tab label="Round of 16" value="RO16" />
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
-            <Tab label="Finals" value="F" disabled />
+            <Tab label="Finals" value="F" />
             <Tab label="Grand Finals" value="GF" disabled />
           </TabList>
           <TabPanel value={stage}>
@@ -105,9 +107,11 @@ const MappoolTable = () => {
                 >
                   <TableHead>
                     <TableRow>
-                      <TableCell align="center"></TableCell>
-                      <TableCell align="center"></TableCell>
-                      <TableCell align="center" className={styles.link}>
+                      <TableCell
+                        align="center"
+                        className={styles.link}
+                        colSpan={3}
+                      >
                         {rows?.map((row: any) => {
                           return (
                             <Link key={row.id} href={row.downloadLink}>
@@ -119,7 +123,6 @@ const MappoolTable = () => {
                       <TableCell align="center">CS | AR | OD | HP</TableCell>
                       <TableCell align="center">BPM</TableCell>
                       <TableCell align="center">Маппер</TableCell>
-                      <TableCell align="center">Саггестер</TableCell>
                       <TableCell align="center">ID</TableCell>
                     </TableRow>
                   </TableHead>
@@ -188,9 +191,6 @@ const MappoolTable = () => {
                               {map.bpmString}
                             </TableCell>
                             <TableCell align="center">{map.mapper}</TableCell>
-                            <TableCell align="center">
-                              {map.suggesterUsername}
-                            </TableCell>
                             <TableCell align="center">{map.id}</TableCell>
                           </TableRow>
                         )

@@ -108,7 +108,11 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        sx={{ minWidth: '230px' }}
+      >
         Работа с рефери
       </Button>
       <Dialog open={open} onClose={handleClose}>

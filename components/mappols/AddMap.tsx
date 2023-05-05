@@ -13,7 +13,7 @@ interface AddMapProps {
 }
 
 const AddMap = (props: AddMapProps) => {
-  const { callBack, index } = props;
+  const { callBack, index } = props
   const [beatmapUrl, setBeatmapUrl] = useState<string>('')
   const [tournamentMod, setTournamentMod] = useState<string>('')
   const [tournamentModName, setTournamentModName] = useState<string>('')
@@ -27,15 +27,15 @@ const AddMap = (props: AddMapProps) => {
       tournamentModName: tournamentModName
     };
     switch (valueName) {
-      case "BeatmapUrl":
+      case 'BeatmapUrl':
         setBeatmapUrl(value)
         newData.beatmapUrl = value
         break;
-      case "TournamentMod":
+      case 'TournamentMod':
         setTournamentMod(value)
         newData.tournamentMod = value
         break;
-      case "TournamentModName":
+      case 'TournamentModName':
         setTournamentModName(value)
         newData.tournamentModName = value
         break;
@@ -48,14 +48,14 @@ const AddMap = (props: AddMapProps) => {
       <TextField
         label="Ссылка на карту"
         value={beatmapUrl}
-        onChange={(e) => onChangeHandler(e, "BeatmapUrl")}
+        onChange={(e) => onChangeHandler(e, 'BeatmapUrl')}
         required
       />
       <FormControl sx={{ width: 220 }}>
         <InputLabel variant="outlined">Статы по моду</InputLabel>
         <Select
           label="Статы по моду"
-          onChange={(e) => onChangeHandler(e, "TournamentMod")}
+          onChange={(e) => onChangeHandler(e, 'TournamentMod')}
           value={tournamentMod}
           required
         >
@@ -71,7 +71,7 @@ const AddMap = (props: AddMapProps) => {
       <TextField
         label="Мод (Пример: NM1)"
         value={tournamentModName}
-        onChange={(e) => onChangeHandler(e, "TournamentModName")}
+        onChange={(e) => onChangeHandler(e, 'TournamentModName')}
         required
       />
     </>
