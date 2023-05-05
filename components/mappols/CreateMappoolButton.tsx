@@ -168,33 +168,34 @@ const CreateMappoolButton = () => {
                   )
                 })}
               </Select>
-              {inputRowIndexes
-                .map((map: any, index: number) => {
-                  return (
-                    <FormControl
-                      sx={{
+              {inputRowIndexes.map((map: any, index: number) => {
+                return (
+                  <FormControl
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gap: 2,
+                      minWidth: 300,
+                    }}
+                    key={map}
+                  >
+                    <AddMap
+                      callBack={callBack}
+                      index={index}
+                      data={mapDatas[index]}
+                    />
+                    <div
+                      style={{
                         display: 'flex',
-                        flexDirection: 'row',
-                        gap: 2,
-                        minWidth: 300,
+                        alignItems: 'center',
+                        cursor: 'pointer',
                       }}
-                      key={map}
                     >
-                      <AddMap callBack={callBack} index={index} data={mapDatas[index]} />
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <DeleteIcon
-                          onClick={() => handleRemoveInputRow(index)}
-                        />
-                      </div>
-                    </FormControl>
-                  )
-                })}
+                      <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
+                    </div>
+                  </FormControl>
+                )
+              })}
             </FormControl>
           </Box>
         </DialogContent>
