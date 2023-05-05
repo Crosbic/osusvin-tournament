@@ -8,35 +8,35 @@ import {
 import React, { useState } from 'react'
 
 interface AddMapProps {
-  callBack: Function
+  callBack: any
   index: number
 }
 
 const AddMap = (props: AddMapProps) => {
-  const {callBack, index} = props;
+  const { callBack, index } = props
   const [beatmapUrl, setBeatmapUrl] = useState<string>('')
   const [tournamentMod, setTournamentMod] = useState<string>('')
   const [tournamentModName, setTournamentModName] = useState<string>('')
   const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
 
   const onChangeHandler = (e: any, valueName: string) => {
-    const value = e.target.value   
+    const value = e.target.value
     switch (valueName) {
-      case "BeatmapUrl":
+      case 'BeatmapUrl':
         setBeatmapUrl(value)
-        callBack({value, tournamentMod, tournamentModName}, index)
-      break;
-      case "TournamentMod":
+        callBack({ value, tournamentMod, tournamentModName }, index)
+        break
+      case 'TournamentMod':
         setTournamentMod(value)
-        callBack({beatmapUrl, value, tournamentModName}, index)
-      break;
-      case "TournamentModName":
+        callBack({ beatmapUrl, value, tournamentModName }, index)
+        break
+      case 'TournamentModName':
         setTournamentModName(value)
-        callBack({beatmapUrl, tournamentMod, value}, index)
-      break;  
+        callBack({ beatmapUrl, tournamentMod, value }, index)
+        break
     }
     // !!! not working; changed states not handled
-    //callBack({beatmapUrl, tournamentMod, tournamentModName}, index)    
+    //callBack({beatmapUrl, tournamentMod, tournamentModName}, index)
   }
 
   return (
@@ -44,14 +44,14 @@ const AddMap = (props: AddMapProps) => {
       <TextField
         label="Ссылка на карту"
         value={beatmapUrl}
-        onChange={(e) => onChangeHandler(e, "BeatmapUrl")}
+        onChange={(e) => onChangeHandler(e, 'BeatmapUrl')}
         required
       />
       <FormControl sx={{ width: 220 }}>
         <InputLabel variant="outlined">Статы по моду</InputLabel>
         <Select
           label="Статы по моду"
-          onChange={(e) =>  onChangeHandler(e, "TournamentMod")}
+          onChange={(e) => onChangeHandler(e, 'TournamentMod')}
           value={tournamentMod}
           required
         >
@@ -67,9 +67,9 @@ const AddMap = (props: AddMapProps) => {
       <TextField
         label="Мод (Пример: NM1)"
         value={tournamentModName}
-        onChange={(e) => onChangeHandler(e, "TournamentModName")}
+        onChange={(e) => onChangeHandler(e, 'TournamentModName')}
         required
-      /> 
+      />
     </>
   )
 }

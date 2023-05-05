@@ -28,7 +28,9 @@
 
 .tabs {
     display: flex;
+    flex-direction: row;
     color: #eaeaea;
+    padding: 0 2rem 0 2rem;
 }
 
 .table {

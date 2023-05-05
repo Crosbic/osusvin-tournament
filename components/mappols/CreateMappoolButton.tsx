@@ -25,15 +25,14 @@ interface MapDataProps {
   tournamentModName: string
 }
 
-const CreateMappoolButton = (props: MapDataProps) => {
-  const { beatmapUrl, tournamentMod, tournamentModName } = props
+const CreateMappoolButton = () => {
   const [key, setKey] = useState<any>()
   const [stage, setStage] = useState<string>('')
   const [open, setOpen] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [mapDatas, setMapDatas] = useState<MapDataProps []>([])  
+  const [mapDatas, setMapDatas] = useState<MapDataProps[]>([])
   const [inputRowCount, setInputRowCount] = useState(1)
 
   const stages = [
@@ -51,41 +50,41 @@ const CreateMappoolButton = (props: MapDataProps) => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    // !!! check functionality sendinп data from mapDatas 
-    mapDatas.map(async (mapData:MapDataProps)=>{
-        console.log(mapData)        
-        await axios
+    // !!! check functionality sendinп data from mapDatas
+    mapDatas.map(async (mapData: MapDataProps) => {
+      console.log(mapData)
+      await axios
         .post(
-            `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
-            {
+          `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
+          {
             beatmapUrl: mapData.beatmapUrl,
             tournamentMod: mapData.tournamentMod,
             tournamentModName: mapData.tournamentModName,
-            },
-            {
+          },
+          {
             headers: {
-                Authorization: `Bearer ${key}`,
+              Authorization: `Bearer ${key}`,
             },
-            }
+          }
         )
         .then(() => {
-            setTimeout(function () {
+          setTimeout(function () {
             window.location.reload()
-            }, 1000)
-            setSuccess(true)
-            setOpenAlert(true)
+          }, 1000)
+          setSuccess(true)
+          setOpenAlert(true)
         })
         .catch((err) => {
-            if (err.request === 401) {
+          if (err.request === 401) {
             console.log('Успех')
-            } else {
+          } else {
             setOpenAlert(true)
             setError(true)
-            }
+          }
         })
     })
-      setInputRowCount(1)
-      setMapDatas([])  
+    setInputRowCount(1)
+    setMapDatas([])
     setOpen(false)
   }
 
@@ -99,7 +98,7 @@ const CreateMappoolButton = (props: MapDataProps) => {
   ) => {
     if (reason !== 'backdropClick') {
       setInputRowCount(1)
-      setMapDatas([])     
+      setMapDatas([])
       setOpen(false)
     }
   }
@@ -115,25 +114,24 @@ const CreateMappoolButton = (props: MapDataProps) => {
     setOpenAlert(false)
   }
 
-  const handleAddInputRow = () => {   
+  const handleAddInputRow = () => {
     setInputRowCount(inputRowCount + 1)
   }
 
   const handleRemoveInputRow = (index: number) => {
     if (inputRowCount <= 1) {
-        return
+      return
     }
     setInputRowCount(inputRowCount - 1)
 
-    const mapData = [...mapDatas]    
-    mapData.splice(mapData.length-1, 1)
+    const mapData = [...mapDatas]
+    mapData.splice(mapData.length - 1, 1)
     setMapDatas(mapData)
   }
 
-  const callBack = (data: MapDataProps, index: number) => {     
+  const callBack = (data: MapDataProps, index: number) => {
     mapDatas[index] = data
   }
-  console.log(beatmapUrl, tournamentMod, tournamentModName)
 
   return (
     <>
@@ -167,30 +165,34 @@ const CreateMappoolButton = (props: MapDataProps) => {
                   )
                 })}
               </Select>
-              {new Array(inputRowCount).fill(0).map((map: any, index: number) => {
-                return (
-                  <FormControl
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      gap: 2,
-                      minWidth: 300,
-                    }}
-                    key={index}
-                  >
-                    <AddMap callBack={callBack} index={index}/>
-                    <div
-                      style={{
+              {new Array(inputRowCount)
+                .fill(0)
+                .map((map: any, index: number) => {
+                  return (
+                    <FormControl
+                      sx={{
                         display: 'flex',
-                        alignItems: 'center',
-                        cursor: 'pointer',
+                        flexDirection: 'row',
+                        gap: 2,
+                        minWidth: 300,
                       }}
+                      key={index}
                     >
-                      <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
-                    </div>
-                  </FormControl>
-                )
-              })}
+                      <AddMap callBack={callBack} index={index} />
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <DeleteIcon
+                          onClick={() => handleRemoveInputRow(index)}
+                        />
+                      </div>
+                    </FormControl>
+                  )
+                })}
             </FormControl>
           </Box>
         </DialogContent>
