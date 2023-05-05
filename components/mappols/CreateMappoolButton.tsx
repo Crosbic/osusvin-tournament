@@ -1,3 +1,4 @@
+import DeleteIcon from '@mui/icons-material/Delete'
 import {
   Alert,
   AlertTitle,
@@ -12,22 +13,29 @@ import {
   MenuItem,
   Select,
   Snackbar,
-  TextField,
 } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const CreateMappoolButton = () => {
+import AddMap from './AddMap'
+
+interface MapDataProps {
+  beatmapUrl: string
+  tournamentMod: string
+  tournamentModName: string
+}
+
+const CreateMappoolButton = (props: MapDataProps) => {
+  const { beatmapUrl, tournamentMod, tournamentModName } = props
   const [key, setKey] = useState<any>()
   const [stage, setStage] = useState<string>('')
   const [open, setOpen] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [beatmapUrl, setBeatmapUrl] = useState<string>('')
-  const [tournamentMod, setTournamentMod] = useState<string>('')
-  const [tournamentModName, setTournamentModName] = useState<string>('')
-  const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
+  const [mapDatas, setMapDatas] = useState<MapDataProps []>([])  
+  const [inputRowCount, setInputRowCount] = useState(1)
+
   const stages = [
     { id: 1, label: 'Qualifications' },
     { id: 2, label: 'Round of 32' },
@@ -43,35 +51,41 @@ const CreateMappoolButton = () => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    await axios
-      .post(
-        `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
-        {
-          beatmapUrl: beatmapUrl,
-          tournamentMod: tournamentMod,
-          tournamentModName: tournamentModName,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${key}`,
-          },
-        }
-      )
-      .then(() => {
-        setTimeout(function () {
-          window.location.reload()
-        }, 1000)
-        setSuccess(true)
-        setOpenAlert(true)
-      })
-      .catch((err) => {
-        if (err.request === 401) {
-          console.log('Успех')
-        } else {
-          setOpenAlert(true)
-          setError(true)
-        }
-      })
+    // !!! check functionality sendinп data from mapDatas 
+    mapDatas.map(async (mapData:MapDataProps)=>{
+        console.log(mapData)        
+        await axios
+        .post(
+            `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
+            {
+            beatmapUrl: mapData.beatmapUrl,
+            tournamentMod: mapData.tournamentMod,
+            tournamentModName: mapData.tournamentModName,
+            },
+            {
+            headers: {
+                Authorization: `Bearer ${key}`,
+            },
+            }
+        )
+        .then(() => {
+            setTimeout(function () {
+            window.location.reload()
+            }, 1000)
+            setSuccess(true)
+            setOpenAlert(true)
+        })
+        .catch((err) => {
+            if (err.request === 401) {
+            console.log('Успех')
+            } else {
+            setOpenAlert(true)
+            setError(true)
+            }
+        })
+    })
+      setInputRowCount(1)
+      setMapDatas([])  
     setOpen(false)
   }
 
@@ -84,6 +98,8 @@ const CreateMappoolButton = () => {
     reason?: string
   ) => {
     if (reason !== 'backdropClick') {
+      setInputRowCount(1)
+      setMapDatas([])     
       setOpen(false)
     }
   }
@@ -98,6 +114,26 @@ const CreateMappoolButton = () => {
 
     setOpenAlert(false)
   }
+
+  const handleAddInputRow = () => {   
+    setInputRowCount(inputRowCount + 1)
+  }
+
+  const handleRemoveInputRow = (index: number) => {
+    if (inputRowCount <= 1) {
+        return
+    }
+    setInputRowCount(inputRowCount - 1)
+
+    const mapData = [...mapDatas]    
+    mapData.splice(mapData.length-1, 1)
+    setMapDatas(mapData)
+  }
+
+  const callBack = (data: MapDataProps, index: number) => {     
+    mapDatas[index] = data
+  }
+  console.log(beatmapUrl, tournamentMod, tournamentModName)
 
   return (
     <>
@@ -131,48 +167,36 @@ const CreateMappoolButton = () => {
                   )
                 })}
               </Select>
-              <FormControl
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  gap: 2,
-                }}
-              >
-                <TextField
-                  label="Ссылка на карту"
-                  value={beatmapUrl}
-                  onChange={(e) => setBeatmapUrl(e.currentTarget.value)}
-                  required
-                />
-                <FormControl sx={{ width: 220 }}>
-                  <InputLabel variant="outlined">Статы по моду</InputLabel>
-                  <Select
-                    label="Статы по моду"
-                    onChange={(e) => setTournamentMod(e.target.value)}
-                    value={tournamentMod}
-                    required
+              {new Array(inputRowCount).fill(0).map((map: any, index: number) => {
+                return (
+                  <FormControl
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gap: 2,
+                      minWidth: 300,
+                    }}
+                    key={index}
                   >
-                    {mods.map((mod: any) => {
-                      return (
-                        <MenuItem key={mod} value={mod}>
-                          {mod}
-                        </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-                <TextField
-                  label="Мод (Пример: NM1)"
-                  value={tournamentModName}
-                  onChange={(e) => setTournamentModName(e.currentTarget.value)}
-                  required
-                />
-              </FormControl>
+                    <AddMap callBack={callBack} index={index}/>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <DeleteIcon onClick={() => handleRemoveInputRow(index)} />
+                    </div>
+                  </FormControl>
+                )
+              })}
             </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleAddBeatmap}>Добавить</Button>
+          <Button onClick={handleAddInputRow}>Добавить карту</Button>
+          <Button onClick={handleAddBeatmap}>Создать пул</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
