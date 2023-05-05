@@ -7,16 +7,23 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 
+interface MapDataProps {
+  beatmapUrl: string
+  tournamentMod: string
+  tournamentModName: string
+}
+
 interface AddMapProps {
   callBack: any
   index: number
+  data: MapDataProps
 }
 
 const AddMap = (props: AddMapProps) => {
-  const { callBack, index } = props
-  const [beatmapUrl, setBeatmapUrl] = useState<string>('')
-  const [tournamentMod, setTournamentMod] = useState<string>('')
-  const [tournamentModName, setTournamentModName] = useState<string>('')
+  const { callBack, index, data } = props
+  const [beatmapUrl, setBeatmapUrl] = useState<string>(data?.beatmapUrl || '')
+  const [tournamentMod, setTournamentMod] = useState<string>(data?.tournamentMod || '')
+  const [tournamentModName, setTournamentModName] = useState<string>(data?.tournamentModName || '')
   const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
 
   const onChangeHandler = (e: any, valueName: string) => {

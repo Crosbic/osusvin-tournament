@@ -33,7 +33,7 @@ const CreateMappoolButton = () => {
   const [openAlert, setOpenAlert] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
   const [mapDatas, setMapDatas] = useState<MapDataProps[]>([])
-  const [inputRowCount, setInputRowCount] = useState(1)
+  const [inputRowIndexes, setInputRowIndexes] = useState<number[]>([1])
 
   const stages = [
     { id: 1, label: 'Qualifications' },
@@ -83,7 +83,7 @@ const CreateMappoolButton = () => {
           }
         })
     })
-    setInputRowCount(1)
+    setInputRowIndexes([0])
     setMapDatas([])
     setOpen(false)
   }
@@ -97,7 +97,7 @@ const CreateMappoolButton = () => {
     reason?: string
   ) => {
     if (reason !== 'backdropClick') {
-      setInputRowCount(1)
+      setInputRowIndexes([0])
       setMapDatas([])
       setOpen(false)
     }
@@ -115,17 +115,20 @@ const CreateMappoolButton = () => {
   }
 
   const handleAddInputRow = () => {
-    setInputRowCount(inputRowCount + 1)
+    const newLastIndex = inputRowIndexes[inputRowIndexes.length - 1] + 1
+    setInputRowIndexes(inputRowIndexes.concat(newLastIndex))
   }
 
   const handleRemoveInputRow = (index: number) => {
-    if (inputRowCount <= 1) {
+    if (inputRowIndexes.length <= 1) {
       return
     }
-    setInputRowCount(inputRowCount - 1)
+    const inputRows = [...inputRowIndexes]
+    inputRows.splice(index, 1)
+    setInputRowIndexes(inputRows)
 
     const mapData = [...mapDatas]
-    mapData.splice(mapData.length - 1, 1)
+    mapData.splice(index, 1)
     setMapDatas(mapData)
   }
 
@@ -165,8 +168,7 @@ const CreateMappoolButton = () => {
                   )
                 })}
               </Select>
-              {new Array(inputRowCount)
-                .fill(0)
+              {inputRowIndexes
                 .map((map: any, index: number) => {
                   return (
                     <FormControl
@@ -176,9 +178,9 @@ const CreateMappoolButton = () => {
                         gap: 2,
                         minWidth: 300,
                       }}
-                      key={index}
+                      key={map}
                     >
-                      <AddMap callBack={callBack} index={index} />
+                      <AddMap callBack={callBack} index={index} data={mapDatas[index]} />
                       <div
                         style={{
                           display: 'flex',
