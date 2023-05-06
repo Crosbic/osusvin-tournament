@@ -22,8 +22,12 @@ interface AddMapProps {
 const AddMap = (props: AddMapProps) => {
   const { callBack, index, data } = props
   const [beatmapUrl, setBeatmapUrl] = useState<string>(data?.beatmapUrl || '')
-  const [tournamentMod, setTournamentMod] = useState<string>(data?.tournamentMod || '')
-  const [tournamentModName, setTournamentModName] = useState<string>(data?.tournamentModName || '')
+  const [tournamentMod, setTournamentMod] = useState<string>(
+    data?.tournamentMod || ''
+  )
+  const [tournamentModName, setTournamentModName] = useState<string>(
+    data?.tournamentModName || ''
+  )
   const mods = ['NM', 'HD', 'HR', 'DT', 'FM', 'TB']
 
   const onChangeHandler = (e: any, valueName: string) => {
@@ -31,21 +35,21 @@ const AddMap = (props: AddMapProps) => {
     const newData = {
       beatmapUrl: beatmapUrl,
       tournamentMod: tournamentMod,
-      tournamentModName: tournamentModName
-    };
+      tournamentModName: tournamentModName,
+    }
     switch (valueName) {
       case 'BeatmapUrl':
         setBeatmapUrl(value)
         newData.beatmapUrl = value
-        break;
+        break
       case 'TournamentMod':
         setTournamentMod(value)
         newData.tournamentMod = value
-        break;
+        break
       case 'TournamentModName':
         setTournamentModName(value)
         newData.tournamentModName = value
-        break;
+        break
     }
     callBack(newData, index)
   }

@@ -36,7 +36,7 @@ enum Modes {
 const MappoolTable = () => {
   const [user, setUser] = useState<any>()
   const [rows, setRows] = useState<MappolsData[]>()
-  const [stage, setStage] = useState('QUALS')
+  const [stage, setStage] = useState('GF')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const currentRoles = user?.role.map((currentRole: any) => currentRole.role)
 
@@ -46,6 +46,7 @@ const MappoolTable = () => {
         setUser(JSON.parse(localStorage.getItem('user') ?? ''))
       }
     }
+    setIsLoading(true)
     axios
       .get(`https://auth.osusvin.ru/mappool`, {
         params: { stage: stage },
@@ -94,7 +95,7 @@ const MappoolTable = () => {
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
             <Tab label="Finals" value="F" />
-            <Tab label="Grand Finals" value="GF" disabled />
+            <Tab label="Grand Finals" value="GF" />
           </TabList>
           <TabPanel value={stage}>
             <div className={styles.table}>
