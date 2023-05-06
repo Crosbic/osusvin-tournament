@@ -181,7 +181,7 @@ const MappoolTable = () => {
                               {map.tournamentModName}
                             </TableCell>
                             <TableCell
-                              sx={{ maxWidth: 700 }}
+                              sx={{ maxWidth: 600 }}
                               align="center"
                               className={styles.link}
                             >

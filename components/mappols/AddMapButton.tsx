@@ -19,7 +19,7 @@ interface AddMapProps {
   data: MapDataProps
 }
 
-const AddMap = (props: AddMapProps) => {
+const AddMapButton = (props: AddMapProps) => {
   const { callBack, index, data } = props
   const [beatmapUrl, setBeatmapUrl] = useState<string>(data?.beatmapUrl || '')
   const [tournamentMod, setTournamentMod] = useState<string>(
@@ -89,4 +89,4 @@ const AddMap = (props: AddMapProps) => {
   )
 }
 
-export default AddMap
+export default AddMapButton

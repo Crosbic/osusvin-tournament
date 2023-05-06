@@ -17,7 +17,7 @@ import {
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import AddMap from './AddMap'
+import AddMapButton from './AddMapButton'
 
 interface MapDataProps {
   beatmapUrl: string
@@ -50,9 +50,7 @@ const CreateMappoolButton = () => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    // !!! check functionality sendinп data from mapDatas
     for (const mapData of mapDatas) {
-      console.log(mapData)
       await axios
         .post(
           `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
@@ -179,7 +177,7 @@ const CreateMappoolButton = () => {
                     }}
                     key={map}
                   >
-                    <AddMap
+                    <AddMapButton
                       callBack={callBack}
                       index={index}
                       data={mapDatas[index]}
