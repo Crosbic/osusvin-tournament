@@ -14,7 +14,6 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { isMobile, isTablet } from 'react-device-detect'
 
 import SetLobbyResults from '../components/staff/SetLobbyResults'
 import StaffRegisterButton from '../components/staff/StaffRegisterButton'
@@ -184,21 +183,13 @@ const ScheduleTable = () => {
                             {qualifiersRow.name}
                           </TableCell>
                           <TableCell align="center">
-                            {isMobile && isTablet
-                              ? date.toLocaleString('ru-RU', {
-                                  day: 'numeric',
-                                  month: 'numeric',
-                                  hour: 'numeric',
-                                  minute: '2-digit',
-                                  second: undefined,
-                                })
-                              : date.toLocaleString('ru-RU', {
-                                  day: 'numeric',
-                                  month: 'long',
-                                  hour: 'numeric',
-                                  minute: '2-digit',
-                                  second: undefined,
-                                })}
+                            {date.toLocaleString('ru-RU', {
+                              day: 'numeric',
+                              month: 'long',
+                              hour: 'numeric',
+                              minute: '2-digit',
+                              second: undefined,
+                            })}
                           </TableCell>
                           <TableCell align="center">
                             {qualifiersRow.users.map((user: any) => {
@@ -290,21 +281,13 @@ const ScheduleTable = () => {
                           >
                             <TableCell align="center">{rows.name}</TableCell>
                             <TableCell align="center">
-                              {isMobile && isTablet
-                                ? date.toLocaleString('ru-RU', {
-                                    day: 'numeric',
-                                    month: 'numeric',
-                                    hour: 'numeric',
-                                    minute: '2-digit',
-                                    second: undefined,
-                                  })
-                                : date.toLocaleString('ru-RU', {
-                                    day: 'numeric',
-                                    month: 'long',
-                                    hour: 'numeric',
-                                    minute: '2-digit',
-                                    second: undefined,
-                                  })}
+                              {date.toLocaleString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                second: undefined,
+                              })}
                             </TableCell>
                             <TableCell align="center" sx={{ minWidth: '30px' }}>
                               {rows.player1.map((user: any) => {
