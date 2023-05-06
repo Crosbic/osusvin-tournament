@@ -48,7 +48,8 @@ const ScheduleTable = () => {
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [cardView, setCardView] = useState<boolean>(false)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isSmallBrowser, setIsSmallBrowser] = useState<boolean>(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -56,8 +57,10 @@ const ScheduleTable = () => {
         setUser(JSON.parse(localStorage.getItem('user') ?? ''))
       }
     }
-    if (window.innerWidth < 1100) {
-      setCardView(true)
+    if (window.innerWidth <= 700) {
+      setIsMobile(true)
+    } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
+      setIsSmallBrowser(true)
     }
     setLoading(true)
     axios
@@ -165,8 +168,12 @@ const ScheduleTable = () => {
                       <TableCell align="center">ID</TableCell>
                       <TableCell align="center">Дата</TableCell>
                       <TableCell align="center">Игроки</TableCell>
-                      <TableCell align="center">Рефери</TableCell>
-                      <TableCell align="center">Ссылка</TableCell>
+                      {isSmallBrowser ? null : (
+                        <>
+                          <TableCell align="center">Рефери</TableCell>
+                          <TableCell align="center">Ссылка</TableCell>
+                        </>
+                      )}
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -210,28 +217,35 @@ const ScheduleTable = () => {
                               )
                             })}
                           </TableCell>
-                          <TableCell align="center">
-                            {qualifiersRow.referees.map((referee: any) => {
-                              return (
-                                <div className={styles.link} key={referee.id}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${referee.id}`}
-                                  >
-                                    {referee.username}
-                                  </Link>
-                                </div>
-                              )
-                            })}
-                          </TableCell>
-                          <TableCell align="center">
-                            {qualifiersRow.resultLink ? (
-                              <div className={styles.link}>
-                                <Link href={qualifiersRow.resultLink}>
-                                  Ссылка
-                                </Link>
-                              </div>
-                            ) : null}
-                          </TableCell>
+                          {window?.innerWidth <= 800 ? null : (
+                            <>
+                              <TableCell align="center">
+                                {qualifiersRow.referees.map((referee: any) => {
+                                  return (
+                                    <div
+                                      className={styles.link}
+                                      key={referee.id}
+                                    >
+                                      <Link
+                                        href={`https://osu.ppy.sh/users/${referee.id}`}
+                                      >
+                                        {referee.username}
+                                      </Link>
+                                    </div>
+                                  )
+                                })}
+                              </TableCell>
+                              <TableCell align="center">
+                                {qualifiersRow.resultLink ? (
+                                  <div className={styles.link}>
+                                    <Link href={qualifiersRow.resultLink}>
+                                      Ссылка
+                                    </Link>
+                                  </div>
+                                ) : null}
+                              </TableCell>
+                            </>
+                          )}
                         </TableRow>
                       )
                     })}
@@ -239,7 +253,7 @@ const ScheduleTable = () => {
                 </Table>
               </TableContainer>
             </div>
-            <div className={styles.regButton}>
+            <div className={styles.qualsResultsButton}>
               <Link href={`https://osusvin.ru/qualifiersResults`}>
                 <Button variant="outlined">Результаты квалификаций</Button>
               </Link>
@@ -247,7 +261,7 @@ const ScheduleTable = () => {
           </TabPanel>
           {value !== 'quals' ? (
             <TabPanel value={value}>
-              {cardView ? (
+              {isMobile ? (
                 <MainStagesCards sortedRows={sortedRows} />
               ) : (
                 <div className={styles.table}>
@@ -267,9 +281,13 @@ const ScheduleTable = () => {
                             Счёт
                           </TableCell>
                           <TableCell align="center">Игрок 2</TableCell>
-                          <TableCell align="center">Рефери</TableCell>
-                          <TableCell align="center">Стример</TableCell>
-                          <TableCell align="center">Ссылка</TableCell>
+                          {isSmallBrowser ? null : (
+                            <>
+                              <TableCell align="center">Рефери</TableCell>
+                              <TableCell align="center">Стример</TableCell>
+                              <TableCell align="center">Ссылка</TableCell>
+                            </>
+                          )}
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -371,71 +389,77 @@ const ScheduleTable = () => {
                                   )
                                 })}
                               </TableCell>
-                              <TableCell align="center">
-                                {rows.referees.map((referee: any) => {
-                                  return (
-                                    <div
-                                      className={styles.link}
-                                      key={referee.id}
-                                    >
-                                      <Link
-                                        href={`https://osu.ppy.sh/users/${referee.id}`}
-                                      >
-                                        <div className={styles.user}>
-                                          <div style={{ minWidth: '30px' }}>
-                                            <Image
-                                              className={styles.avatar}
-                                              src={referee.avatarUrl}
-                                              alt="User avatar"
-                                              width="30"
-                                              height="30"
-                                              unoptimized
-                                            />
-                                          </div>
-                                          &nbsp;
-                                          {referee.username}
+                              {isSmallBrowser ? null : (
+                                <>
+                                  <TableCell align="center">
+                                    {rows.referees.map((referee: any) => {
+                                      return (
+                                        <div
+                                          className={styles.link}
+                                          key={referee.id}
+                                        >
+                                          <Link
+                                            href={`https://osu.ppy.sh/users/${referee.id}`}
+                                          >
+                                            <div className={styles.user}>
+                                              <div style={{ minWidth: '30px' }}>
+                                                <Image
+                                                  className={styles.avatar}
+                                                  src={referee.avatarUrl}
+                                                  alt="User avatar"
+                                                  width="30"
+                                                  height="30"
+                                                  unoptimized
+                                                />
+                                              </div>
+                                              &nbsp;
+                                              {referee.username}
+                                            </div>
+                                          </Link>
                                         </div>
-                                      </Link>
-                                    </div>
-                                  )
-                                })}
-                              </TableCell>
-                              <TableCell align="center">
-                                {rows.casters.map((caster: any) => {
-                                  return (
-                                    <div
-                                      className={styles.link}
-                                      key={caster.id}
-                                    >
-                                      <Link
-                                        href={`https://osu.ppy.sh/users/${caster.id}`}
-                                      >
-                                        <div className={styles.user}>
-                                          <div style={{ minWidth: '30px' }}>
-                                            <Image
-                                              className={styles.avatar}
-                                              src={caster.avatarUrl}
-                                              alt="User avatar"
-                                              width="30"
-                                              height="30"
-                                              unoptimized
-                                            />
-                                          </div>
-                                          &nbsp;
-                                          {caster.username}
+                                      )
+                                    })}
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    {rows.casters.map((caster: any) => {
+                                      return (
+                                        <div
+                                          className={styles.link}
+                                          key={caster.id}
+                                        >
+                                          <Link
+                                            href={`https://osu.ppy.sh/users/${caster.id}`}
+                                          >
+                                            <div className={styles.user}>
+                                              <div style={{ minWidth: '30px' }}>
+                                                <Image
+                                                  className={styles.avatar}
+                                                  src={caster.avatarUrl}
+                                                  alt="User avatar"
+                                                  width="30"
+                                                  height="30"
+                                                  unoptimized
+                                                />
+                                              </div>
+                                              &nbsp;
+                                              {caster.username}
+                                            </div>
+                                          </Link>
                                         </div>
-                                      </Link>
-                                    </div>
-                                  )
-                                })}
-                              </TableCell>
-                              <TableCell align="center">
-                                {rows.resultLink ? (
-                                  <div className={styles.link}>
-                                    <Link href={rows.resultLink}>Ссылка</Link>
-                                  </div>
-                                ) : null}
-                              </TableCell>
+                                      )
+                                    })}
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    {rows.resultLink ? (
+                                      <div className={styles.link}>
+                                        <Link href={rows.resultLink}>
+                                          Ссылка
+                                        </Link>
+                                      </div>
+                                    ) : null}
+                                  </TableCell>
+                                </>
+                              )}
                             </TableRow>
                           )
                         })}

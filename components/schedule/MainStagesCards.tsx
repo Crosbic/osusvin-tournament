@@ -1,8 +1,16 @@
-import { Card, CardActionArea, CardContent, Typography } from '@mui/material'
+import {
+  // Button,
+  Card,
+  // CardActions,
+  CardContent,
+  // Dialog,
+  // DialogTitle,
+  Typography,
+} from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
+// import React, { useState } from 'react'
 import styles from '../../styles/Schedule.module.css'
 
 interface ScheduleTableProps {
@@ -11,11 +19,19 @@ interface ScheduleTableProps {
 
 const MainStagesCards = (props: ScheduleTableProps) => {
   const { sortedRows } = props
+  // const [open, setOpen] = useState<boolean>(false)
+  //
+  // const handleClickOpen = () => {
+  //   setOpen(true)
+  // }
+  //
+  // const handleClose = () => {
+  //   setOpen(false)
+  // }
 
   return (
     <>
       {sortedRows.map((rows: any) => {
-        const title = 'Матч ' + rows.name
         const date = (rows.dateStarted = new Date(rows.dateStarted))
         const player1 = rows.player1.map((user: any) => {
           return (
@@ -23,7 +39,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
               <Link href={`https://osu.ppy.sh/users/${user.id}`}>
                 <div className={styles.user2}>
                   {user.username}
-                  &nbsp;&nbsp;
+                  &ensp;
                   <div style={{ width: '25px' }}>
                     <Image
                       className={styles.avatar}
@@ -54,7 +70,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                       unoptimized
                     />
                   </div>
-                  &nbsp;&nbsp;
+                  &ensp;
                   {user.username}
                 </div>
               </Link>
@@ -64,27 +80,54 @@ const MainStagesCards = (props: ScheduleTableProps) => {
 
         return (
           <div key={rows.id} className={styles.card}>
-            <Card variant="outlined" sx={{ minWidth: 275, width: '100%' }}>
-              <CardContent>
+            <Card
+              variant="outlined"
+              sx={{
+                minWidth: 325,
+                width: '100%',
+                background:
+                  'linear-gradient(107.64deg, rgba(255, 255, 255, 0.28) 1.92%, rgba(255, 255, 255, 0) 100.84%)',
+                backdropFilter: 'blur(6px)',
+                border: '1px inset #eaeaea',
+                borderRadius: '15px',
+              }}
+            >
+              <CardContent
+                sx={{
+                  padding: '0.7rem 0.7rem 0.2rem 0.7rem',
+                  '&:last-child': {
+                    paddingBottom: '0.2rem',
+                  },
+                }}
+              >
                 <Typography
                   sx={{
                     display: 'flex',
-                    fontSize: 12,
+                    fontSize: 14,
                     justifyContent: 'center',
                     fontWeight: 'bold',
+                    paddingBottom: '0.2rem',
                   }}
                 >
-                  {title}
+                  Матч&nbsp;{rows.name}
                 </Typography>
                 <Typography sx={{ fontSize: 14 }} component="span">
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {player1}&nbsp;vs&nbsp;{player2}
+                  <div className={styles.cardRow}>
+                    {player1}&nbsp;
+                    {rows.player1Score > rows.player2Score ? (
+                      <div className={styles.cardRow}>
+                        <div className={styles.winner}>{rows.player1Score}</div>
+                        &nbsp;:&nbsp;
+                        <div className={styles.looser}>{rows.player2Score}</div>
+                      </div>
+                    ) : (
+                      <div className={styles.cardRow}>
+                        <div className={styles.looser}>{rows.player1Score}</div>
+                        &nbsp;:&nbsp;
+                        <div className={styles.winner}>{rows.player2Score}</div>
+                      </div>
+                    )}
+                    &nbsp;{player2}
                   </div>
                 </Typography>
                 <Typography
@@ -92,8 +135,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    fontSize: 13,
-                    color: '#d0d0d0',
+                    fontSize: 14,
                   }}
                 >
                   {date.toLocaleString('ru-RU', {
@@ -105,8 +147,24 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                   })}
                 </Typography>
               </CardContent>
-              <CardActionArea></CardActionArea>
+              {/*  <CardActions className={styles.cardButton}>*/}
+              {/*    <Button*/}
+              {/*      size="small"*/}
+              {/*      variant="outlined"*/}
+              {/*      sx={{*/}
+              {/*        fontSize: 12,*/}
+              {/*        background: '#313331',*/}
+              {/*      }}*/}
+              {/*      onClick={handleClickOpen}*/}
+              {/*    >*/}
+              {/*      Подробнее*/}
+              {/*    </Button>*/}
+              {/*  </CardActions>*/}
             </Card>
+
+            {/*<Dialog open={open} onClose={handleClose}>*/}
+            {/*  <DialogTitle>Данные матча {rows.name}</DialogTitle>*/}
+            {/*</Dialog>*/}
           </div>
         )
       })}
