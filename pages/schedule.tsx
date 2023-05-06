@@ -43,7 +43,7 @@ interface Data {
 
 const ScheduleTable = () => {
   const [user, setUser] = useState<any>()
-  const [value, setValue] = useState<string>('F')
+  const [value, setValue] = useState<string>('GF')
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
@@ -144,7 +144,7 @@ const ScheduleTable = () => {
             <Tab label="Quarterfinals" value="QF" />
             <Tab label="Semifinals" value="SF" />
             <Tab label="Finals" value="F" />
-            <Tab label="Grand Finals" value="GF" disabled />
+            <Tab label="Grand Finals" value="GF" />
           </TabList>
           <TabPanel value="quals">
             <div className={styles.table}>
