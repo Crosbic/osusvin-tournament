@@ -51,7 +51,7 @@ const CreateMappoolButton = () => {
 
   const handleAddBeatmap = async () => {
     // !!! check functionality sendinп data from mapDatas
-    mapDatas.map(async (mapData: MapDataProps) => {
+    for (const mapData of mapDatas) {
       console.log(mapData)
       await axios
         .post(
@@ -82,7 +82,7 @@ const CreateMappoolButton = () => {
             setError(true)
           }
         })
-    })
+    }
     setInputRowIndexes([0])
     setMapDatas([])
     setOpen(false)
