@@ -50,7 +50,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                   component="span"
                   sx={{
                     display: 'flex',
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: 'center',
                     fontWeight: 'bold',
                   }}
@@ -62,8 +62,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    fontSize: 14,
-                    paddingBottom: '0.3rem',
+                    fontSize: 13,
                   }}
                 >
                   {date.toLocaleString('ru-RU', {
@@ -73,6 +72,19 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     minute: '2-digit',
                     second: undefined,
                   })}
+                </Typography>
+                <Typography
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: 13,
+                    paddingBottom: '0.3rem',
+                  }}
+                >
+                  Рефери:&ensp;
+                  {row.referees.map((referee: any) => referee.username)}
                 </Typography>
                 <Typography
                   component="span"
@@ -107,7 +119,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     variant="outlined"
                     href={row.resultLink}
                     sx={{
-                      fontSize: 12,
+                      fontSize: 13,
                       background: '#3d3f3d',
                     }}
                   >

@@ -1,16 +1,14 @@
 import {
-  // Button,
+  Button,
   Card,
-  // CardActions,
+  CardActions,
   CardContent,
-  // Dialog,
-  // DialogTitle,
   Typography,
 } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
 
-// import React, { useState } from 'react'
 import styles from '../../styles/Schedule.module.css'
 
 interface ScheduleTableProps {
@@ -19,15 +17,6 @@ interface ScheduleTableProps {
 
 const MainStagesCards = (props: ScheduleTableProps) => {
   const { sortedQualifiersRows } = props
-  // const [open, setOpen] = useState<boolean>(false)
-  //
-  // const handleClickOpen = () => {
-  //   setOpen(true)
-  // }
-  //
-  // const handleClose = () => {
-  //   setOpen(false)
-  // }
 
   return (
     <>
@@ -103,7 +92,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                 <Typography
                   sx={{
                     display: 'flex',
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: 'center',
                     fontWeight: 'bold',
                     paddingBottom: '0.2rem',
@@ -135,7 +124,8 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    fontSize: 14,
+                    fontSize: 13,
+                    paddingTop: '0.3rem',
                   }}
                 >
                   {date.toLocaleString('ru-RU', {
@@ -146,25 +136,36 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     second: undefined,
                   })}
                 </Typography>
-              </CardContent>
-              {/*  <CardActions className={styles.cardButton}>*/}
-              {/*    <Button*/}
-              {/*      size="small"*/}
-              {/*      variant="outlined"*/}
-              {/*      sx={{*/}
-              {/*        fontSize: 12,*/}
-              {/*        background: '#313331',*/}
-              {/*      }}*/}
-              {/*      onClick={handleClickOpen}*/}
-              {/*    >*/}
-              {/*      Подробнее*/}
-              {/*    </Button>*/}
-              {/*  </CardActions>*/}
-            </Card>
 
-            {/*<Dialog open={open} onClose={handleClose}>*/}
-            {/*  <DialogTitle>Данные матча {rows.name}</DialogTitle>*/}
-            {/*</Dialog>*/}
+                <Typography
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: 13,
+                  }}
+                >
+                  Рефери:&ensp;
+                  {rows.referees.map((referee: any) => referee.username)}
+                </Typography>
+              </CardContent>
+              <CardActions className={styles.cardButton}>
+                {rows.resultLink ? (
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    href={rows.resultLink}
+                    sx={{
+                      fontSize: 12,
+                      background: '#3d3f3d',
+                    }}
+                  >
+                    Ссылка на лобби
+                  </Button>
+                ) : null}
+              </CardActions>
+            </Card>
           </div>
         )
       })}
