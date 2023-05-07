@@ -1,9 +1,15 @@
-import styles from '../styles/Home.module.css'
-
 const Footer = () => {
   return (
     <footer>
-      <p className={styles.footer}>© 2023 Crosbic Inc. Все права защищены.</p>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        © 2023 Pink Devs. Права не защищены.
+      </div>
     </footer>
   )
 }

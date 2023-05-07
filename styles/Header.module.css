@@ -1,6 +1,5 @@
 .wrapper {
     min-height: 210px;
-    max-height: 210px;
     background: url("../public/headerBg.svg") no-repeat top;
     background-size: 100%;
 }
@@ -13,7 +12,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 210px;
-    max-height: 210px;
+    height: 210px;
 
 }
