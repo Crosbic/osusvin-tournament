@@ -16,6 +16,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 import MainStagesCards from '../components/schedule/MainStagesCards'
+import QualifiersCards from '../components/schedule/QualifiersCards'
 import SetLobbyResults from '../components/staff/SetLobbyResults'
 import StaffRegisterButton from '../components/staff/StaffRegisterButton'
 import styles from '../styles/Schedule.module.css'
@@ -154,105 +155,111 @@ const ScheduleTable = () => {
             <Tab label="Finals" value="F" />
             <Tab label="Grand Finals" value="GF" />
           </TabList>
-          <TabPanel value="quals">
-            <div className={styles.table}>
-              <TableContainer>
-                <Table
-                  sx={{
-                    minWidth: 500,
-                  }}
-                  size="small"
-                >
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="center">ID</TableCell>
-                      <TableCell align="center">Дата</TableCell>
-                      <TableCell align="center">Игроки</TableCell>
-                      {isSmallBrowser ? null : (
-                        <>
-                          <TableCell align="center">Рефери</TableCell>
-                          <TableCell align="center">Ссылка</TableCell>
-                        </>
-                      )}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {sortedQualifiersRows.map((qualifiersRow) => {
-                      const date = (qualifiersRow.dateStarted = new Date(
-                        qualifiersRow.dateStarted
-                      ))
+          <TabPanel value="quals" sx={{ padding: '1rem 0 0 0' }}>
+            {isMobile ? (
+              <QualifiersCards sortedQualifiersRows={sortedQualifiersRows} />
+            ) : (
+              <div className={styles.table}>
+                <TableContainer>
+                  <Table
+                    sx={{
+                      minWidth: 500,
+                    }}
+                    size="small"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">ID</TableCell>
+                        <TableCell align="center">Дата</TableCell>
+                        <TableCell align="center">Игроки</TableCell>
+                        {isSmallBrowser ? null : (
+                          <>
+                            <TableCell align="center">Рефери</TableCell>
+                            <TableCell align="center">Ссылка</TableCell>
+                          </>
+                        )}
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedQualifiersRows.map((qualifiersRow) => {
+                        const date = (qualifiersRow.dateStarted = new Date(
+                          qualifiersRow.dateStarted
+                        ))
 
-                      return (
-                        <TableRow
-                          key={qualifiersRow.name}
-                          sx={{
-                            '&:last-child td, &:last-child th': {
-                              border: 0,
-                            },
-                          }}
-                        >
-                          <TableCell align="center" padding="none">
-                            {qualifiersRow.name}
-                          </TableCell>
-                          <TableCell align="center">
-                            {date.toLocaleString('ru-RU', {
-                              day: 'numeric',
-                              month: 'long',
-                              hour: 'numeric',
-                              minute: '2-digit',
-                              second: undefined,
-                            })}
-                          </TableCell>
-                          <TableCell align="center">
-                            {qualifiersRow.users.map((user: any) => {
-                              return (
-                                <div key={user.id} className={styles.users}>
-                                  <Link
-                                    href={`https://osu.ppy.sh/users/${user.id}`}
-                                  >
-                                    {user.username}
-                                  </Link>
-                                  &nbsp; &nbsp;
-                                </div>
-                              )
-                            })}
-                          </TableCell>
-                          {window?.innerWidth <= 800 ? null : (
-                            <>
-                              <TableCell align="center">
-                                {qualifiersRow.referees.map((referee: any) => {
-                                  return (
-                                    <div
-                                      className={styles.link}
-                                      key={referee.id}
+                        return (
+                          <TableRow
+                            key={qualifiersRow.name}
+                            sx={{
+                              '&:last-child td, &:last-child th': {
+                                border: 0,
+                              },
+                            }}
+                          >
+                            <TableCell align="center" padding="none">
+                              {qualifiersRow.name}
+                            </TableCell>
+                            <TableCell align="center">
+                              {date.toLocaleString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                second: undefined,
+                              })}
+                            </TableCell>
+                            <TableCell align="center">
+                              {qualifiersRow.users.map((user: any) => {
+                                return (
+                                  <div key={user.id} className={styles.users}>
+                                    <Link
+                                      href={`https://osu.ppy.sh/users/${user.id}`}
                                     >
-                                      <Link
-                                        href={`https://osu.ppy.sh/users/${referee.id}`}
-                                      >
-                                        {referee.username}
+                                      {user.username}
+                                    </Link>
+                                    &nbsp; &nbsp;
+                                  </div>
+                                )
+                              })}
+                            </TableCell>
+                            {isSmallBrowser ? null : (
+                              <>
+                                <TableCell align="center">
+                                  {qualifiersRow.referees.map(
+                                    (referee: any) => {
+                                      return (
+                                        <div
+                                          className={styles.link}
+                                          key={referee.id}
+                                        >
+                                          <Link
+                                            href={`https://osu.ppy.sh/users/${referee.id}`}
+                                          >
+                                            {referee.username}
+                                          </Link>
+                                        </div>
+                                      )
+                                    }
+                                  )}
+                                </TableCell>
+                                <TableCell align="center">
+                                  {qualifiersRow.resultLink ? (
+                                    <div className={styles.link}>
+                                      <Link href={qualifiersRow.resultLink}>
+                                        Ссылка
                                       </Link>
                                     </div>
-                                  )
-                                })}
-                              </TableCell>
-                              <TableCell align="center">
-                                {qualifiersRow.resultLink ? (
-                                  <div className={styles.link}>
-                                    <Link href={qualifiersRow.resultLink}>
-                                      Ссылка
-                                    </Link>
-                                  </div>
-                                ) : null}
-                              </TableCell>
-                            </>
-                          )}
-                        </TableRow>
-                      )
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </div>
+                                  ) : null}
+                                </TableCell>
+                              </>
+                            )}
+                          </TableRow>
+                        )
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
+            )}
             <div className={styles.qualsResultsButton}>
               <Link href={`https://osusvin.ru/qualifiersResults`}>
                 <Button variant="outlined">Результаты квалификаций</Button>
@@ -260,9 +267,9 @@ const ScheduleTable = () => {
             </div>
           </TabPanel>
           {value !== 'quals' ? (
-            <TabPanel value={value}>
+            <TabPanel value={value} sx={{ padding: '1rem 0 0 0' }}>
               {isMobile ? (
-                <MainStagesCards sortedRows={sortedRows} />
+                <MainStagesCards sortedQualifiersRows={sortedRows} />
               ) : (
                 <div className={styles.table}>
                   <TableContainer>

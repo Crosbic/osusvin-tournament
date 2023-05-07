@@ -7,8 +7,8 @@ import {
   // DialogTitle,
   Typography,
 } from '@mui/material'
-import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
 
 // import React, { useState } from 'react'
 import styles from '../../styles/Schedule.module.css'
@@ -31,55 +31,12 @@ const MainStagesCards = (props: ScheduleTableProps) => {
 
   return (
     <>
-      {sortedQualifiersRows.map((rows: any) => {
-        const date = (rows.dateStarted = new Date(rows.dateStarted))
-        const player1 = rows.player1.map((user: any) => {
-          return (
-            <div key={user.id} className={styles.link}>
-              <Link href={`https://osu.ppy.sh/users/${user.id}`}>
-                <div className={styles.user2}>
-                  {user.username}
-                  &ensp;
-                  <div style={{ width: '25px' }}>
-                    <Image
-                      className={styles.avatar}
-                      src={user.avatarUrl}
-                      alt="User avatar"
-                      width="25"
-                      height="25"
-                      unoptimized
-                    />
-                  </div>
-                </div>
-              </Link>
-            </div>
-          )
-        })
-        const player2 = rows.player2.map((user: any) => {
-          return (
-            <div key={user.id} className={styles.link}>
-              <Link href={`https://osu.ppy.sh/users/${user.id}`}>
-                <div className={styles.user2}>
-                  <div style={{ width: '25px' }}>
-                    <Image
-                      className={styles.avatar}
-                      src={user.avatarUrl}
-                      alt="User avatar"
-                      width="25"
-                      height="25"
-                      unoptimized
-                    />
-                  </div>
-                  &ensp;
-                  {user.username}
-                </div>
-              </Link>
-            </div>
-          )
-        })
+      {sortedQualifiersRows.map((row: any) => {
+        const name = 'Лобби ' + row.name
+        const date = (row.dateStarted = new Date(row.dateStarted))
 
         return (
-          <div key={rows.id} className={styles.card}>
+          <div key={row.id} className={styles.card}>
             <Card
               variant="outlined"
               sx={{
@@ -106,29 +63,15 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     fontSize: 14,
                     justifyContent: 'center',
                     fontWeight: 'bold',
-                    paddingBottom: '0.2rem',
                   }}
                 >
-                  Матч&nbsp;{rows.name}
-                </Typography>
-                <Typography sx={{ fontSize: 14 }} component="span">
-                  <div className={styles.cardRow}>
-                    {player1}&nbsp;
-                    {rows.player1Score > rows.player2Score ? (
-                      <div className={styles.cardRow}>
-                        <div className={styles.winner}>{rows.player1Score}</div>
-                        &nbsp;:&nbsp;
-                        <div className={styles.looser}>{rows.player2Score}</div>
-                      </div>
-                    ) : (
-                      <div className={styles.cardRow}>
-                        <div className={styles.looser}>{rows.player1Score}</div>
-                        &nbsp;:&nbsp;
-                        <div className={styles.winner}>{rows.player2Score}</div>
-                      </div>
-                    )}
-                    &nbsp;{player2}
-                  </div>
+                  {row.resultLink ? (
+                    <div className={styles.link}>
+                      <Link href={row.resultLink}>{name}</Link>
+                    </div>
+                  ) : (
+                    <div style={{ cursor: 'not-allowed' }}>{name}</div>
+                  )}
                 </Typography>
                 <Typography
                   sx={{
@@ -136,6 +79,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     flexDirection: 'row',
                     justifyContent: 'center',
                     fontSize: 14,
+                    paddingBottom: '0.3rem',
                   }}
                 >
                   {date.toLocaleString('ru-RU', {
@@ -145,6 +89,30 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     minute: '2-digit',
                     second: undefined,
                   })}
+                </Typography>
+                <Typography
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    fontSize: 16,
+                  }}
+                >
+                  {row.users.length !== 0 ? (
+                    row.users.map((user: any) => {
+                      return (
+                        <div key={user.id} className={styles.link}>
+                          <Link href={`https://osu.ppy.sh/users/${user.id}`}>
+                            {user.username}
+                          </Link>
+                          &ensp;
+                        </div>
+                      )
+                    })
+                  ) : (
+                    <div>Никого...</div>
+                  )}
                 </Typography>
               </CardContent>
               {/*  <CardActions className={styles.cardButton}>*/}
