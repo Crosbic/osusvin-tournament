@@ -1,6 +1,8 @@
 import {
+  Button,
   // Button,
   Card,
+  CardActions,
   // CardActions,
   CardContent,
   // Dialog,
@@ -19,20 +21,10 @@ interface ScheduleTableProps {
 
 const MainStagesCards = (props: ScheduleTableProps) => {
   const { sortedQualifiersRows } = props
-  // const [open, setOpen] = useState<boolean>(false)
-  //
-  // const handleClickOpen = () => {
-  //   setOpen(true)
-  // }
-  //
-  // const handleClose = () => {
-  //   setOpen(false)
-  // }
 
   return (
     <>
       {sortedQualifiersRows.map((row: any) => {
-        const name = 'Лобби ' + row.name
         const date = (row.dateStarted = new Date(row.dateStarted))
 
         return (
@@ -52,12 +44,10 @@ const MainStagesCards = (props: ScheduleTableProps) => {
               <CardContent
                 sx={{
                   padding: '0.7rem 0.7rem 0.2rem 0.7rem',
-                  '&:last-child': {
-                    paddingBottom: '0.2rem',
-                  },
                 }}
               >
                 <Typography
+                  component="span"
                   sx={{
                     display: 'flex',
                     fontSize: 14,
@@ -65,13 +55,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                     fontWeight: 'bold',
                   }}
                 >
-                  {row.resultLink ? (
-                    <div className={styles.link}>
-                      <Link href={row.resultLink}>{name}</Link>
-                    </div>
-                  ) : (
-                    <div style={{ cursor: 'not-allowed' }}>{name}</div>
-                  )}
+                  Лобби&nbsp;{row.name}
                 </Typography>
                 <Typography
                   sx={{
@@ -91,6 +75,7 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                   })}
                 </Typography>
                 <Typography
+                  component="span"
                   sx={{
                     display: 'flex',
                     flexDirection: 'row',
@@ -115,24 +100,22 @@ const MainStagesCards = (props: ScheduleTableProps) => {
                   )}
                 </Typography>
               </CardContent>
-              {/*  <CardActions className={styles.cardButton}>*/}
-              {/*    <Button*/}
-              {/*      size="small"*/}
-              {/*      variant="outlined"*/}
-              {/*      sx={{*/}
-              {/*        fontSize: 12,*/}
-              {/*        background: '#313331',*/}
-              {/*      }}*/}
-              {/*      onClick={handleClickOpen}*/}
-              {/*    >*/}
-              {/*      Подробнее*/}
-              {/*    </Button>*/}
-              {/*  </CardActions>*/}
+              <CardActions className={styles.cardButton}>
+                {row.resultLink ? (
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    href={row.resultLink}
+                    sx={{
+                      fontSize: 12,
+                      background: '#3d3f3d',
+                    }}
+                  >
+                    Ссылка на лобби
+                  </Button>
+                ) : null}
+              </CardActions>
             </Card>
-
-            {/*<Dialog open={open} onClose={handleClose}>*/}
-            {/*  <DialogTitle>Данные матча {rows.name}</DialogTitle>*/}
-            {/*</Dialog>*/}
           </div>
         )
       })}
