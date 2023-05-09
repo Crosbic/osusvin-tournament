@@ -57,11 +57,11 @@ const ScheduleTable = () => {
       if (localStorage.getItem('user') !== null) {
         setUser(JSON.parse(localStorage.getItem('user') ?? ''))
       }
-    }
-    if (window.innerWidth <= 700) {
-      setIsMobile(true)
-    } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
-      setIsSmallBrowser(true)
+      if (window.innerWidth <= 700) {
+        setIsMobile(true)
+      } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
+        setIsSmallBrowser(true)
+      }
     }
     setLoading(true)
     axios
