@@ -50,37 +50,27 @@ const CreateMappoolButton = () => {
   }, [])
 
   const handleAddBeatmap = async () => {
-    for (const mapData of mapDatas) {
-      await axios
-        .post(
-          `https://auth.osusvin.ru/mappool/addBeatmap/${stage}`,
-          {
-            beatmapUrl: mapData.beatmapUrl,
-            tournamentMod: mapData.tournamentMod,
-            tournamentModName: mapData.tournamentModName,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${key}`,
-            },
-          }
-        )
-        .then(() => {
-          setTimeout(function () {
-            window.location.reload()
-          }, 1000)
-          setSuccess(true)
+    await axios
+      .post(`https://auth.osusvin.ru/mappool/addBeatmap/${stage}`, mapDatas, {
+        headers: {
+          Authorization: `Bearer ${key}`,
+        },
+      })
+      .then(() => {
+        setTimeout(function () {
+          window.location.reload()
+        }, 1000)
+        setSuccess(true)
+        setOpenAlert(true)
+      })
+      .catch((err) => {
+        if (err.request === 401) {
+          console.log('Успех')
+        } else {
           setOpenAlert(true)
-        })
-        .catch((err) => {
-          if (err.request === 401) {
-            console.log('Успех')
-          } else {
-            setOpenAlert(true)
-            setError(true)
-          }
-        })
-    }
+          setError(true)
+        }
+      })
     setInputRowIndexes([0])
     setMapDatas([])
     setOpen(false)
