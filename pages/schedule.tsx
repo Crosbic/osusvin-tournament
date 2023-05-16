@@ -63,6 +63,11 @@ const ScheduleTable = () => {
         setIsSmallBrowser(true)
       }
     }
+    if (window.innerWidth <= 700) {
+      setIsMobile(true)
+    } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
+      setIsSmallBrowser(true)
+    }
     setLoading(true)
     axios
       .get('https://auth.osusvin.ru/qualification-lobbies/')
