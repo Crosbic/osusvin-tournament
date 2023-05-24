@@ -1,6 +1,6 @@
 .wrapper {
     max-width: 1650px;
-    width: calc(100% - 100px);
+    width: 100%;
 }
 
 .buttonGroup {
@@ -27,6 +27,21 @@
 
 .bg {
     border-radius: 5px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+}
+
+.cardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0.5rem 0;
 }
 
 .link:hover {
