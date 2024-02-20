@@ -19,6 +19,7 @@ import MainStagesCards from '../components/schedule/MainStagesCards'
 import QualifiersCards from '../components/schedule/QualifiersCards'
 import SetLobbyResults from '../components/staff/SetLobbyResults'
 import StaffRegisterButton from '../components/staff/StaffRegisterButton'
+import { useResize } from '../hooks/useResize'
 import styles from '../styles/Schedule.module.css'
 
 interface QualifiersData {
@@ -44,30 +45,18 @@ interface Data {
 }
 
 const ScheduleTable = () => {
+  const { isNotDesktop, isSmallBrowser } = useResize()
   const [user, setUser] = useState<any>()
   const [value, setValue] = useState<string>('GF')
   const [qualifiersRows, setQualifiersRows] = useState<QualifiersData[]>([])
   const [rows, setRows] = useState<Data[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [isMobile, setIsMobile] = useState<boolean>(false)
-  const [isSmallBrowser, setIsSmallBrowser] = useState<boolean>(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (localStorage.getItem('user') !== null) {
-        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
-      }
-      if (window.innerWidth <= 700) {
-        setIsMobile(true)
-      } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
-        setIsSmallBrowser(true)
-      }
+    if (localStorage.getItem('user') !== null) {
+      setUser(JSON.parse(localStorage.getItem('user') ?? ''))
     }
-    if (window.innerWidth <= 700) {
-      setIsMobile(true)
-    } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
-      setIsSmallBrowser(true)
-    }
+
     setLoading(true)
     axios
       .get('https://auth.osusvin.ru/qualification-lobbies/')
@@ -161,7 +150,7 @@ const ScheduleTable = () => {
             <Tab label="Grand Finals" value="GF" />
           </TabList>
           <TabPanel value="quals" sx={{ padding: '1rem 0 0 0' }}>
-            {isMobile ? (
+            {isNotDesktop ? (
               <QualifiersCards sortedQualifiersRows={sortedQualifiersRows} />
             ) : (
               <div className={styles.table}>
@@ -273,7 +262,7 @@ const ScheduleTable = () => {
           </TabPanel>
           {value !== 'quals' ? (
             <TabPanel value={value} sx={{ padding: '1rem 0 0 0' }}>
-              {isMobile ? (
+              {isNotDesktop ? (
                 <MainStagesCards sortedQualifiersRows={sortedRows} />
               ) : (
                 <div className={styles.table}>
@@ -293,7 +282,7 @@ const ScheduleTable = () => {
                             Счёт
                           </TableCell>
                           <TableCell align="center">Игрок 2</TableCell>
-                          {isSmallBrowser ? null : (
+                          {!isSmallBrowser && (
                             <>
                               <TableCell align="center">Рефери</TableCell>
                               <TableCell align="center">Стример</TableCell>
@@ -401,7 +390,7 @@ const ScheduleTable = () => {
                                   )
                                 })}
                               </TableCell>
-                              {isSmallBrowser ? null : (
+                              {!isSmallBrowser && (
                                 <>
                                   <TableCell align="center">
                                     {rows.referees.map((referee: any) => {

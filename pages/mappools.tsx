@@ -16,6 +16,7 @@ import React, { useEffect, useState } from 'react'
 
 import CreateMappoolButton from '../components/mappools/CreateMappoolButton'
 import MainStagesCards from '../components/mappools/MainStagesCards'
+import { useResize } from '../hooks/useResize'
 import styles from '../styles/Mappols.module.css'
 
 interface MappolsData {
@@ -35,24 +36,17 @@ enum Modes {
 }
 
 const MappoolTable = () => {
+  const { isSmallBrowser, isNotDesktop } = useResize()
   const [user, setUser] = useState<any>()
   const [rows, setRows] = useState<MappolsData[]>()
   const [stage, setStage] = useState('GF')
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [isMobile, setIsMobile] = useState<boolean>(false)
-  const [isSmallBrowser, setIsSmallBrowser] = useState<boolean>(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (localStorage.getItem('user') !== null) {
-        setUser(JSON.parse(localStorage.getItem('user') ?? ''))
-      }
-      if (window.innerWidth <= 700) {
-        setIsMobile(true)
-      } else if (window.innerWidth > 700 && window.innerWidth <= 900) {
-        setIsSmallBrowser(true)
-      }
+    if (localStorage.getItem('user') !== null) {
+      setUser(JSON.parse(localStorage.getItem('user') ?? ''))
     }
+
     setIsLoading(true)
     axios
       .get(`https://auth.osusvin.ru/mappool`, {
@@ -116,7 +110,7 @@ const MappoolTable = () => {
             <Tab label="Grand Finals" value="GF" />
           </TabList>
           <TabPanel value={stage}>
-            {isMobile ? (
+            {isNotDesktop ? (
               <MainStagesCards sortedBeatmaps={sortedBeatmaps} />
             ) : (
               <div className={styles.table}>
@@ -145,7 +139,7 @@ const MappoolTable = () => {
                         <TableCell align="center" sx={{ padding: '0.5rem' }}>
                           CS | AR | OD | HP
                         </TableCell>
-                        {isSmallBrowser ? null : (
+                        {isSmallBrowser && (
                           <>
                             <TableCell align="center">BPM</TableCell>
                             <TableCell align="center">Маппер</TableCell>
@@ -213,7 +207,7 @@ const MappoolTable = () => {
                             >
                               {stats}
                             </TableCell>
-                            {isSmallBrowser ? null : (
+                            {!isSmallBrowser && (
                               <>
                                 <TableCell align="center">
                                   {map.bpmString}
