@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  basePath: 'osusvin-tournament',
+  basePath: '/osusvin-tournament',
 }
 
 module.exports = nextConfig
