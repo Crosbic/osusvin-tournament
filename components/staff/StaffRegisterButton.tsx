@@ -58,7 +58,7 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
 
   const handleSetReferee = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/lobbies/register/referee/${lobby}`, null, {
+      .post(`http://localhost:8080/lobbies/register/referee/${lobby}`, null, {
         headers: {
           Authorization: `Bearer ${key}`,
         },
@@ -83,7 +83,7 @@ const StaffRegisterButton = (props: iStaffRegisterButtonProps) => {
 
   const handleRemoveReferee = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/lobbies/remove/${lobby}`, null, {
+      .post(`http://localhost:8080/lobbies/remove/${lobby}`, null, {
         headers: {
           Authorization: `Bearer ${key}`,
         },

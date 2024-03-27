@@ -59,7 +59,7 @@ const ScheduleTable = () => {
 
     setLoading(true)
     axios
-      .get('https://auth.osusvin.ru/qualification-lobbies/')
+      .get('http://localhost:8080/qualification-lobbies/')
       .then((res) => res.data)
       .then((data) => {
         setQualifiersRows(data as QualifiersData[])
@@ -75,7 +75,7 @@ const ScheduleTable = () => {
     setLoading(true)
     if (value === 'quals') {
       axios
-        .get('https://auth.osusvin.ru/qualification-lobbies/')
+        .get('http://localhost:8080/qualification-lobbies/')
         .then((res) => res.data)
         .then((data) => {
           setQualifiersRows(data as QualifiersData[])
@@ -83,7 +83,7 @@ const ScheduleTable = () => {
         .finally(() => setLoading(false))
     } else {
       axios
-        .get('https://auth.osusvin.ru/lobbies/', {
+        .get('http://localhost:8080/lobbies/', {
           params: { stage: value },
         })
         .then((res) => res.data)

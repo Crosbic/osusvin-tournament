@@ -259,7 +259,7 @@ const ParticipantsTable = () => {
   useEffect(() => {
     setLoading(true)
     axios
-      .post(`https://auth.osusvin.ru/users/participants`, {
+      .post(`http://localhost:8080/users/participants`, {
         page,
         perPage: rowsPerPage !== -1 ? rowsPerPage : undefined,
         reverse: order === 'asc',

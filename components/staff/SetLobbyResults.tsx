@@ -65,7 +65,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
     await axios
       .all([
         axios.post(
-          `https://auth.osusvin.ru/lobbies/setResultLink/${lobby}`,
+          `http://localhost:8080/lobbies/setResultLink/${lobby}`,
           {
             resultLink: link,
           },
@@ -76,7 +76,7 @@ const StaffResultLinkButton = (props: iStaffResultLinkProps) => {
           }
         ),
         axios.post(
-          `https://auth.osusvin.ru/lobbies/setPlayerScores/${lobby}`,
+          `http://localhost:8080/lobbies/setPlayerScores/${lobby}`,
           {
             player1Score: player1Score,
             player2Score: player2Score,

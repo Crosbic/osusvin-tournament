@@ -51,7 +51,7 @@ const CreateMappoolButton = () => {
 
   const handleAddBeatmap = async () => {
     await axios
-      .post(`https://auth.osusvin.ru/mappool/addBeatmap/${stage}`, mapDatas, {
+      .post(`http://localhost:8080/mappool/addBeatmap/${stage}`, mapDatas, {
         headers: {
           Authorization: `Bearer ${key}`,
         },

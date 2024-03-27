@@ -46,7 +46,7 @@ const AuthButton = () => {
 
   if (!token) {
     return (
-      <Link href={'https://auth.osusvin.ru/auth/osu/login'}>
+      <Link href={'http://localhost:8080/auth/osu/login'}>
         <div className={styles.regcard}>
           <h2>Вход</h2>
         </div>

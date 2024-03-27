@@ -36,7 +36,7 @@ enum Modes {
 }
 
 const MappoolTable = () => {
-  const { isSmallBrowser, isNotDesktop } = useResize()
+  const { isNotDesktop } = useResize()
   const [user, setUser] = useState<any>()
   const [rows, setRows] = useState<MappolsData[]>()
   const [stage, setStage] = useState('GF')
@@ -49,7 +49,7 @@ const MappoolTable = () => {
 
     setIsLoading(true)
     axios
-      .get(`https://auth.osusvin.ru/mappool`, {
+      .get(`http://localhost:8080/mappool`, {
         params: { stage: stage },
       })
       .then((res) => res.data)
@@ -126,7 +126,7 @@ const MappoolTable = () => {
                         <TableCell
                           align="center"
                           className={styles.link}
-                          colSpan={isSmallBrowser ? 2 : 3}
+                          colSpan={isNotDesktop ? 2 : 3}
                         >
                           {rows?.map((row: any) => {
                             return (
@@ -139,13 +139,11 @@ const MappoolTable = () => {
                         <TableCell align="center" sx={{ padding: '0.5rem' }}>
                           CS | AR | OD | HP
                         </TableCell>
-                        {isSmallBrowser && (
-                          <>
-                            <TableCell align="center">BPM</TableCell>
-                            <TableCell align="center">Маппер</TableCell>
-                            <TableCell align="center">ID</TableCell>
-                          </>
-                        )}
+                        <>
+                          <TableCell align="center">BPM</TableCell>
+                          <TableCell align="center">Маппер</TableCell>
+                          <TableCell align="center">ID</TableCell>
+                        </>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -176,18 +174,16 @@ const MappoolTable = () => {
                               },
                             }}
                           >
-                            {isSmallBrowser ? null : (
-                              <TableCell align="center">
-                                <Image
-                                  className={styles.bg}
-                                  src={map.backgroundUrl}
-                                  alt="mapImage"
-                                  height="30"
-                                  width="108"
-                                  unoptimized
-                                />
-                              </TableCell>
-                            )}
+                            <TableCell align="center">
+                              <Image
+                                className={styles.bg}
+                                src={map.backgroundUrl}
+                                alt="mapImage"
+                                height="30"
+                                width="108"
+                                unoptimized
+                              />
+                            </TableCell>
                             <TableCell
                               align="center"
                               sx={{ padding: '0.5rem' }}
@@ -207,17 +203,13 @@ const MappoolTable = () => {
                             >
                               {stats}
                             </TableCell>
-                            {!isSmallBrowser && (
-                              <>
-                                <TableCell align="center">
-                                  {map.bpmString}
-                                </TableCell>
-                                <TableCell align="center">
-                                  {map.mapper}
-                                </TableCell>
-                                <TableCell align="center">{map.id}</TableCell>
-                              </>
-                            )}
+                            <>
+                              <TableCell align="center">
+                                {map.bpmString}
+                              </TableCell>
+                              <TableCell align="center">{map.mapper}</TableCell>
+                              <TableCell align="center">{map.id}</TableCell>
+                            </>
                           </TableRow>
                         )
                       })}
